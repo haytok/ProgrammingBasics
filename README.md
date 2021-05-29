@@ -6,5 +6,7 @@
 
 ## 開発環境の構築方法
 
-- `docker build -t main .`
-- `docker run -it -v `pwd`:`pwd` main`
+```
+docker build -t main .
+docker run -it -v `pwd`:`pwd` main
+```
