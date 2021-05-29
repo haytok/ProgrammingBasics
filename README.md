@@ -8,5 +8,5 @@
 
 ```
 docker build -t main .
-docker run --rm -it -v `pwd`:`pwd` main
+docker run --rm -it -v `pwd`:/app main
 ```
