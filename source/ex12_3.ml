@@ -1,18 +1,18 @@
-(* ¤¢¤é¤«¤¸¤á ex12_1.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex12_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex12_1.ml" 
  
-(* ±Ø¥ê¥¹¥È¤ÎÎã *) 
+(* é§…ãƒªã‚¹ãƒˆã®ä¾‹ *) 
  
 let eki_list = [ 
-{namae="ÃÓÂŞ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¿·ÂçÄÍ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="è¬²ÙÃ«"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []}; 
-{namae="ËÜ¶¿»°ÃúÌÜ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¸æÃã¥Î¿å"; saitan_kyori = infinity; temae_list = []} 
+{namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []}; 
+{namae="æ–°å¤§å¡š"; saitan_kyori = infinity; temae_list = []}; 
+{namae="èŒ—è·è°·"; saitan_kyori = infinity; temae_list = []}; 
+{namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []}; 
+{namae="æœ¬éƒ·ä¸‰ä¸ç›®"; saitan_kyori = infinity; temae_list = []}; 
+{namae="å¾¡èŒ¶ãƒæ°´"; saitan_kyori = infinity; temae_list = []} 
 ] 
  
-(* ÌÜÅª¡§ekimei list ¤«¤é eki list ¤òºî¤ë *) 
+(* ç›®çš„ï¼šekimei list ã‹ã‚‰ eki list ã‚’ä½œã‚‹ *) 
 (* shokika : eki_t list -> string -> eki_t list *) 
 let rec shokika eki_list kiten = match eki_list with 
     [] -> [] 
@@ -22,13 +22,13 @@ let rec shokika eki_list kiten = match eki_list with
 	   :: shokika rest kiten 
       else first :: shokika rest kiten 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = shokika [] "è¬²ÙÃ«" = [] 
-let test2 = shokika eki_list "è¬²ÙÃ«" = [ 
-{namae="ÃÓÂŞ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¿·ÂçÄÍ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="è¬²ÙÃ«"; saitan_kyori = 0.; temae_list = ["è¬²ÙÃ«"]}; 
-{namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []}; 
-{namae="ËÜ¶¿»°ÃúÌÜ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¸æÃã¥Î¿å"; saitan_kyori = infinity; temae_list = []} 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = shokika [] "èŒ—è·è°·" = [] 
+let test2 = shokika eki_list "èŒ—è·è°·" = [ 
+{namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []}; 
+{namae="æ–°å¤§å¡š"; saitan_kyori = infinity; temae_list = []}; 
+{namae="èŒ—è·è°·"; saitan_kyori = 0.; temae_list = ["èŒ—è·è°·"]}; 
+{namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []}; 
+{namae="æœ¬éƒ·ä¸‰ä¸ç›®"; saitan_kyori = infinity; temae_list = []}; 
+{namae="å¾¡èŒ¶ãƒæ°´"; saitan_kyori = infinity; temae_list = []} 
 ] 

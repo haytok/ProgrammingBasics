@@ -1,12 +1,12 @@
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤ÎÊ¸»úÎó¤ò¤Ä¤Ê¤²¤ë *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®æ–‡å­—åˆ—ã‚’ã¤ãªã’ã‚‹ *) 
 (* append_string : string -> string -> string *) 
 let append_string first rest_result = first ^ rest_result 
  
-(* ÌÜÅª¡§¥ê¥¹¥ÈÃæ¤ÎÊ¸»úÎó¤ò¤Ä¤Ê¤²¤¿Ê¸»úÎó¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šãƒªã‚¹ãƒˆä¸­ã®æ–‡å­—åˆ—ã‚’ã¤ãªã’ãŸæ–‡å­—åˆ—ã‚’è¿”ã™ *) 
 (* concat : string list -> string *) 
 let concat lst = List.fold_right append_string lst "" 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = concat [] = "" 
-let test2 = concat ["½Õ"] = "½Õ" 
-let test3 = concat ["½Õ"; "²Æ"; "½©"; "Åß"] = "½Õ²Æ½©Åß" 
+let test2 = concat ["æ˜¥"] = "æ˜¥" 
+let test3 = concat ["æ˜¥"; "å¤"; "ç§‹"; "å†¬"] = "æ˜¥å¤ç§‹å†¬" 

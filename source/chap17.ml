@@ -8,7 +8,7 @@ let A = 3 ;;
 *) 
 #use "sect17_1/team_string.ml" ;; 
 let team_string team = match team with 
-  Red -> "ÀÖÁÈ" ;; 
+  Red -> "èµ¤çµ„" ;; 
  
 #use "sect17_1/to_seireki.ml" ;; 
 Showa (42) ;; 

@@ -1,24 +1,24 @@
-(* ÌÚ¤òÉ½¤¹·¿ *) 
-type tree_t = Empty                     (* ¶õ¤ÎÌÚ *) 
-            | Leaf of int                   (* ÍÕ *) 
-            | Node of tree_t * int * tree_t (* Àá *) 
+(* æœ¨ã‚’è¡¨ã™åž‹ *) 
+type tree_t = Empty                     (* ç©ºã®æœ¨ *) 
+            | Leaf of int                   (* è‘‰ *) 
+            | Node of tree_t * int * tree_t (* ç¯€ *) 
  
-(* tree ¤Ï 
-     - Empty            ¶õ¤ÎÌÚ¡¢¤¢¤ë¤¤¤Ï 
-     - Leaf (n)         ÃÍ¤¬ n ¤ÎÍÕ¡¢¤¢¤ë¤¤¤Ï 
-     - Node (t1, n, t2) º¸¤ÎÌÚ¤¬ t1, ÃÍ¤¬ n¡¢±¦¤ÎÌÚ¤¬ 
-                        t2 ¤Ç¤¢¤ë¤è¤¦¤ÊÀá 
-                       ¡Êt1 ¤È t2 ¤¬¼«¸Ê»²¾È¤Î¥±¡¼¥¹¡Ë 
-   ¤È¤¤¤¦·Á *) 
+(* tree ã¯ 
+     - Empty            ç©ºã®æœ¨ã€ã‚ã‚‹ã„ã¯ 
+     - Leaf (n)         å€¤ãŒ n ã®è‘‰ã€ã‚ã‚‹ã„ã¯ 
+     - Node (t1, n, t2) å·¦ã®æœ¨ãŒ t1, å€¤ãŒ nã€å³ã®æœ¨ãŒ 
+                        t2 ã§ã‚ã‚‹ã‚ˆã†ãªç¯€ 
+                       ï¼ˆt1 ã¨ t2 ãŒè‡ªå·±å‚ç…§ã®ã‚±ãƒ¼ã‚¹ï¼‰ 
+   ã¨ã„ã†å½¢ *) 
  
-(* £²Ê¬Ãµº÷ÌÚ¤ÎÎã *) 
+(* ï¼’åˆ†æŽ¢ç´¢æœ¨ã®ä¾‹ *) 
 let tree1 = Empty 
 let tree2 = Leaf (3) 
 let tree3 = Node (Leaf (1), 2, Leaf (3)) 
 let tree4 = Node (Empty, 7, Leaf (9)) 
 let tree5 = Node (tree3, 6, tree4) 
  
-(* ÌÜÅª¡§data ¤¬£²Ê¬Ãµº÷ÌÚ tree ¤Ë´Þ¤Þ¤ì¤Æ¤¤¤ë¤«¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šdata ãŒï¼’åˆ†æŽ¢ç´¢æœ¨ tree ã«å«ã¾ã‚Œã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ *) 
 (* search : tree_t -> int -> bool *) 
 let rec search tree data = match tree with 
     Empty -> false 
@@ -28,7 +28,7 @@ let rec search tree data = match tree with
       else if data < n then search t1 data 
       else search t2 data 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = search tree1 3 = false 
 let test2 = search tree2 3 = true 
 let test3 = search tree2 4 = false 
@@ -39,7 +39,7 @@ let test7 = search tree5 4 = false
 let test8 = search tree5 7 = true 
 let test9 = search tree5 8 = false 
  
-(* ÌÜÅª¡§£²Ê¬Ãµº÷ÌÚ tree ¤Ë data ¤òÄÉ²Ã¤·¤¿£²Ê¬Ãµº÷ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šï¼’åˆ†æŽ¢ç´¢æœ¨ tree ã« data ã‚’è¿½åŠ ã—ãŸï¼’åˆ†æŽ¢ç´¢æœ¨ã‚’è¿”ã™ *) 
 (* insert_tree : tree_t -> int -> tree_t *) 
 let rec insert_tree tree data = match tree with 
     Empty -> Leaf (data) 
@@ -52,7 +52,7 @@ let rec insert_tree tree data = match tree with
       else if data < n then Node (insert_tree t1 data, n, t2) 
                        else Node (t1, n, insert_tree t2 data) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = insert_tree Empty 3 = Leaf (3) 
 let test2 = insert_tree (Leaf (3)) 2 = Node (Leaf (2), 3, Empty) 
 let test3 = insert_tree (Leaf (3)) 3 = Leaf (3) 

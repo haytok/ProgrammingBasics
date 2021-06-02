@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§lst1 ¤È lst2 ¤ò¼õ¤±¼è¤ê¤½¤ì¤é¤ò·ë¹ç¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šlst1 ã¨ lst2 ã‚’å—ã‘å–ã‚Šãã‚Œã‚‰ã‚’çµåˆã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* append : 'a list -> 'a list -> 'a list *) 
 let rec append lst1 lst2 = match lst1 with 
     [] -> lst2 
   | first :: rest -> first :: append rest lst2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = append [] [] = [] 
 let test2 = append [] [1; 2] = [1; 2] 
 let test3 = append [1; 2] [] = [1; 2] 

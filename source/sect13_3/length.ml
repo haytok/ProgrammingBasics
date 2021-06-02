@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤ÎÄ¹¤µ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®é•·ã•ã‚’æ±‚ã‚ã‚‹ *) 
 (* length : 'a list -> int *) 
 let rec length lst = match lst with 
     [] -> 0 
   | first :: rest -> 1 + length rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = length [] = 0 
 let test2 = length [3] = 1 
 let test3 = length [2; 1; 6; 4; 7] = 5 

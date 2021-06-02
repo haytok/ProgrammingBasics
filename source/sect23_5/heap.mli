@@ -1,36 +1,36 @@
-(* �ҡ��פ�ɽ���⥸�塼��Υ����ͥ��� *) 
+(* ヒープを表すモジュールのシグネチャ *) 
  
 type ('a, 'b) t 
-  (* �Ǿ��ͤ�����ͤ� 'a ���� 
-     ���Τۤ����ղþ��� 'b ���Ǥ���ҡ��פη� *) 
+  (* 最小値を求める値が 'a 型で 
+     そのほかの付加情報が 'b 型であるヒープの型 *) 
  
 val create : int -> 'a -> 'b -> ('a, 'b) t 
-  (* �Ȥ�����create size key value *) 
-  (* �ҡ��פΥ������� 'a ���� 'b ���Υ��ߡ����ͤ������ä��� *) 
-  (* ���Υҡ��פ��֤� *) 
+  (* 使い方：create size key value *) 
+  (* ヒープのサイズと 'a 型と 'b 型のダミーの値を受け取ったら *) 
+  (* 空のヒープを返す *) 
  
 type index_t 
-  (* �ҡ��פ�ź���η� *) 
+  (* ヒープの添字の型 *) 
  
 val insert : ('a, 'b) t -> 'a -> 'b -> index_t * ('a, 'b) t 
-  (* �Ȥ�����insert heap key value *) 
-  (* �ҡ��פ˿��������Ǥ��ɲä��� *) 
-  (* �ҡ��פϡ��˲�Ū�ˡ˽��Ѥ�� *) 
+  (* 使い方：insert heap key value *) 
+  (* ヒープに新しい要素を追加する *) 
+  (* ヒープは（破壊的に）書き変わる *) 
  
 val get : ('a, 'b) t -> index_t -> 'a * 'b 
-  (* �Ȥ�����get heap index *) 
-  (* �ҡ��פ� index ���ܤ����Ǥ��֤� *) 
+  (* 使い方：get heap index *) 
+  (* ヒープの index 番目の要素を返す *) 
  
 val set : ('a, 'b) t -> index_t -> 'a -> 'b -> ('a, 'b) t 
-  (* �Ȥ�����set heap index key value *) 
-  (* �ҡ��פ� index ���ܤ��ͤ򹹿������ҡ��פ��֤� *) 
-  (* �ҡ��פϡ��˲�Ū�ˡ˽��Ѥ�� *) 
+  (* 使い方：set heap index key value *) 
+  (* ヒープの index 番目の値を更新したヒープを返す *) 
+  (* ヒープは（破壊的に）書き変わる *) 
  
 val split_top : ('a, 'b) t -> ('a * 'b) * ('a, 'b) t 
-  (* �Ȥ�����split_top heap *) 
-  (* �Ǿ����ͤ���Ĥ�ΤȤ������������ҡ��פΥڥ����֤� *) 
-  (* �ҡ��פϡ��˲�Ū�ˡ˽��Ѥ�� *) 
+  (* 使い方：split_top heap *) 
+  (* 最小の値を持つものとそれを取り除いたヒープのペアを返す *) 
+  (* ヒープは（破壊的に）書き変わる *) 
  
 val length : ('a, 'b) t -> int 
-  (* �Ȥ�����length heap *) 
-  (* �ҡ�����Υǡ����ο����֤� *) 
+  (* 使い方：length heap *) 
+  (* ヒープ中のデータの数を返す *) 

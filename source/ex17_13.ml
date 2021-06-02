@@ -1,28 +1,28 @@
-(* ¤¢¤é¤«¤¸¤á ex17_12.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex17_12.ml" (* insert_ekikan ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex17_12.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex17_12.ml" (* insert_ekikan ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¤Î¥ê¥¹¥È¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan ã®ãƒªã‚¹ãƒˆã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* inserts_ekikan : ekikan_tree_t -> ekikan_t list -> ekikan_tree_t *) 
 let inserts_ekikan ekikan_tree ekikan_list = 
   List.fold_right (fun ekikan tree -> insert_ekikan tree ekikan) 
 		  ekikan_list ekikan_tree 
  
-(* ¤Ş¤¿¤Ï *) 
+(* ã¾ãŸã¯ *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¤Î¥ê¥¹¥È¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan ã®ãƒªã‚¹ãƒˆã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* inserts_ekikan : ekikan_tree_t -> ekikan_t list -> ekikan_tree_t *) 
 let inserts_ekikan ekikan_tree ekikan_list = 
   List.fold_left insert_ekikan ekikan_tree ekikan_list 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = inserts_ekikan Empty [ekikan1; ekikan2; ekikan3] = 
-  Node (Node (Empty, "¸å³Ú±à", [("è¬²ÙÃ«", 1.8)], Empty), 
-	"¿·ÂçÄÍ", [("è¬²ÙÃ«", 1.2); ("ÃÓÂŞ", 1.8)], 
+  Node (Node (Empty, "å¾Œæ¥½åœ’", [("èŒ—è·è°·", 1.8)], Empty), 
+	"æ–°å¤§å¡š", [("èŒ—è·è°·", 1.2); ("æ± è¢‹", 1.8)], 
         Node (Empty, 
-	      "ÃÓÂŞ", [("¿·ÂçÄÍ", 1.8)], 
+	      "æ± è¢‹", [("æ–°å¤§å¡š", 1.8)], 
 	      Node (Empty, 
-		    "è¬²ÙÃ«", [("¸å³Ú±à", 1.8); ("¿·ÂçÄÍ", 1.2)], 
+		    "èŒ—è·è°·", [("å¾Œæ¥½åœ’", 1.8); ("æ–°å¤§å¡š", 1.2)], 
 		    Empty))) 
  
-(* ekikan1, ekikan2, ekikan3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex17_12.ml ¤ò»²¾È *) 
-(* ¾å¤Î¤Õ¤¿¤Ä¤ÎÄêµÁ¤Ç¤Ï¡¢ÁŞÆş¤¹¤ë½çÈÖ¤¬°ã¤¦¤Î¤Ç¡¢ÆÀ¤é¤ì¤ëÌÚ¤â°Û¤Ê¤ë *) 
+(* ekikan1, ekikan2, ekikan3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex17_12.ml ã‚’å‚ç…§ *) 
+(* ä¸Šã®ãµãŸã¤ã®å®šç¾©ã§ã¯ã€æŒ¿å…¥ã™ã‚‹é †ç•ªãŒé•ã†ã®ã§ã€å¾—ã‚‰ã‚Œã‚‹æœ¨ã‚‚ç•°ãªã‚‹ *) 

@@ -1,34 +1,34 @@
-(* ¤¢¤é¤«¤¸¤á sect14_2/fold_right.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect14_2/fold_right.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect14_2/fold_right.ml" 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤Î³ÆÍ×ÁÇ¤ÎÏÂ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®å„è¦ç´ ã®å’Œã‚’æ±‚ã‚ã‚‹ *) 
 (* sum : int list -> int *) 
 let sum lst = 
   fold_right (fun first rest_result -> first + rest_result) 
              lst 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = sum [] = 0 
 let test2 = sum [1; 2; 3] = 6 
 let test3 = sum [1; 3; 7; 4; 2; 8] = 25 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤ÎÄ¹¤µ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®é•·ã•ã‚’æ±‚ã‚ã‚‹ *) 
 (* length : 'a list -> int *) 
 let length lst = 
   fold_right (fun first rest_result -> 1 + rest_result) lst 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = length [] = 0 
 let test2 = length [1; 2; 3] = 3 
 let test3 = length [1; 3; 7; 4; 2; 8] = 6 
  
-(* ÌÜÅª¡§lst1 ¤È lst2 ¤ò¼õ¤±¼è¤ê¤½¤ì¤é¤ò·ë¹ç¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šlst1 ã¨ lst2 ã‚’å—ã‘å–ã‚Šãã‚Œã‚‰ã‚’çµåˆã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* append : 'a list -> 'a list -> 'a list *) 
 let append lst1 lst2 = 
   fold_right (fun first rest_result -> first :: rest_result) 
              lst1 lst2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = append [] [] = [] 
 let test2 = append [1; 2; 3] [4; 5; 6] = [1; 2; 3; 4; 5; 6] 
 let test3 = append [1; 3; 7; 4; 2; 8] [9; 6; 5] = [1; 3; 7; 4; 2; 8; 9; 6; 5] 

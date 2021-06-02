@@ -1,11 +1,11 @@
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™å‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* ÌÜÅª¡§³ØÀ¸¤Î¥Ç¡¼¥¿ gakusei ¤ò¼õ¤±¼è¤êÀ®ÀÓ¤Î¤Ä¤¤¤¿¥Ç¡¼¥¿¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿã®ãƒ‡ãƒ¼ã‚¿ gakusei ã‚’å—ã‘å–ã‚Šæˆç¸¾ã®ã¤ã„ãŸãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã™ *) 
 (* hyouka : gakusei_t -> gakusei_t  *) 
 let hyouka gakusei = match gakusei with 
   {namae = n; tensuu = t; seiseki = s} -> 
@@ -14,7 +14,7 @@ let hyouka gakusei = match gakusei with
     else if t >= 60 then {namae = n; tensuu = t; seiseki = "C"} 
     else                 {namae = n; tensuu = t; seiseki = "D"} 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = hyouka {namae="asai"; tensuu=90; seiseki=""} 
                  = {namae="asai"; tensuu=90; seiseki="A"} 
 let test2 = hyouka {namae="asai"; tensuu=80; seiseki=""} 

@@ -1,20 +1,20 @@
-(* ¤¢¤é¤«¤¸¤á sect17_2/tree.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "sect17_2/tree.ml" (* tree_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect17_2/tree.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "sect17_2/tree.ml" (* tree_t ã®å®šç¾© *) 
  
-(* ÌÚ¤ÎÎã *) 
+(* æœ¨ã®ä¾‹ *) 
 let tree1 = Empty 
 let tree2 = Leaf (3) 
 let tree3 = Node (tree1, 4, tree2) 
 let tree4 = Node (tree2, 5, tree3) 
  
-(* ÌÜÅª¡§tree ¤Ë´Þ¤Þ¤ì¤ëÀ°¿ô¤ò¤¹¤Ù¤Æ 2 ÇÜ¤¹¤ë *) 
+(* ç›®çš„ï¼štree ã«å«ã¾ã‚Œã‚‹æ•´æ•°ã‚’ã™ã¹ã¦ 2 å€ã™ã‚‹ *) 
 (* tree_double : tree_t -> tree_t *) 
 let rec tree_double tree = match tree with 
     Empty -> Empty 
   | Leaf (n) -> Leaf (2 * n) 
   | Node (t1, n, t2) -> Node (tree_double t1, 2 * n, tree_double t2) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = tree_double tree1 = Empty 
 let test2 = tree_double tree2 = Leaf (6) 
 let test3 = tree_double tree3 = Node (Empty, 8, Leaf (6)) 

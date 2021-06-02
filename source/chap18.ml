@@ -1,8 +1,8 @@
 (* 18.1 *) 
  
 #use "sect18_1/price.ml" ;; 
-price "¥È¥Ş¥È" yaoya_list ;; 
-price "¤¸¤ã¤¬¤¤¤â" yaoya_list ;; 
+price "ãƒˆãƒãƒˆ" yaoya_list ;; 
+price "ã˜ã‚ƒãŒã„ã‚‚" yaoya_list ;; 
  
 (* 18.2 *) 
  
@@ -11,8 +11,8 @@ price "¤¸¤ã¤¬¤¤¤â" yaoya_list ;;
 (* 18.3 *) 
  
 #use "sect18_3/total_price.ml" ;; 
-total_price ["¤¿¤Ş¤Í¤®"; "¤Ë¤ó¤¸¤ó"] yaoya_list ;; 
-total_price ["¤¿¤Ş¤Í¤®"; "¤¸¤ã¤¬¤¤¤â"; "¤Ë¤ó¤¸¤ó"] yaoya_list ;; 
+total_price ["ãŸã¾ã­ã"; "ã«ã‚“ã˜ã‚“"] yaoya_list ;; 
+total_price ["ãŸã¾ã­ã"; "ã˜ã‚ƒãŒã„ã‚‚"; "ã«ã‚“ã˜ã‚“"] yaoya_list ;; 
  
 (* 18.4 *) 
  
@@ -26,14 +26,14 @@ raise Urikire ;;
 *) 
 exception Urikire of string ;; 
 (* 
-raise (Urikire ("¤¸¤ã¤¬¤¤¤â")) ;; 
+raise (Urikire ("ã˜ã‚ƒãŒã„ã‚‚")) ;; 
 *) 
  
 (* 18.5 *) 
  
 #use "sect18_5/total_price.ml" ;; 
-total_price ["¤¿¤Ş¤Í¤®"; "¤Ë¤ó¤¸¤ó"] yaoya_list ;; 
-total_price ["¤¿¤Ş¤Í¤®"; "¤¸¤ã¤¬¤¤¤â"; "¤Ë¤ó¤¸¤ó"] yaoya_list ;; 
+total_price ["ãŸã¾ã­ã"; "ã«ã‚“ã˜ã‚“"] yaoya_list ;; 
+total_price ["ãŸã¾ã­ã"; "ã˜ã‚ƒãŒã„ã‚‚"; "ã«ã‚“ã˜ã‚“"] yaoya_list ;; 
  
 (* 18.6 *) 
  

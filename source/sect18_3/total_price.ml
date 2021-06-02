@@ -1,14 +1,14 @@
-(* ¤¢¤é¤«¤¸¤á sect18_1/price.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect18_1/price.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect18_1/price.ml" 
  
-(* È¬É´²°¤Ë¤ª¤¤¤Æ¤¢¤ëÌîºÚ¤ÈÃÍÃÊ¤Î¥ê¥¹¥È¤ÎÎã *) 
-let yaoya_list = [("¥È¥Þ¥È", 300); ("¤¿¤Þ¤Í¤®", 200); 
-                  ("¤Ë¤ó¤¸¤ó", 150); ("¤Û¤¦¤ì¤óÁð", 200)] 
+(* å…«ç™¾å±‹ã«ãŠã„ã¦ã‚ã‚‹é‡Žèœã¨å€¤æ®µã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
+let yaoya_list = [("ãƒˆãƒžãƒˆ", 300); ("ãŸã¾ã­ãŽ", 200); 
+                  ("ã«ã‚“ã˜ã‚“", 150); ("ã»ã†ã‚Œã‚“è‰", 200)] 
  
-(* ÌÜÅª¡§yasai_list ¤òÇã¤Ã¤¿¤È¤­¤ÎÃÍÃÊ¤Î¹ç·×¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šyasai_list ã‚’è²·ã£ãŸã¨ãã®å€¤æ®µã®åˆè¨ˆã‚’èª¿ã¹ã‚‹ *) 
 (* total_price : string list -> (string * int) list -> int *) 
 let total_price yasai_list yaoya_list = 
-  (* ÌÜÅª¡§yasai_list ¤òÇã¤Ã¤¿¤È¤­¤ÎÃÍÃÊ¤Î¹ç·×¤òÄ´¤Ù¤ë *) 
+  (* ç›®çš„ï¼šyasai_list ã‚’è²·ã£ãŸã¨ãã®å€¤æ®µã®åˆè¨ˆã‚’èª¿ã¹ã‚‹ *) 
   (* hojo : string list -> int option *) 
   let rec hojo yasai_list = match yasai_list with 
       [] -> Some (0) 
@@ -22,13 +22,13 @@ let total_price yasai_list yaoya_list =
         None -> 0 
       | Some (p) -> p 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = total_price ["¤¿¤Þ¤Í¤®"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 350 
-let test2 = total_price ["¤¿¤Þ¤Í¤®"; "¤¸¤ã¤¬¤¤¤â"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 0 
-let test3 = total_price ["¥È¥Þ¥È"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 450 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = total_price ["ãŸã¾ã­ãŽ"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 350 
+let test2 = total_price ["ãŸã¾ã­ãŽ"; "ã˜ã‚ƒãŒã„ã‚‚"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 0 
+let test3 = total_price ["ãƒˆãƒžãƒˆ"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 450 
  
 (* 
-(* ÌÜÅª¡§item ¤ÎÃÍÃÊ¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šitem ã®å€¤æ®µã‚’èª¿ã¹ã‚‹ *) 
 (* price : string -> (string * int) list -> int *) 
 let rec price item yaoya_list = match yaoya_list with 
     [] -> 0 
@@ -36,7 +36,7 @@ let rec price item yaoya_list = match yaoya_list with
       if item = yasai then nedan 
                       else price item rest 
  
-(* ÌÜÅª¡§yasai_list ¤òÇã¤Ã¤¿¤È¤­¤ÎÃÍÃÊ¤Î¹ç·×¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šyasai_list ã‚’è²·ã£ãŸã¨ãã®å€¤æ®µã®åˆè¨ˆã‚’èª¿ã¹ã‚‹ *) 
 (* total_price : string list -> (string * int) list -> int *) 
 let rec total_price yasai_list yaoya_list = match yasai_list with 
     [] -> 0 

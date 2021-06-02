@@ -1,5 +1,5 @@
-(* ºÇÃ»Ï©ÌäÂê¤Ç»È¤¦ÌÚ¤òÉ½¤¹·¿ *) 
+(* æœ€çŸ­è·¯å•é¡Œã§ä½¿ã†æœ¨ã‚’è¡¨ã™å‹ *) 
 type ekikan_tree_t = 
-    Empty (* ¶õ¤ÎÌÚ *) 
+    Empty (* ç©ºã®æœ¨ *) 
   | Node of ekikan_tree_t * string * (string * float) list * ekikan_tree_t 
-	  (* Àá *) 
+	  (* ç¯€ *) 

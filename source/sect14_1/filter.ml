@@ -1,5 +1,5 @@
 (* 
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤«¤éÀµ¤ÎÍ×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã‹ã‚‰æ­£ã®è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
 (* filter_positive : int list -> int list *) 
 let rec filter_positive lst = match lst with 
     [] -> [] 
@@ -8,12 +8,12 @@ let rec filter_positive lst = match lst with
                    else filter_positive rest 
 *) 
  
-(* ÌÜÅª¡§À°¿ô n ¤¬ 3 ¤Ç³ä¤ë¤È 1 Í¾¤ë¤«¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šæ•´æ•° n ãŒ 3 ã§å‰²ã‚‹ã¨ 1 ä½™ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ *) 
 (* is_mod3_1 : int -> bool *) 
 let is_mod3_1 n = n mod 3 = 1 
  
 (* 
-(* ÌÜÅª¡§¥ê¥¹¥È lst ¤«¤é 3 ¤Ç³ä¤ë¤È 1 Í¾¤ëÍ×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+(* ç›®çš„ï¼šãƒªã‚¹ãƒˆ lst ã‹ã‚‰ 3 ã§å‰²ã‚‹ã¨ 1 ä½™ã‚‹è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
 (* filter_mod3_1 : int list -> int list *) 
 let rec filter_mod3_1 lst = match lst with 
     [] -> [] 
@@ -22,31 +22,31 @@ let rec filter_mod3_1 lst = match lst with
                          else filter_mod3_1 rest 
 *) 
  
-(* ÌÜÅª¡§¥ê¥¹¥È lst ¤ÎÃæ¤«¤é¾ò·ï p ¤òËþ¤¿¤¹Í×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+(* ç›®çš„ï¼šãƒªã‚¹ãƒˆ lst ã®ä¸­ã‹ã‚‰æ¡ä»¶ p ã‚’æº€ãŸã™è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
 (* filter : ('a -> bool) -> 'a list -> 'a list *) 
 let rec filter p lst = match lst with 
     [] -> [] 
   | first :: rest -> if p first then first :: filter p rest 
                                 else filter p rest 
  
-(* ÌÜÅª¡§¥ê¥¹¥È lst ¤«¤é 3 ¤Ç³ä¤ë¤È 1 Í¾¤ëÍ×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+(* ç›®çš„ï¼šãƒªã‚¹ãƒˆ lst ã‹ã‚‰ 3 ã§å‰²ã‚‹ã¨ 1 ä½™ã‚‹è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
 (* filter_mod3_1 : int list -> int list *) 
 let filter_mod3_1 lst = filter is_mod3_1 lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = filter_mod3_1 [] = [] 
 let test2 = filter_mod3_1 [1; 2; 3] = [1] 
 let test3 = filter_mod3_1 [1; 3; 7; 4; 2; 8] = [1; 7; 4] 
  
-(* ÌÜÅª¡§À°¿ô n ¤¬Àµ¤«¤É¤¦¤«¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šæ•´æ•° n ãŒæ­£ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹ *) 
 (* is_positive : int -> bool *) 
 let is_positive n = n > 0 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤«¤éÀµ¤ÎÍ×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã‹ã‚‰æ­£ã®è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
 (* filter_positive : int list -> int list *) 
 let filter_positive lst = filter is_positive lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = filter_positive [] = [] 
 let test2 = filter_positive [3; -2; 4] = [3; 4] 
 let test3 = filter_positive [-1; 9; 1; -2; -3; 4] = [9; 1; 4] 

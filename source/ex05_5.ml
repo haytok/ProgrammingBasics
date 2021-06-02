@@ -1,14 +1,14 @@
-(* ¤¢¤é¤«¤¸¤á ex05_4.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex05_4.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex05_4.ml" 
  
-(* ÌÜÅª¡§a, b, c ¤ò¼õ¤±¼è¤Ã¤¿¤é²ò¤Î¸Ä¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼ša, b, c ã‚’å—ã‘å–ã£ãŸã‚‰è§£ã®å€‹æ•°ã‚’è¿”ã™ *) 
 (* kai_no_kosuu : float -> float -> float -> int *) 
 let kai_no_kosuu a b c = 
   if hanbetsushiki a b c > 0.0 then 2 
   else if hanbetsushiki a b c = 0.0 then 1 
   else 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = kai_no_kosuu 1.0 5.0 4.0 = 2 
 let test2 = kai_no_kosuu 2.0 (-4.0) 2.0 = 1 
 let test3 = kai_no_kosuu 1.0 2.0 4.0 = 0 

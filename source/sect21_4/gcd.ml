@@ -1,15 +1,15 @@
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤Î¼«Á³¿ô m, n ¤ÎºÇÂç¸øÌó¿ô¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®è‡ªç„¶æ•° m, n ã®æœ€å¤§å…¬ç´„æ•°ã‚’æ±‚ã‚ã‚‹ *) 
 (* gcd : int -> int -> int *) 
 let rec gcd m n = 
  (print_string "m = "; 
-  print_int m;           (* m ¤ÎÃÍ¤òÉ½¼¨ *) 
+  print_int m;           (* m ã®å€¤ã‚’è¡¨ç¤º *) 
   print_string ", n = "; 
-  print_int n;           (* n ¤ÎÃÍ¤òÉ½¼¨ *) 
-  print_newline ();      (* ²ş¹Ô         *) 
+  print_int n;           (* n ã®å€¤ã‚’è¡¨ç¤º *) 
+  print_newline ();      (* æ”¹è¡Œ         *) 
   if n = 0 then m 
            else gcd n (m mod n)) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = gcd 7 5 = 1 
 let test2 = gcd 30 18 = 6 
 let test3 = gcd 36 24 = 12 

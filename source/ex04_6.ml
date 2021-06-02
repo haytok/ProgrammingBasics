@@ -1,8 +1,8 @@
-(* ÌÜÅª¡§Äá¤Î¿ô tsuru ¤ò¼õ¤±¼è¤Ã¤¿¤éÂ­¤ÎËÜ¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šé¶´ã®æ•° tsuru ã‚’å—ã‘å–ã£ãŸã‚‰è¶³ã®æœ¬æ•°ã‚’è¿”ã™ *) 
 (* tsuru_no_ashi : int -> int *) 
 let tsuru_no_ashi tsuru = tsuru * 2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = tsuru_no_ashi 0 = 0 
 let test2 = tsuru_no_ashi 1 = 2 
 let test3 = tsuru_no_ashi 7 = 14 

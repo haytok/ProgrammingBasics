@@ -1,4 +1,4 @@
-(* ÌÜÅª¡§¾º½ç¤ËÊÂ¤ó¤Ç¤¤¤ë¥ê¥¹¥È lst1 ¤È lst2 ¤ò¥Þ¡¼¥¸¤¹¤ë *) 
+(* ç›®çš„ï¼šæ˜‡é †ã«ä¸¦ã‚“ã§ã„ã‚‹ãƒªã‚¹ãƒˆ lst1 ã¨ lst2 ã‚’ãƒžãƒ¼ã‚¸ã™ã‚‹ *) 
 (* merge : int list -> int list -> int list *) 
 let rec merge lst1 lst2 = match (lst1, lst2) with 
     ([], []) -> [] 
@@ -9,7 +9,7 @@ let rec merge lst1 lst2 = match (lst1, lst2) with
         then first1 :: merge rest1 lst2 
         else first2 :: merge lst1 rest2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = merge [] [] = [] 
 let test2 = merge [] [1; 2] = [1; 2] 
 let test3 = merge [1; 2] [] = [1; 2] 

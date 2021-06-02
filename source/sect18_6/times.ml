@@ -1,19 +1,19 @@
 (* 
-(* ÌÜÅª¡§lst Ãæ¤ÎÀ°¿ô¤ò¤¹¤Ù¤Æ³Ý¤±¹ç¤ï¤»¤ë *) 
+(* ç›®çš„ï¼šlst ä¸­ã®æ•´æ•°ã‚’ã™ã¹ã¦æŽ›ã‘åˆã‚ã›ã‚‹ *) 
 (* times : int list -> int *) 
 let rec times lst = match lst with 
     [] -> 1 
   | first :: rest -> first * times rest 
 *) 
  
-(* 0 ¤¬¤ß¤Ä¤«¤Ã¤¿¤³¤È¤ò¼¨¤¹Îã³° *) 
+(* 0 ãŒã¿ã¤ã‹ã£ãŸã“ã¨ã‚’ç¤ºã™ä¾‹å¤– *) 
 exception Zero 
  
-(* ÌÜÅª¡§lst Ãæ¤ÎÀ°¿ô¤ò¤¹¤Ù¤Æ³Ý¤±¹ç¤ï¤»¤ë *) 
+(* ç›®çš„ï¼šlst ä¸­ã®æ•´æ•°ã‚’ã™ã¹ã¦æŽ›ã‘åˆã‚ã›ã‚‹ *) 
 (* times : int list -> int *) 
 let times lst = 
-  (* ÌÜÅª¡§lst Ãæ¤ÎÀ°¿ô¤ò¤¹¤Ù¤Æ³Ý¤±¹ç¤ï¤»¤ë *) 
-  (* 0 ¤ò¤ß¤Ä¤±¤¿¤éÎã³° Zero ¤òµ¯¤³¤¹ *) 
+  (* ç›®çš„ï¼šlst ä¸­ã®æ•´æ•°ã‚’ã™ã¹ã¦æŽ›ã‘åˆã‚ã›ã‚‹ *) 
+  (* 0 ã‚’ã¿ã¤ã‘ãŸã‚‰ä¾‹å¤– Zero ã‚’èµ·ã“ã™ *) 
   (* hojo : int list -> int *) 
   let rec hojo lst = match lst with 
       [] -> 1 
@@ -24,7 +24,7 @@ let times lst =
        hojo lst 
      with Zero -> 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = times [3; 1; 4] = 12 
 let test2 = times [0] = 0 
 let test3 = times [3; 1; 0; 4] = 0 

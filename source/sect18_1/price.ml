@@ -1,8 +1,8 @@
-(* È¬É´²°¤Ë¤ª¤¤¤Æ¤¢¤ëÌîºÚ¤ÈÃÍÃÊ¤Î¥ê¥¹¥È¤ÎÎã *) 
-let yaoya_list = [("¥È¥Ş¥È", 300); ("¤¿¤Ş¤Í¤®", 200); 
-                  ("¤Ë¤ó¤¸¤ó", 150); ("¤Û¤¦¤ì¤óÁğ", 200)] 
+(* å…«ç™¾å±‹ã«ãŠã„ã¦ã‚ã‚‹é‡èœã¨å€¤æ®µã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
+let yaoya_list = [("ãƒˆãƒãƒˆ", 300); ("ãŸã¾ã­ã", 200); 
+                  ("ã«ã‚“ã˜ã‚“", 150); ("ã»ã†ã‚Œã‚“è‰", 200)] 
  
-(* ÌÜÅª¡§item ¤ÎÃÍÃÊ¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šitem ã®å€¤æ®µã‚’èª¿ã¹ã‚‹ *) 
 (* price : string -> (string * int) list -> int option *) 
 let rec price item yaoya_list = match yaoya_list with 
     [] -> None 
@@ -10,6 +10,6 @@ let rec price item yaoya_list = match yaoya_list with
       if item = yasai then Some (nedan) 
                       else price item rest 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = price "¥È¥Ş¥È" yaoya_list = Some (300) 
-let test2 = price "¤¸¤ã¤¬¤¤¤â" yaoya_list = None 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = price "ãƒˆãƒãƒˆ" yaoya_list = Some (300) 
+let test2 = price "ã˜ã‚ƒãŒã„ã‚‚" yaoya_list = None 

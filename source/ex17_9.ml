@@ -1,22 +1,22 @@
-(* ¤¢¤é¤«¤¸¤á sect17_5/search.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "sect17_5/search.ml" (* 'a tree_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect17_5/search.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "sect17_5/search.ml" (* 'a tree_t ã®å®šç¾© *) 
  
-(* ÌÚ¤ÎÎã *) 
+(* æœ¨ã®ä¾‹ *) 
 let tree1 = Empty 
 let tree2 = Leaf (3) 
 let tree3 = Node (tree1, 4, tree2) 
 let tree4 = Node (tree2, 5, tree3) 
  
-(* ÌÜÅª¡§tree ¤Ë´Ş¤Ş¤ì¤ëÀ°¿ô¤ò¤¹¤Ù¤Æ²Ã¤¨¤ë *) 
+(* ç›®çš„ï¼štree ã«å«ã¾ã‚Œã‚‹æ•´æ•°ã‚’ã™ã¹ã¦åŠ ãˆã‚‹ *) 
 (* sum_tree : int tree_t -> int *) 
 let rec sum_tree tree = match tree with 
     Empty -> 0 
   | Leaf (n) -> n 
   | Node (t1, n, t2) -> sum_tree t1 + n + sum_tree t2 
  
-(* 0 ¤È + ¤ò»È¤Ã¤Æ¤¤¤ë¤¿¤á tree ¤Î·¿¤Ï 'a tree ¤Ç¤Ï¤Ê¤¯ int tree ¤È¤Ê¤ë *) 
+(* 0 ã¨ + ã‚’ä½¿ã£ã¦ã„ã‚‹ãŸã‚ tree ã®å‹ã¯ 'a tree ã§ã¯ãªã int tree ã¨ãªã‚‹ *) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = sum_tree tree1 = 0 
 let test2 = sum_tree tree2 = 3 
 let test3 = sum_tree tree3 = 7 

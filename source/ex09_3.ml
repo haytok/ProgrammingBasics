@@ -1,18 +1,18 @@
-(* ÌäÂê 9.1 *) 
+(* å•é¡Œ 9.1 *) 
  
-["½Õ"; "²Æ"; "½©"; "Åß"] ;; 
+["æ˜¥"; "å¤"; "ç§‹"; "å†¬"] ;; 
  
-(* ÌäÂê 9.2 *) 
+(* å•é¡Œ 9.2 *) 
  
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" ;; 
  
-[{name = "Àõ°æ"; shincho = 1.72; taiju = 58.5; 
+[{name = "æµ…äº•"; shincho = 1.72; taiju = 58.5; 
    tsuki = 9; hi = 17; ketsueki = "A"}; 
- {name = "µÜ¸¶"; shincho = 1.63; taiju = 55.0; 
+ {name = "å®®åŸ"; shincho = 1.63; taiju = 55.0; 
    tsuki = 6; hi = 30; ketsueki = "B"}; 
- {name = "ÃæÂ¼"; shincho = 1.68; taiju = 63.0; 
+ {name = "ä¸­æ‘"; shincho = 1.68; taiju = 63.0; 
    tsuki = 6; hi = 6; ketsueki = "O"}] 
  
-(* ¤Ş¤¿¤Ï [persor1; person2; person3] *) 
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* ã¾ãŸã¯ [persor1; person2; person3] *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 

@@ -1,12 +1,12 @@
-(* ¤¢¤é¤«¤¸¤á sect17_1/to_seireki.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect17_1/to_seireki.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect17_1/to_seireki.ml" 
  
-(* ÌÜÅª¡§À¸¤Þ¤ì¤¿Ç¯¤ÎÇ¯¹æ¤È¸½ºß¤ÎÇ¯¹æ¤ò¼õ¤±¼è¤Ã¤¿¤éÇ¯Îð¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šç”Ÿã¾ã‚ŒãŸå¹´ã®å¹´å·ã¨ç¾åœ¨ã®å¹´å·ã‚’å—ã‘å–ã£ãŸã‚‰å¹´é½¢ã‚’è¿”ã™ *) 
 (* nenrei : nengou_t -> nengou_t -> int *) 
 let nenrei nengou1 nengou2 = 
   to_seireki nengou2 - to_seireki nengou1 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = nenrei (Showa (42)) (Heisei (18)) = 39 
 let test2 = nenrei (Heisei (11)) (Heisei (18)) = 7 
 let test3 = nenrei (Meiji (41)) (Heisei (17)) = 97 

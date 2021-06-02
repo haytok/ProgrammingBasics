@@ -1,4 +1,4 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È¤ÎÃæ¤«¤é¶ö¿ô¤Î¤ß¤òÈ´¤­½Ð¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆã®ä¸­ã‹ã‚‰å¶æ•°ã®ã¿ã‚’æŠœãå‡ºã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* even : int list -> int list *) 
 let rec even lst = match lst with 
     [] -> [] 
@@ -7,7 +7,7 @@ let rec even lst = match lst with
       then first :: even rest 
       else even rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = even [] = [] 
 let test2 = even [3] = [] 
 let test3 = even [2] = [2] 

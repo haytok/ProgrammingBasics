@@ -12,8 +12,8 @@
  
 (* 
 a ;; 
-let (index, b) = insert a 3.2 "¿·¤·¤¤±Ø" ;; 
-let (index, a) = insert a 3.2 "¿·¤·¤¤±Ø" ;; 
+let (index, b) = insert a 3.2 "æ–°ã—ã„é§…" ;; 
+let (index, a) = insert a 3.2 "æ–°ã—ã„é§…" ;; 
 *) 
  
 (* 23.7 *) 

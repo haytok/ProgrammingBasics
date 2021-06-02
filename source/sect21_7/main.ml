@@ -1,12 +1,12 @@
-(* ¥á¥¤¥ó´Ø¿ô *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•° *) 
 (* main : int -> unit *) 
 let main n = 
-  let kekka = Fac.f n in        (* n ¤Î³¬¾è¤òµá¤á *) 
+  let kekka = Fac.f n in        (* n ã®éšä¹—ã‚’æ±‚ã‚ *) 
   (print_int n; 
-   print_string " ¤Î³¬¾è¤Ï "; 
-   print_int kekka;             (* ·ë²Ì¤òÉ½¼¨¤·   *) 
-   print_string " ¤Ç¤¹¡£"; 
-   print_newline ())            (* ²ş¹Ô¤¹¤ë       *) 
+   print_string " ã®éšä¹—ã¯ "; 
+   print_int kekka;             (* çµæœã‚’è¡¨ç¤ºã—   *) 
+   print_string " ã§ã™ã€‚"; 
+   print_newline ())            (* æ”¹è¡Œã™ã‚‹       *) 
  
-(* ¥á¥¤¥ó´Ø¿ô¤Î¸Æ¤Ó½Ğ¤· *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•°ã®å‘¼ã³å‡ºã— *) 
 let _ = main (int_of_string Sys.argv.(1)) 

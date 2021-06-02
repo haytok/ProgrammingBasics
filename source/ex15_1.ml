@@ -1,23 +1,23 @@
-(* quick_sort [1; 1] = [1] ¤Î¤è¤¦¤Ë¡¢½ÅÊ£¤·¤¿Í×ÁÇ¤¬¼è¤ê½ü¤«¤ì¤Æ¤·¤Þ¤¦ *) 
-(* (<) ¤ò (<=) ¤ËÊÑ¹¹¤¹¤ë¤«¡¢ *) 
-(* °Ê²¼¤Î¤è¤¦¤ËÆ±¤¸ÃÍ¤ÎÍ×ÁÇ¤â rest ¤«¤é¼è¤ê½Ð¤¹¤è¤¦¤Ë¤¹¤ë *) 
+(* quick_sort [1; 1] = [1] ã®ã‚ˆã†ã«ã€é‡è¤‡ã—ãŸè¦ç´ ãŒå–ã‚Šé™¤ã‹ã‚Œã¦ã—ã¾ã† *) 
+(* (<) ã‚’ (<=) ã«å¤‰æ›´ã™ã‚‹ã‹ã€ *) 
+(* ä»¥ä¸‹ã®ã‚ˆã†ã«åŒã˜å€¤ã®è¦ç´ ã‚‚ rest ã‹ã‚‰å–ã‚Šå‡ºã™ã‚ˆã†ã«ã™ã‚‹ *) 
  
-(* ¤¢¤é¤«¤¸¤á sect14_1/filter.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect14_1/filter.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect14_1/filter.ml" 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ lst ¤ò¥¯¥¤¥Ã¥¯¥½¡¼¥È¤ò»È¤Ã¤Æ¾º½ç¤ËÀ°Îó¤¹¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ lst ã‚’ã‚¯ã‚¤ãƒƒã‚¯ã‚½ãƒ¼ãƒˆã‚’ä½¿ã£ã¦æ˜‡é †ã«æ•´åˆ—ã™ã‚‹ *) 
 (* quick_sort : int list -> int list *) 
 let rec quick_sort lst = 
-  (* ÌÜÅª¡§lst ¤ÎÃæ¤«¤é n ¤è¤ê p ¤Ç¤¢¤ëÍ×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+  (* ç›®çš„ï¼šlst ã®ä¸­ã‹ã‚‰ n ã‚ˆã‚Š p ã§ã‚ã‚‹è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
   (* take : int -> int list -> (int -> int -> bool) -> int list *) 
   let take n lst p = filter (fun item -> p item n) lst 
-  (* ÌÜÅª¡§lst ¤ÎÃæ¤«¤é n ¤è¤ê¾®¤µ¤¤Í×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+  (* ç›®çš„ï¼šlst ã®ä¸­ã‹ã‚‰ n ã‚ˆã‚Šå°ã•ã„è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
   (* take_less : int -> int list -> int list *) 
   in let take_less n lst = take n lst (<) 
-  (* ÌÜÅª¡§lst ¤ÎÃæ¤«¤é n ¤è¤êÂç¤­¤¤Í×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+  (* ç›®çš„ï¼šlst ã®ä¸­ã‹ã‚‰ n ã‚ˆã‚Šå¤§ãã„è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
   (* take_greater : int -> int list -> int list *) 
   in let take_greater n lst = take n lst (>) 
-  (* ÌÜÅª¡§lst ¤ÎÃæ¤«¤é n ¤ÈÆ±¤¸Í×ÁÇ¤Î¤ß¤ò¼è¤ê½Ð¤¹ *) 
+  (* ç›®çš„ï¼šlst ã®ä¸­ã‹ã‚‰ n ã¨åŒã˜è¦ç´ ã®ã¿ã‚’å–ã‚Šå‡ºã™ *) 
   (* take_equal : int -> int list -> int list *) 
   in let take_equal n lst = take n lst (=) 
   in match lst with 
@@ -26,7 +26,7 @@ let rec quick_sort lst =
                           @ take_equal first lst 
                           @ quick_sort (take_greater first rest) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = quick_sort [] = [] 
 let test2 = quick_sort [1] = [1] 
 let test3 = quick_sort [1; 2] = [1; 2] 

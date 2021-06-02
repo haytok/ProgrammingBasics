@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á ex09_10.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex09_10.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤Î±Ø¤Î´Ö¤Îµ÷Î¥¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®é§…ã®é–“ã®è·é›¢ã‚’æ±‚ã‚ã‚‹ *) 
 (* get_ekikan_kyori : string -> string -> ekikan_t list -> float *) 
 let rec get_ekikan_kyori eki1 eki2 lst = match lst with 
     [] -> infinity 
@@ -10,7 +10,7 @@ let rec get_ekikan_kyori eki1 eki2 lst = match lst with
      then r 
      else get_ekikan_kyori eki1 eki2 rest 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = get_ekikan_kyori "è¬²ÙÃ«" "¿·ÂçÄÍ" global_ekikan_list = 1.2 
-let test2 = get_ekikan_kyori "è¬²ÙÃ«" "ÃÓÂŞ" global_ekikan_list = infinity 
-let test3 = get_ekikan_kyori "Åìµş" "Âç¼êÄ®" global_ekikan_list = 0.6 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = get_ekikan_kyori "èŒ—è·è°·" "æ–°å¤§å¡š" global_ekikan_list = 1.2 
+let test2 = get_ekikan_kyori "èŒ—è·è°·" "æ± è¢‹" global_ekikan_list = infinity 
+let test3 = get_ekikan_kyori "æ±äº¬" "å¤§æ‰‹ç”º" global_ekikan_list = 0.6 

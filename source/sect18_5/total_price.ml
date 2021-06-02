@@ -1,8 +1,8 @@
-(* Çä¤êÀÚ¤ì¤ò¼¨¤¹Îã³° *) 
+(* å£²ã‚Šåˆ‡ã‚Œã‚’ç¤ºã™ä¾‹å¤– *) 
 exception Urikire 
  
-(* ÌÜÅª¡§item ¤ÎÃÍÃÊ¤òÄ´¤Ù¤ë *) 
-(* ¤ß¤Ä¤«¤é¤Ê¤¤¤È¤­¤Ë¤Ï Urikire ¤È¤¤¤¦Îã³°¤òÈ¯À¸¤¹¤ë *) 
+(* ç›®çš„ï¼šitem ã®å€¤æ®µã‚’èª¿ã¹ã‚‹ *) 
+(* ã¿ã¤ã‹ã‚‰ãªã„ã¨ãã«ã¯ Urikire ã¨ã„ã†ä¾‹å¤–ã‚’ç™ºç”Ÿã™ã‚‹ *) 
 (* price : string -> (string * int) list -> int *) 
 let rec price item yaoya_list = match yaoya_list with 
     [] -> raise Urikire 
@@ -10,10 +10,10 @@ let rec price item yaoya_list = match yaoya_list with
       if item = yasai then nedan 
                       else price item rest 
  
-(* ÌÜÅª¡§yasai_list ¤òÇã¤Ã¤¿¤È¤­¤ÎÃÍÃÊ¤Î¹ç·×¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šyasai_list ã‚’è²·ã£ãŸã¨ãã®å€¤æ®µã®åˆè¨ˆã‚’èª¿ã¹ã‚‹ *) 
 (* total_price : string list -> (string * int) list -> int *) 
 let total_price yasai_list yaoya_list = 
-  (* ÌÜÅª¡§yasai_list ¤òÇã¤Ã¤¿¤È¤­¤ÎÃÍÃÊ¤Î¹ç·×¤òÄ´¤Ù¤ë *) 
+  (* ç›®çš„ï¼šyasai_list ã‚’è²·ã£ãŸã¨ãã®å€¤æ®µã®åˆè¨ˆã‚’èª¿ã¹ã‚‹ *) 
   (* hojo : string list -> int *) 
   let rec hojo yasai_list = match yasai_list with 
       [] -> 0 
@@ -23,11 +23,11 @@ let total_price yasai_list yaoya_list =
        hojo yasai_list 
      with Urikire -> 0 
  
-(* È¬É´²°¤Ë¤ª¤¤¤Æ¤¢¤ëÌîºÚ¤ÈÃÍÃÊ¤Î¥ê¥¹¥È¤ÎÎã *) 
-let yaoya_list = [("¥È¥Ş¥È", 300); ("¤¿¤Ş¤Í¤®", 200); 
-                  ("¤Ë¤ó¤¸¤ó", 150); ("¤Û¤¦¤ì¤óÁğ", 200)] 
+(* å…«ç™¾å±‹ã«ãŠã„ã¦ã‚ã‚‹é‡èœã¨å€¤æ®µã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
+let yaoya_list = [("ãƒˆãƒãƒˆ", 300); ("ãŸã¾ã­ã", 200); 
+                  ("ã«ã‚“ã˜ã‚“", 150); ("ã»ã†ã‚Œã‚“è‰", 200)] 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = total_price ["¤¿¤Ş¤Í¤®"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 350 
-let test2 = total_price ["¤¿¤Ş¤Í¤®"; "¤¸¤ã¤¬¤¤¤â"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 0 
-let test3 = total_price ["¥È¥Ş¥È"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 450 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = total_price ["ãŸã¾ã­ã"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 350 
+let test2 = total_price ["ãŸã¾ã­ã"; "ã˜ã‚ƒãŒã„ã‚‚"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 0 
+let test3 = total_price ["ãƒˆãƒãƒˆ"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 450 

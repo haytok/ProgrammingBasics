@@ -1,9 +1,9 @@
-(* ÌÚ¤òÉ½¤¹·¿ *) 
-type tree_t = Empty                     (* ¶õ¤ÎÌÚ *) 
-            | Leaf of int                   (* ÍÕ *) 
-            | Node of tree_t * int * tree_t (* Àá *) 
+(* æœ¨ã‚’è¡¨ã™å‹ *) 
+type tree_t = Empty                     (* ç©ºã®æœ¨ *) 
+            | Leaf of int                   (* è‘‰ *) 
+            | Node of tree_t * int * tree_t (* ç¯€ *) 
  
 (* 
-(* Àá¤Î¤ß¤ÎÌÚ¤òÉ½¤¹·¿ *) 
-type tree_t = Node of tree_t * int * tree_t (* Àá *) 
+(* ç¯€ã®ã¿ã®æœ¨ã‚’è¡¨ã™å‹ *) 
+type tree_t = Node of tree_t * int * tree_t (* ç¯€ *) 
 *) 

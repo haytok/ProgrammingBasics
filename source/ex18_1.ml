@@ -1,13 +1,13 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
  
-(* person_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* person_t list åž‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [person1; person2; person3] 
 let lst2 = [person3; person2; person1] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§lst ¤Ë´Þ¤Þ¤ì¤ëºÇ½é¤Î A ·¿¤Î¿Í¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šlst ã«å«ã¾ã‚Œã‚‹æœ€åˆã® A åž‹ã®äººã‚’è¿”ã™ *) 
 (* first_A : person_t list -> person_t option *) 
 let rec first_A lst = match lst with 
     [] -> None 
@@ -15,7 +15,7 @@ let rec first_A lst = match lst with
       {name = n; shincho = s; taiju = t; tsuki = ts; hi = h; ketsueki = k} -> 
         if k = "A" then Some (first) else first_A rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = first_A [] = None 
 let test2 = first_A lst1 = Some (person1) 
 let test3 = first_A lst2 = Some (person1) 

@@ -1,19 +1,19 @@
-(* ¤¢¤é¤«¤¸¤á ex08_5.ml, ex12_1.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_5.ml, ex12_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_5.ml" 
 #use "ex12_1.ml" 
  
-(* ±ØÌ¾¥ê¥¹¥È¤ÎÎã *) 
+(* é§…åãƒªã‚¹ãƒˆã®ä¾‹ *) 
  
 let ekimei_list = [ 
-{kanji="ÃÓÂŞ"; kana="¤¤¤±¤Ö¤¯¤í"; romaji="ikebukuro"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¿·ÂçÄÍ"; kana="¤·¤ó¤ª¤ª¤Ä¤«"; romaji="shinotsuka"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸å³Ú±à"; kana="¤³¤¦¤é¤¯¤¨¤ó"; romaji="korakuen"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="ËÜ¶¿»°ÃúÌÜ"; kana="¤Û¤ó¤´¤¦¤µ¤ó¤Á¤ç¤¦¤á"; romaji="hongosanchome"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸æÃã¥Î¿å"; kana="¤ª¤Á¤ã¤Î¤ß¤º"; romaji="ochanomizu"; shozoku="´İ¥ÎÆâÀş"} 
+{kanji="æ± è¢‹"; kana="ã„ã‘ã¶ãã‚"; romaji="ikebukuro"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æ–°å¤§å¡š"; kana="ã—ã‚“ãŠãŠã¤ã‹"; romaji="shinotsuka"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾Œæ¥½åœ’"; kana="ã“ã†ã‚‰ããˆã‚“"; romaji="korakuen"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æœ¬éƒ·ä¸‰ä¸ç›®"; kana="ã»ã‚“ã”ã†ã•ã‚“ã¡ã‚‡ã†ã‚"; romaji="hongosanchome"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾¡èŒ¶ãƒæ°´"; kana="ãŠã¡ã‚ƒã®ã¿ãš"; romaji="ochanomizu"; shozoku="ä¸¸ãƒå†…ç·š"} 
 ] 
  
-(* ÌÜÅª¡§ekimei list ¤«¤é eki list ¤òºî¤ë *) 
+(* ç›®çš„ï¼šekimei list ã‹ã‚‰ eki list ã‚’ä½œã‚‹ *) 
 (* make_eki_list : ekimei_t list -> eki_t list *) 
 let rec make_eki_list ekimei_list = match ekimei_list with 
     [] -> [] 
@@ -21,13 +21,13 @@ let rec make_eki_list ekimei_list = match ekimei_list with
       {namae = k; saitan_kyori = infinity; temae_list = []} 
       :: make_eki_list rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = make_eki_list [] = [] 
 let test2 = make_eki_list ekimei_list = [ 
-{namae="ÃÓÂŞ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¿·ÂçÄÍ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="è¬²ÙÃ«"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []}; 
-{namae="ËÜ¶¿»°ÃúÌÜ"; saitan_kyori = infinity; temae_list = []}; 
-{namae="¸æÃã¥Î¿å"; saitan_kyori = infinity; temae_list = []} 
+{namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []}; 
+{namae="æ–°å¤§å¡š"; saitan_kyori = infinity; temae_list = []}; 
+{namae="èŒ—è·è°·"; saitan_kyori = infinity; temae_list = []}; 
+{namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []}; 
+{namae="æœ¬éƒ·ä¸‰ä¸ç›®"; saitan_kyori = infinity; temae_list = []}; 
+{namae="å¾¡èŒ¶ãƒæ°´"; saitan_kyori = infinity; temae_list = []} 
 ] 

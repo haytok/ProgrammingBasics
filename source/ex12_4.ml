@@ -1,18 +1,18 @@
-(* ¤¢¤é¤«¤¸¤á ex08_5.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_5.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_5.ml" 
  
-(* ±ØÌ¾¥ê¥¹¥È¤ÎÎã *) 
+(* é§…åãƒªã‚¹ãƒˆã®ä¾‹ *) 
  
 let ekimei_list = [ 
-{kanji="ÃÓÂŞ"; kana="¤¤¤±¤Ö¤¯¤í"; romaji="ikebukuro"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¿·ÂçÄÍ"; kana="¤·¤ó¤ª¤ª¤Ä¤«"; romaji="shinotsuka"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸å³Ú±à"; kana="¤³¤¦¤é¤¯¤¨¤ó"; romaji="korakuen"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="ËÜ¶¿»°ÃúÌÜ"; kana="¤Û¤ó¤´¤¦¤µ¤ó¤Á¤ç¤¦¤á"; romaji="hongosanchome"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸æÃã¥Î¿å"; kana="¤ª¤Á¤ã¤Î¤ß¤º"; romaji="ochanomizu"; shozoku="´İ¥ÎÆâÀş"} 
+{kanji="æ± è¢‹"; kana="ã„ã‘ã¶ãã‚"; romaji="ikebukuro"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æ–°å¤§å¡š"; kana="ã—ã‚“ãŠãŠã¤ã‹"; romaji="shinotsuka"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾Œæ¥½åœ’"; kana="ã“ã†ã‚‰ããˆã‚“"; romaji="korakuen"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æœ¬éƒ·ä¸‰ä¸ç›®"; kana="ã»ã‚“ã”ã†ã•ã‚“ã¡ã‚‡ã†ã‚"; romaji="hongosanchome"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾¡èŒ¶ãƒæ°´"; kana="ãŠã¡ã‚ƒã®ã¿ãš"; romaji="ochanomizu"; shozoku="ä¸¸ãƒå†…ç·š"} 
 ] 
  
-(* ÌÜÅª¡§¾º½ç¤ËÊÂ¤ó¤Ç¤¤¤ë lst ¤ÎÀµ¤·¤¤°ÌÃÖ¤Ë ekimei ¤òÁŞÆş¤¹¤ë *) 
+(* ç›®çš„ï¼šæ˜‡é †ã«ä¸¦ã‚“ã§ã„ã‚‹ lst ã®æ­£ã—ã„ä½ç½®ã« ekimei ã‚’æŒ¿å…¥ã™ã‚‹ *) 
 (* ekimei_insert : ekimei_t list -> ekimei_t -> ekimei_t list *) 
 let rec ekimei_insert lst ekimei0 = match lst with 
     [] -> [ekimei0] 
@@ -22,39 +22,39 @@ let rec ekimei_insert lst ekimei0 = match lst with
 	else if a < a0 then ekimei :: ekimei_insert rest ekimei0 
 	else ekimei0 :: lst 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = ekimei_insert [] {kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"} 
-	    = [{kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"}] 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = ekimei_insert [] {kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"} 
+	    = [{kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"}] 
 let test2 = ekimei_insert [ 
-	{kanji="ÃÓÂŞ"; kana="¤¤¤±¤Ö¤¯¤í"; romaji="ikebukuro"; shozoku="´İ¥ÎÆâÀş"}; 
-	{kanji="¸æÃã¥Î¿å"; kana="¤ª¤Á¤ã¤Î¤ß¤º"; romaji="ochanomizu"; shozoku="´İ¥ÎÆâÀş"}; 
-	{kanji="¿·ÂçÄÍ"; kana="¤·¤ó¤ª¤ª¤Ä¤«"; romaji="shinotsuka"; shozoku="´İ¥ÎÆâÀş"}; 
-	{kanji="ËÜ¶¿»°ÃúÌÜ"; kana="¤Û¤ó¤´¤¦¤µ¤ó¤Á¤ç¤¦¤á"; romaji="hongosanchome"; shozoku="´İ¥ÎÆâÀş"}; 
-	{kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"} 
+	{kanji="æ± è¢‹"; kana="ã„ã‘ã¶ãã‚"; romaji="ikebukuro"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+	{kanji="å¾¡èŒ¶ãƒæ°´"; kana="ãŠã¡ã‚ƒã®ã¿ãš"; romaji="ochanomizu"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+	{kanji="æ–°å¤§å¡š"; kana="ã—ã‚“ãŠãŠã¤ã‹"; romaji="shinotsuka"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+	{kanji="æœ¬éƒ·ä¸‰ä¸ç›®"; kana="ã»ã‚“ã”ã†ã•ã‚“ã¡ã‚‡ã†ã‚"; romaji="hongosanchome"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+	{kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"} 
 	] 
-	{kanji="¸å³Ú±à"; kana="¤³¤¦¤é¤¯¤¨¤ó"; romaji="korakuen"; shozoku="´İ¥ÎÆâÀş"} 
+	{kanji="å¾Œæ¥½åœ’"; kana="ã“ã†ã‚‰ããˆã‚“"; romaji="korakuen"; shozoku="ä¸¸ãƒå†…ç·š"} 
 = [ 
-{kanji="ÃÓÂŞ"; kana="¤¤¤±¤Ö¤¯¤í"; romaji="ikebukuro"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸æÃã¥Î¿å"; kana="¤ª¤Á¤ã¤Î¤ß¤º"; romaji="ochanomizu"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸å³Ú±à"; kana="¤³¤¦¤é¤¯¤¨¤ó"; romaji="korakuen"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¿·ÂçÄÍ"; kana="¤·¤ó¤ª¤ª¤Ä¤«"; romaji="shinotsuka"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="ËÜ¶¿»°ÃúÌÜ"; kana="¤Û¤ó¤´¤¦¤µ¤ó¤Á¤ç¤¦¤á"; romaji="hongosanchome"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"} 
+{kanji="æ± è¢‹"; kana="ã„ã‘ã¶ãã‚"; romaji="ikebukuro"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾¡èŒ¶ãƒæ°´"; kana="ãŠã¡ã‚ƒã®ã¿ãš"; romaji="ochanomizu"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾Œæ¥½åœ’"; kana="ã“ã†ã‚‰ããˆã‚“"; romaji="korakuen"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æ–°å¤§å¡š"; kana="ã—ã‚“ãŠãŠã¤ã‹"; romaji="shinotsuka"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æœ¬éƒ·ä¸‰ä¸ç›®"; kana="ã»ã‚“ã”ã†ã•ã‚“ã¡ã‚‡ã†ã‚"; romaji="hongosanchome"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"} 
 ] 
  
-(* ÌÜÅª¡§ekimei list ¤ò¤Ò¤é¤¬¤Ê¤Î½ç¤ËÀ°Îó¤·¤Ê¤¬¤é±Ø¤Î½ÅÊ£¤ò¼è¤ê½ü¤¯ *) 
+(* ç›®çš„ï¼šekimei list ã‚’ã²ã‚‰ãŒãªã®é †ã«æ•´åˆ—ã—ãªãŒã‚‰é§…ã®é‡è¤‡ã‚’å–ã‚Šé™¤ã *) 
 (* seiretsu : ekimei_t list -> ekimei_t list *) 
 let rec seiretsu ekimei_list = match ekimei_list with 
     [] -> [] 
   | first :: rest -> ekimei_insert (seiretsu rest) first 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test3 = seiretsu [] = [] 
 let test4 = seiretsu ekimei_list = [ 
-{kanji="ÃÓÂŞ"; kana="¤¤¤±¤Ö¤¯¤í"; romaji="ikebukuro"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸æÃã¥Î¿å"; kana="¤ª¤Á¤ã¤Î¤ß¤º"; romaji="ochanomizu"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¸å³Ú±à"; kana="¤³¤¦¤é¤¯¤¨¤ó"; romaji="korakuen"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="¿·ÂçÄÍ"; kana="¤·¤ó¤ª¤ª¤Ä¤«"; romaji="shinotsuka"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="ËÜ¶¿»°ÃúÌÜ"; kana="¤Û¤ó¤´¤¦¤µ¤ó¤Á¤ç¤¦¤á"; romaji="hongosanchome"; shozoku="´İ¥ÎÆâÀş"}; 
-{kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"} 
+{kanji="æ± è¢‹"; kana="ã„ã‘ã¶ãã‚"; romaji="ikebukuro"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾¡èŒ¶ãƒæ°´"; kana="ãŠã¡ã‚ƒã®ã¿ãš"; romaji="ochanomizu"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="å¾Œæ¥½åœ’"; kana="ã“ã†ã‚‰ããˆã‚“"; romaji="korakuen"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æ–°å¤§å¡š"; kana="ã—ã‚“ãŠãŠã¤ã‹"; romaji="shinotsuka"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="æœ¬éƒ·ä¸‰ä¸ç›®"; kana="ã»ã‚“ã”ã†ã•ã‚“ã¡ã‚‡ã†ã‚"; romaji="hongosanchome"; shozoku="ä¸¸ãƒå†…ç·š"}; 
+{kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"} 
 ] 

@@ -1,25 +1,25 @@
-(* ¤³¤Î¥Õ¥¡¥¤¥ë¤Ï RedBlack ¥â¥¸¥å¡¼¥ë¡¢¤Ş¤¿¤Ï Tree ¥â¥¸¥å¡¼¥ë¤Ë²Ã¤¨¡¢ 
-   Heap ¥â¥¸¥å¡¼¥ë¡Êsect23_5/heap.mli, sect23_7/heap.ml ¤ò»²¾È¡Ë¡¢ 
-   ¤½¤·¤Æ¡¢±ØÌ¾¡¢±Ø´Ö¤Î¥ê¥¹¥È¤ò¤Ò¤È¤Ä¤Î¥Õ¥¡¥¤¥ë¤Ë¤Ş¤È¤á¤¿ metro.ml 
-   ¤È°ì½ï¤Ë¥³¥ó¥Ñ¥¤¥ë¤¹¤ë *) 
+(* ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ RedBlack ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã€ã¾ãŸã¯ Tree ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã«åŠ ãˆã€ 
+   Heap ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ï¼ˆsect23_5/heap.mli, sect23_7/heap.ml ã‚’å‚ç…§ï¼‰ã€ 
+   ãã—ã¦ã€é§…åã€é§…é–“ã®ãƒªã‚¹ãƒˆã‚’ã²ã¨ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ã¾ã¨ã‚ãŸ metro.ml 
+   ã¨ä¸€ç·’ã«ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã™ã‚‹ *) 
  
-open Metro (* global_ekimei_list, global_ekikan_list ¤ÎÄêµÁ *) 
+open Metro (* global_ekimei_list, global_ekikan_list ã®å®šç¾© *) 
 open RedBlack 
-(* open Tree *) (* Tree ¥â¥¸¥å¡¼¥ë¤ò»È¤¦¾ì¹ç¤Ï¤³¤Á¤é¤ò»ÈÍÑ¤¹¤ë *) 
+(* open Tree *) (* Tree ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ä½¿ã†å ´åˆã¯ã“ã¡ã‚‰ã‚’ä½¿ç”¨ã™ã‚‹ *) 
  
-(* ¥°¥é¥Õ¤ÎÃæ¤ÎÀá¡Ê±Ø¡Ë¤òÉ½¤¹·¿ *) 
-(* ¤¿¤À¤·¡¢¤³¤³¤Ç¤Ï dijkstra_main ¤Î·ë²Ì¤ò³ÊÇ¼¤¹¤ë¤¿¤á¤Ë¤·¤«»È¤Ã¤Æ¤¤¤Ê¤¤ *) 
+(* ã‚°ãƒ©ãƒ•ã®ä¸­ã®ç¯€ï¼ˆé§…ï¼‰ã‚’è¡¨ã™å‹ *) 
+(* ãŸã ã—ã€ã“ã“ã§ã¯ dijkstra_main ã®çµæœã‚’æ ¼ç´ã™ã‚‹ãŸã‚ã«ã—ã‹ä½¿ã£ã¦ã„ãªã„ *) 
 type eki_t = { 
-  namae        : string;       (* ±ØÌ¾¡Ê´Á»ú¡Ë *) 
-  saitan_kyori : float;        (* ºÇÃ»µ÷Î¥ *) 
-  temae_list   : string list;  (* ¼êÁ°¤Î±ØÌ¾¡Ê´Á»ú¡Ë¤Î¥ê¥¹¥È *) 
+  namae        : string;       (* é§…åï¼ˆæ¼¢å­—ï¼‰ *) 
+  saitan_kyori : float;        (* æœ€çŸ­è·é›¢ *) 
+  temae_list   : string list;  (* æ‰‹å‰ã®é§…åï¼ˆæ¼¢å­—ï¼‰ã®ãƒªã‚¹ãƒˆ *) 
 } 
  
-(* ±Ø´Ö¾ğÊó¤òÉ½¤¹ÌÚ¤Î·¿¡£°Ê²¼¤Î¥³¥á¥ó¥È¤Ç¤Ï ekikan_tree_t ¤Èµ­½Ò *) 
+(* é§…é–“æƒ…å ±ã‚’è¡¨ã™æœ¨ã®å‹ã€‚ä»¥ä¸‹ã®ã‚³ãƒ¡ãƒ³ãƒˆã§ã¯ ekikan_tree_t ã¨è¨˜è¿° *) 
 (* type ekikan_tree_t = (string, (string * float) list) Tree.t *) 
  
-(* ÌÜÅª¡§½ÅÊ£¤ò¼è¤ê½ü¤­¡¢³ÆÅÀ¤ÎÀÜÂ³¾ğÊó¤ò¼¨¤¹ÌÚ ekikan_tree ¤òºî¤ë¡£*) 
-(* ±Ø´Ö¾ğÊó¤Î¤ß¤«¤é¹½ÃÛ¤·¡¢±Ø¾ğÊó¤Ï»È¤ï¤Ê¤¤¡£*) 
+(* ç›®çš„ï¼šé‡è¤‡ã‚’å–ã‚Šé™¤ãã€å„ç‚¹ã®æ¥ç¶šæƒ…å ±ã‚’ç¤ºã™æœ¨ ekikan_tree ã‚’ä½œã‚‹ã€‚*) 
+(* é§…é–“æƒ…å ±ã®ã¿ã‹ã‚‰æ§‹ç¯‰ã—ã€é§…æƒ…å ±ã¯ä½¿ã‚ãªã„ã€‚*) 
 (* make_ekikan_tree : ekikan_t list -> ekikan_tree_t *) 
 let make_ekikan_tree ekikan_list = 
   let insert ekikan_tree kiten shuten kyori = 
@@ -32,16 +32,16 @@ let make_ekikan_tree ekikan_list =
     insert (insert ekikan_tree k s r) s k r in 
   List.fold_left insert_ekikan empty ekikan_list 
  
-(* Ì¤³ÎÄê±Ø¤Î¾ğÊó¤òÉ½¤¹¥Ò¡¼¥×¤Î·¿¡£°Ê²¼¤Î¥³¥á¥ó¥È¤Ç¤Ï heap_t ¤Èµ­½Ò *) 
-(* type heap_t = (float,			ºÇÃ»µ÷Î¥ 
-		  string *			±ØÌ¾ 
-		  string list *			¼êÁ°¥ê¥¹¥È 
+(* æœªç¢ºå®šé§…ã®æƒ…å ±ã‚’è¡¨ã™ãƒ’ãƒ¼ãƒ—ã®å‹ã€‚ä»¥ä¸‹ã®ã‚³ãƒ¡ãƒ³ãƒˆã§ã¯ heap_t ã¨è¨˜è¿° *) 
+(* type heap_t = (float,			æœ€çŸ­è·é›¢ 
+		  string *			é§…å 
+		  string list *			æ‰‹å‰ãƒªã‚¹ãƒˆ 
 		 ) Heap.t *) 
  
-(* ³Æ±Ø¤Î¥Ò¡¼¥×Ãæ¤Î°ÌÃÖ¤òÉ½¤¹ÌÚ¤Î·¿¡£°Ê²¼¤Î¥³¥á¥ó¥È¤Ç¤Ï index_tree_t ¤Èµ­½Ò *) 
+(* å„é§…ã®ãƒ’ãƒ¼ãƒ—ä¸­ã®ä½ç½®ã‚’è¡¨ã™æœ¨ã®å‹ã€‚ä»¥ä¸‹ã®ã‚³ãƒ¡ãƒ³ãƒˆã§ã¯ index_tree_t ã¨è¨˜è¿° *) 
 (* type index_tree_t = (string, index_t) Tree.t *) 
  
-(* ÌÜÅª¡§ekikan_tree ¤«¤é eki_heap ¤È index_tree ¤òºî¤ê¡¢kiten ¤ò½é´ü²½¤¹¤ë *) 
+(* ç›®çš„ï¼šekikan_tree ã‹ã‚‰ eki_heap ã¨ index_tree ã‚’ä½œã‚Šã€kiten ã‚’åˆæœŸåŒ–ã™ã‚‹ *) 
 (* make_eki_heap_and_index_tree : 
 	string -> ekikan_tree_t -> heap_t * index_tree_t *) 
 let make_eki_heap_and_index_tree kiten ekikan_tree = 
@@ -53,11 +53,11 @@ let make_eki_heap_and_index_tree kiten ekikan_tree =
 						  else []) in 
 	      let index_tree' = insert index_tree k index in 
 	      (heap, index_tree')) 
-	   ((Heap.create (length ekikan_tree) 0. ("±ØÌ¾", [])), 
+	   ((Heap.create (length ekikan_tree) 0. ("é§…å", [])), 
 	    empty) 
 	   ekikan_tree 
  
-(* ÌÜÅª¡§³ÎÄê¤·¤¿±Ø¤ËÀÜÂ³¤·¤Æ¤¤¤ë±Ø¤ÎºÇÃ»µ÷Î¥¡¢¼êÁ°¥ê¥¹¥È¤ò¹¹¿·¤¹¤ë *) 
+(* ç›®çš„ï¼šç¢ºå®šã—ãŸé§…ã«æ¥ç¶šã—ã¦ã„ã‚‹é§…ã®æœ€çŸ­è·é›¢ã€æ‰‹å‰ãƒªã‚¹ãƒˆã‚’æ›´æ–°ã™ã‚‹ *) 
 (* koushin : string -> float -> string list -> 
 	     heap_t -> ekikan_tree_t -> index_tree_t -> heap_t *) 
 let koushin pn ps pt eki_heap ekikan_tree index_tree = 
@@ -75,7 +75,7 @@ let koushin pn ps pt eki_heap ekikan_tree index_tree =
 		 eki_heap 
 		 lst 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê±Ø¤Î¥ê¥¹¥È¤È±Ø´Ö¥ê¥¹¥È¤«¤é¡¢³Æ±Ø¤Ø¤ÎºÇÃ»Ï©¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šé§…ã®ãƒªã‚¹ãƒˆã¨é§…é–“ãƒªã‚¹ãƒˆã‹ã‚‰ã€å„é§…ã¸ã®æœ€çŸ­è·¯ã‚’æ±‚ã‚ã‚‹ *) 
 (* dijkstra_main : heap_t -> ekikan_tree_t -> index_tree_t -> eki_t list *) 
 let rec dijkstra_main eki_heap ekikan_tree index_tree = 
   if Heap.length eki_heap = 0 
@@ -85,25 +85,25 @@ let rec dijkstra_main eki_heap ekikan_tree index_tree =
        {namae = pn; saitan_kyori = ps; temae_list = pt} 
        :: dijkstra_main eki_heap2 ekikan_tree index_tree 
  
-(* ±ØÌ¾¤¬¸«¤Ä¤«¤é¤Ê¤«¤Ã¤¿¤³¤È¤ò¼¨¤¹Îã³° *) 
+(* é§…åãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã“ã¨ã‚’ç¤ºã™ä¾‹å¤– *) 
 exception No_such_station of string 
  
-(* ÌÜÅª¡§¥í¡¼¥Ş»ú¤Î±ØÌ¾¤ò´Á»ú¤ËÄ¾¤¹ *) 
-(* ¸«¤Ä¤«¤é¤Ê¤«¤Ã¤¿¤éÎã³° No_such_station ¤òµ¯¤³¤¹ *) 
+(* ç›®çš„ï¼šãƒ­ãƒ¼ãƒå­—ã®é§…åã‚’æ¼¢å­—ã«ç›´ã™ *) 
+(* è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã‚‰ä¾‹å¤– No_such_station ã‚’èµ·ã“ã™ *) 
 (* romaji_to_kanji : string -> ekimei_t list -> string *) 
 let rec romaji_to_kanji r0 ekimei_list = match ekimei_list with 
     [] -> raise (No_such_station (r0)) 
   | {kanji = k; kana = a; romaji = r; shozoku = s} :: rest -> 
       if r0 = r then k else romaji_to_kanji r0 rest 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ eki_list ¤«¤é shuten ¤Î¥ì¥³¡¼¥É¤òÃµ¤·½Ğ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ eki_list ã‹ã‚‰ shuten ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ¢ã—å‡ºã™ *) 
 (* find : string -> eki_t list -> eki_t *) 
 let rec find shuten eki_list = match eki_list with 
     [] -> {namae = ""; saitan_kyori = infinity; temae_list = []} 
   | ({namae = n; saitan_kyori = s; temae_list = t} as first) :: rest -> 
       if n = shuten then first else find shuten rest 
  
-(* ÌÜÅª¡§»ÏÅÀ¤È½ªÅÀ¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢ºÇÃ»Ï©¤òµá¤á¡¢½ªÅÀ¤Î¥ì¥³¡¼¥É¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå§‹ç‚¹ã¨çµ‚ç‚¹ã‚’å—ã‘å–ã£ãŸã‚‰ã€æœ€çŸ­è·¯ã‚’æ±‚ã‚ã€çµ‚ç‚¹ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™ *) 
 (* dijkstra : string -> string -> eki_t *) 
 let dijkstra romaji_kiten romaji_shuten = 
   let kiten = romaji_to_kanji romaji_kiten global_ekimei_list in 
@@ -114,28 +114,28 @@ let dijkstra romaji_kiten romaji_shuten =
   let eki_list = dijkstra_main eki_heap ekikan_tree index_tree in 
   find shuten eki_list 
  
-(* ÌÜÅª¡§eki_t ·¿¤Î¥ì¥³¡¼¥É¤ò¤­¤ì¤¤¤ËÉ½¼¨¤¹¤ë *) 
+(* ç›®çš„ï¼šeki_t å‹ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ãã‚Œã„ã«è¡¨ç¤ºã™ã‚‹ *) 
 (* print_eki : eki_t -> unit *) 
 let print_eki eki = match eki with 
   {namae = n; saitan_kyori = s; temae_list = lst} -> match lst with 
-      [] -> assert false (* ¤³¤Î¾ì¹ç¤Ïµ¯¤³¤ê¤¨¤Ê¤¤ *) 
-    | [a] -> print_string (a ^ "¡Ê" ^ string_of_float s ^ "km¡Ë"); 
+      [] -> assert false (* ã“ã®å ´åˆã¯èµ·ã“ã‚Šãˆãªã„ *) 
+    | [a] -> print_string (a ^ "ï¼ˆ" ^ string_of_float s ^ "kmï¼‰"); 
 	     print_newline () 
-    | a :: rest -> List.fold_right (fun b () -> print_string (b ^ "¡¢")) 
+    | a :: rest -> List.fold_right (fun b () -> print_string (b ^ "ã€")) 
 				   rest (); 
-		   print_string (a ^ "¡Ê" ^ string_of_float s ^ "km¡Ë"); 
+		   print_string (a ^ "ï¼ˆ" ^ string_of_float s ^ "kmï¼‰"); 
 		   print_newline () 
  
-(* ¥á¥¤¥ó´Ø¿ô *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•° *) 
 (* main : string -> string -> unit *) 
 let main romaji_kiten romaji_shuten = 
   let eki = dijkstra romaji_kiten romaji_shuten in 
   print_eki eki 
  
-(* ¥á¥¤¥ó´Ø¿ô¤Î¸Æ¤Ó½Ğ¤· *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•°ã®å‘¼ã³å‡ºã— *) 
 let _ = main Sys.argv.(1) Sys.argv.(2) 
  
-(* ¼Â¹ÔÎã 
+(* å®Ÿè¡Œä¾‹ 
  
 % cat Makefile 
 SOURCES = redBlack.mli redBlack.ml heap.mli heap.ml metro.ml ex23_3.ml 
@@ -145,11 +145,11 @@ include $(OCAMLMAKEFILE)
 % make 
 ... 
 % ./dijkstra shibuya gokokuji 
-½ÂÃ«¡¢É½»²Æ»¡¢ÀÄ»³°ìÃúÌÜ¡¢±ÊÅÄÄ®¡¢¹íÄ®¡¢»Ô¥öÃ«¡¢ÈÓÅÄ¶¶¡¢¹¾¸ÍÀî¶¶¡¢¸î¹ñ»û¡¢ 
-¡Ê9.8km¡Ë 
+æ¸‹è°·ã€è¡¨å‚é“ã€é’å±±ä¸€ä¸ç›®ã€æ°¸ç”°ç”ºã€éº¹ç”ºã€å¸‚ãƒ¶è°·ã€é£¯ç”°æ©‹ã€æ±Ÿæˆ¸å·æ©‹ã€è­·å›½å¯ºã€ 
+ï¼ˆ9.8kmï¼‰ 
 % ./dijkstra myogadani meguro 
-è¬²ÙÃ«¡¢¸å³Ú±à¡¢ÈÓÅÄ¶¶¡¢»Ô¥öÃ«¡¢¹íÄ®¡¢±ÊÅÄÄ®¡¢Î¯ÃÓ»³²¦¡¢Ï»ËÜÌÚ°ìÃúÌÜ¡¢ Ëã 
-ÉÛ½½ÈÖ¡¢Çò¶â¹âÎØ¡¢Çò¶âÂæ¡¢ÌÜ¹õ¡Ê12.7km¡Ë 
+èŒ—è·è°·ã€å¾Œæ¥½åœ’ã€é£¯ç”°æ©‹ã€å¸‚ãƒ¶è°·ã€éº¹ç”ºã€æ°¸ç”°ç”ºã€æºœæ± å±±ç‹ã€å…­æœ¬æœ¨ä¸€ä¸ç›®ã€ éº» 
+å¸ƒåç•ªã€ç™½é‡‘é«˜è¼ªã€ç™½é‡‘å°ã€ç›®é»’ï¼ˆ12.7kmï¼‰ 
 % 
  
 *) 

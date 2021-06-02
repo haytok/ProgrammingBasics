@@ -1,30 +1,30 @@
-(* ÌäÂê 14.1 *) 
+(* å•é¡Œ 14.1 *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È¤ÎÃæ¤«¤é¶ö¿ô¤Î¤ß¤òÈ´¤­½Ğ¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆã®ä¸­ã‹ã‚‰å¶æ•°ã®ã¿ã‚’æŠœãå‡ºã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* even : int list -> int *) 
 let even lst = 
-  (* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿À°¿ô¤¬¶ö¿ô¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë *) 
+  (* ç›®çš„ï¼šå—ã‘å–ã£ãŸæ•´æ•°ãŒå¶æ•°ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ *) 
   (* is_even : int -> bool *) 
   let is_even n = n mod 2 = 0 
   in List.filter is_even lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = even [] = [] 
 let test2 = even [3] = [] 
 let test3 = even [2] = [2] 
 let test4 = even [2; 1; 6; 4; 7] = [2; 6; 4] 
 let test5 = even [1; 2; 6; 4; 7] = [2; 6; 4] 
  
-(* ÌäÂê 14.2 *) 
+(* å•é¡Œ 14.2 *) 
  
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™å‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* gakusei_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* gakusei_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 
@@ -33,46 +33,46 @@ let lst4 = [{namae = "yoshida"; tensuu = 80; seiseki = "A"};
             {namae = "asai"; tensuu = 70; seiseki = "B"}; 
             {namae = "kaneko"; tensuu = 85; seiseki = "A"}] 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤ÁÀ®ÀÓ¤¬ A ¤Î¿Í¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡æˆç¸¾ãŒ A ã®äººã®æ•°ã‚’è¿”ã™ *) 
 (* count_A : gakusei_t list -> int *) 
 let count_A lst = 
-  (* ÌÜÅª¡§³ØÀ¸¤ÎÀ®ÀÓ¤¬ A ¤«¤É¤¦¤«¤òÄ´¤Ù¤ë *) 
+  (* ç›®çš„ï¼šå­¦ç”Ÿã®æˆç¸¾ãŒ A ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹ *) 
   (* is_A : gakusei_t -> bool *) 
   let is_A gakusei = match gakusei with 
     {namae = n; tensuu = t; seiseki = s} -> s = "A" 
   in List.length (List.filter is_A lst) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = count_A lst1 = 0 
 let test2 = count_A lst2 = 0 
 let test3 = count_A lst3 = 1 
 let test4 = count_A lst4 = 2 
  
-(* ÌäÂê 14.3 *) 
+(* å•é¡Œ 14.3 *) 
  
-(* ÌÜÅª¡§¥ê¥¹¥ÈÃæ¤ÎÊ¸»úÎó¤ò¤Ä¤Ê¤²¤¿Ê¸»úÎó¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šãƒªã‚¹ãƒˆä¸­ã®æ–‡å­—åˆ—ã‚’ã¤ãªã’ãŸæ–‡å­—åˆ—ã‚’è¿”ã™ *) 
 (* concat : string list -> string *) 
 let concat lst = 
-  (* ÌÜÅª¡§¤Õ¤¿¤Ä¤ÎÊ¸»úÎó¤ò¤Ä¤Ê¤²¤ë *) 
+  (* ç›®çš„ï¼šãµãŸã¤ã®æ–‡å­—åˆ—ã‚’ã¤ãªã’ã‚‹ *) 
   (* append_string : string -> string -> string *) 
   let append_string first rest_result = first ^ rest_result 
   in List.fold_right append_string lst "" 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = concat [] = "" 
-let test2 = concat ["½Õ"] = "½Õ" 
-let test3 = concat ["½Õ"; "²Æ"; "½©"; "Åß"] = "½Õ²Æ½©Åß" 
+let test2 = concat ["æ˜¥"] = "æ˜¥" 
+let test3 = concat ["æ˜¥"; "å¤"; "ç§‹"; "å†¬"] = "æ˜¥å¤ç§‹å†¬" 
  
-(* ÌäÂê 14.4 *) 
+(* å•é¡Œ 14.4 *) 
  
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™å‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* gakusei_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* gakusei_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 
@@ -81,16 +81,16 @@ let lst4 = [{namae = "yoshida"; tensuu = 80; seiseki = "A"};
             {namae = "asai"; tensuu = 70; seiseki = "B"}; 
             {namae = "kaneko"; tensuu = 85; seiseki = "A"}] 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿³ØÀ¸¥ê¥¹¥È lst ¤ÎÆÀÅÀ¤Î¹ç·×¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®å¾—ç‚¹ã®åˆè¨ˆã‚’è¿”ã™ *) 
 (* gakusei_sum : gakusei_t list -> int *) 
 let gakusei_sum lst = 
-  (* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿³ØÀ¸¥ê¥¹¥È lst ¤ÎÆÀÅÀ¤Î¹ç·×¤òÊÖ¤¹ *) 
+  (* ç›®çš„ï¼šå—ã‘å–ã£ãŸå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®å¾—ç‚¹ã®åˆè¨ˆã‚’è¿”ã™ *) 
   (* add_tokuten : gakusei_t -> int -> int *) 
   let add_tokuten gakusei rest_result = match gakusei with 
     {namae = n; tensuu = t; seiseki = s} -> t + rest_result 
   in List.fold_right add_tokuten lst 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = gakusei_sum lst1 = 0 
 let test2 = gakusei_sum lst2 = 70 
 let test3 = gakusei_sum lst3 = 155 

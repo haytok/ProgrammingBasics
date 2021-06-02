@@ -1,11 +1,11 @@
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™åž‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* ³ØÀ¸¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* å­¦ç”Ÿã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let gakusei1 = {namae="nakamura"; tensuu=90; seiseki="A"} 
 let gakusei2 = {namae="miyahara"; tensuu=80; seiseki="A"} 
 let gakusei3 = {namae="sato"; tensuu=75; seiseki="B"} 
@@ -13,7 +13,7 @@ let gakusei4 = {namae="idehara"; tensuu=70; seiseki="B"}
 let gakusei5 = {namae="tsubata"; tensuu=65; seiseki="C"} 
 let gakusei6 = {namae="asai"; tensuu=60; seiseki="C"} 
  
-(* ³ØÀ¸¤Î¥ê¥¹¥È¤ÎÎã *) 
+(* å­¦ç”Ÿã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [gakusei2] 
 let lst3 = [gakusei3; gakusei4] 
@@ -21,7 +21,7 @@ let lst4 = [gakusei4; gakusei5; gakusei1]
 let lst5 = [gakusei4; gakusei1; gakusei6; gakusei5; gakusei2; gakusei3] 
  
 (* 
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤Á³ÆÀ®ÀÓ¤Î¿Í¿ô¤ò½¸·×¤¹¤ë *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡å„æˆç¸¾ã®äººæ•°ã‚’é›†è¨ˆã™ã‚‹ *) 
 (* shukei : gakusei_t list -> int * int * int * int *) 
 let rec shukei lst = match lst with 
     [] -> (0, 0, 0, 0) 
@@ -34,7 +34,7 @@ let rec shukei lst = match lst with
                         else (a, b, c, d + 1) 
 *) 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤Á³ÆÀ®ÀÓ¤Î¿Í¿ô¤ò½¸·×¤¹¤ë *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡å„æˆç¸¾ã®äººæ•°ã‚’é›†è¨ˆã™ã‚‹ *) 
 (* shukei : gakusei_t list -> int * int * int * int *) 
 let rec shukei lst = match lst with 
     [] -> (0, 0, 0, 0) 
@@ -45,7 +45,7 @@ let rec shukei lst = match lst with
       else if s = "C" then (a, b, c + 1, d) 
       else (a, b, c, d + 1) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = shukei lst1 = (0, 0, 0, 0) 
 let test2 = shukei lst2 = (1, 0, 0, 0) 
 let test3 = shukei lst3 = (0, 2, 0, 0) 

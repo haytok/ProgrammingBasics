@@ -1,15 +1,15 @@
-(* ¤¢¤é¤«¤¸¤á ex10_7.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex10_7.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex10_7.ml" 
  
-(* person_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* person_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [person1] 
 let lst2 = [person2] 
 let lst3 = [person1; person2; person3] 
 let lst4 = [person2; person1; person1] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§¿Í¤Î¥ê¥¹¥È lst ¤Î¤¦¤ÁºÇÂ¿¤Î·ì±Õ·¿¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šäººã®ãƒªã‚¹ãƒˆ lst ã®ã†ã¡æœ€å¤šã®è¡€æ¶²å‹ã‚’è¿”ã™ *) 
 (* saita_ketsueki : person_t list -> string *) 
 let saita_ketsueki lst = 
   let (a, o, b, ab) = ketsueki_shukei lst in 
@@ -19,9 +19,9 @@ let saita_ketsueki lst =
   else if saidai = b then "B" 
   else "AB" 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = saita_ketsueki lst1 = "A" 
 let test2 = saita_ketsueki lst2 = "B" 
 let test3 = saita_ketsueki lst3 = "A" 
-  (* Æ±ÅÀ¤Î¤È¤­¤Ï A, O, B, AB ¤Î½ç¤Ë¸«¤Ä¤«¤Ã¤¿¤â¤Î¤¬ÊÖ¤µ¤ì¤Æ¤·¤Ş¤¦ *) 
+  (* åŒç‚¹ã®ã¨ãã¯ A, O, B, AB ã®é †ã«è¦‹ã¤ã‹ã£ãŸã‚‚ã®ãŒè¿”ã•ã‚Œã¦ã—ã¾ã† *) 
 let test4 = saita_ketsueki lst4 = "A" 

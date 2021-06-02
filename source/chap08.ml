@@ -2,7 +2,7 @@
  
 ("asai", 70) ;; 
  
-(* 8.5 *) (* ¤³¤³¤ÇÀë¸À¤·¤Ê¤¤¤È 8.2 °Ê²¼¤¬¼Â¹Ô¤Ç¤­¤Ê¤¤ *) 
+(* 8.5 *) (* ã“ã“ã§å®£è¨€ã—ãªã„ã¨ 8.2 ä»¥ä¸‹ãŒå®Ÿè¡Œã§ããªã„ *) 
  
 type gakusei_t = { 
   namae : string; 
@@ -22,8 +22,8 @@ type gakusei_t = {
  
 let tsuuchi gakusei = match gakusei with 
   {namae = n; tensuu = t; seiseki = s} -> 
-    n ^ " ¤µ¤ó¤Ï " ^ string_of_int t ^ " ÅÀ¤Ç¡¢À®ÀÓ¤Ï " ^ 
-    s ^ " ¤Ç¤¹¡£" ;; 
+    n ^ " ã•ã‚“ã¯ " ^ string_of_int t ^ " ç‚¹ã§ã€æˆç¸¾ã¯ " ^ 
+    s ^ " ã§ã™ã€‚" ;; 
 tsuuchi {namae="asai"; tensuu=70; seiseki="B"} ;; 
 let hyouka gakusei = match gakusei with 
   {namae = n; tensuu = t; seiseki = s} -> 
@@ -41,7 +41,7 @@ asai.namae ;;
 asai.tensuu ;; 
 asai.seiseki ;; 
  
-(* 8.5 *) (* 8.1 ¤Î¼¡¤ò»²¾È *) 
+(* 8.5 *) (* 8.1 ã®æ¬¡ã‚’å‚ç…§ *) 
  
 (* 8.6 *) 
  

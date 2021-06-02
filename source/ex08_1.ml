@@ -1,32 +1,32 @@
-(* ËÜ¤Ë´Ø¤¹¤ë¾ğÊó¤ò³ÊÇ¼¤¹¤ë¥ì¥³¡¼¥É *) 
+(* æœ¬ã«é–¢ã™ã‚‹æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰ *) 
 type book_t = { 
-  title : string;	(* ¥¿¥¤¥È¥ë *) 
-  author : string;	(* Ãø¼Ô *) 
-  publisher : string;	(* ½ĞÈÇ¼Ò *) 
-  price : int;		(* ÃÍÃÊ *) 
+  title : string;	(* ã‚¿ã‚¤ãƒˆãƒ« *) 
+  author : string;	(* è‘—è€… *) 
+  publisher : string;	(* å‡ºç‰ˆç¤¾ *) 
+  price : int;		(* å€¤æ®µ *) 
   isbn : string;	(* ISBN *) 
 } 
  
 let book1 = { 
-  title = "¥×¥í¥°¥é¥ß¥ó¥°¤Î´ğÁÃ"; 
-  author = "Àõ°æ·ò°ì"; 
-  publisher = "¥µ¥¤¥¨¥ó¥¹¼Ò"; 
+  title = "ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°ã®åŸºç¤"; 
+  author = "æµ…äº•å¥ä¸€"; 
+  publisher = "ã‚µã‚¤ã‚¨ãƒ³ã‚¹ç¤¾"; 
   price = 2300; 
   isbn = "978-4-7819-1160-1"; 
 } 
  
 let book2 = { 
-  title = "¥¢¥ë¥´¥ê¥º¥à¤È¥Ç¡¼¥¿¹½Â¤"; 
-  author = "ÀĞÈªÀ¶"; 
-  publisher = "´äÇÈ½ñÅ¹"; 
+  title = "ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã¨ãƒ‡ãƒ¼ã‚¿æ§‹é€ "; 
+  author = "çŸ³ç•‘æ¸…"; 
+  publisher = "å²©æ³¢æ›¸åº—"; 
   price = 3900; 
   isbn = "4-00-010343-1"; 
 } 
  
 let book3 = { 
-  title = "¥×¥í¥°¥é¥ß¥ó¥°¸À¸ì Standard ML ÆşÌç"; 
-  author = "ÂçËÙ½ß"; 
-  publisher = "¶¦Î©½ĞÈÇ"; 
+  title = "ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª Standard ML å…¥é–€"; 
+  author = "å¤§å €æ·³"; 
+  publisher = "å…±ç«‹å‡ºç‰ˆ"; 
   price = 3800; 
   isbn = "4-320-12024-8"; 
 } 

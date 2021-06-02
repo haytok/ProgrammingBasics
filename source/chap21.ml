@@ -1,22 +1,22 @@
 (* 21.1 *) 
  
-print_string "¤³¤ó¤Ë¤Á¤Ï" ;; 
-"¿·" ^ "²£ÉÍ" ;; 
+print_string "ã“ã‚“ã«ã¡ã¯" ;; 
+"æ–°" ^ "æ¨ªæµœ" ;; 
  
 (* 21.2 *) 
  
 () ;; 
 print_string ;; 
-print_string "¤³¤ó¤Ë¤Á¤Ï" ;; 
+print_string "ã“ã‚“ã«ã¡ã¯" ;; 
 print_newline ;; 
 print_newline () ;; 
  
 (* 21.3 *) 
  
 let saitan_kyori = 3.2 ;; 
-(print_string "ºÇÃ»µ÷Î¥¤Ï "; 
+(print_string "æœ€çŸ­è·é›¢ã¯ "; 
  print_float saitan_kyori; 
- print_string "km ¤Ç¤¹¡£"; 
+ print_string "km ã§ã™ã€‚"; 
  print_newline (); 
  0) ;; 
 (1+2; 3+4) ;; 

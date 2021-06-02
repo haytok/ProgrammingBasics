@@ -1,20 +1,20 @@
-(* ¤¢¤é¤«¤¸¤á ex08_5.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_5.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_5.ml" 
  
-let ekimei1 = {kanji="è¬²ÙÃ«"; kana="¤ß¤ç¤¦¤¬¤À¤Ë"; 
-	       romaji="myogadani"; shozoku="´İ¥ÎÆâÀş"} 
-let ekimei2 = {kanji="½ÂÃ«"; kana="¤·¤Ö¤ä"; 
-	       romaji="shibuya"; shozoku="¶äºÂÀş"} 
-let ekimei3 = {kanji="Âç¼êÄ®"; kana="¤ª¤ª¤Æ¤Ş¤Á"; 
-	       romaji="otemachi"; shozoku="ÀéÂåÅÄÀş"} 
+let ekimei1 = {kanji="èŒ—è·è°·"; kana="ã¿ã‚‡ã†ãŒã ã«"; 
+	       romaji="myogadani"; shozoku="ä¸¸ãƒå†…ç·š"} 
+let ekimei2 = {kanji="æ¸‹è°·"; kana="ã—ã¶ã‚„"; 
+	       romaji="shibuya"; shozoku="éŠ€åº§ç·š"} 
+let ekimei3 = {kanji="å¤§æ‰‹ç”º"; kana="ãŠãŠã¦ã¾ã¡"; 
+	       romaji="otemachi"; shozoku="åƒä»£ç”°ç·š"} 
  
-(* ÌÜÅª¡§ekimei_t ·¿¤Î¥Ç¡¼¥¿¤òÊ¸»úÎó¤ÇÊÖ¤¹ *) 
+(* ç›®çš„ï¼šekimei_t å‹ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ–‡å­—åˆ—ã§è¿”ã™ *) 
 (* hyoji : ekimei_t -> string *) 
 let hyoji ekimei = match ekimei with 
   {kanji = k; kana = a; romaji = r; shozoku = s} -> 
-    s ^ "¡¢" ^ k ^ "¡Ê" ^ a ^ "¡Ë" 
+    s ^ "ã€" ^ k ^ "ï¼ˆ" ^ a ^ "ï¼‰" 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = hyoji ekimei1 = "´İ¥ÎÆâÀş¡¢è¬²ÙÃ«¡Ê¤ß¤ç¤¦¤¬¤À¤Ë¡Ë" 
-let test2 = hyoji ekimei2 = "¶äºÂÀş¡¢½ÂÃ«¡Ê¤·¤Ö¤ä¡Ë" 
-let test3 = hyoji ekimei3 = "ÀéÂåÅÄÀş¡¢Âç¼êÄ®¡Ê¤ª¤ª¤Æ¤Ş¤Á¡Ë" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = hyoji ekimei1 = "ä¸¸ãƒå†…ç·šã€èŒ—è·è°·ï¼ˆã¿ã‚‡ã†ãŒã ã«ï¼‰" 
+let test2 = hyoji ekimei2 = "éŠ€åº§ç·šã€æ¸‹è°·ï¼ˆã—ã¶ã‚„ï¼‰" 
+let test3 = hyoji ekimei3 = "åƒä»£ç”°ç·šã€å¤§æ‰‹ç”ºï¼ˆãŠãŠã¦ã¾ã¡ï¼‰" 

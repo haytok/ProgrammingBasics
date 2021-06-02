@@ -1,19 +1,19 @@
 (* 
-(* ¥á¥¤¥ó´Ø¿ô *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•° *) 
 (* main : unit -> unit *) 
 let main () = 
-  let kekka = Fac.f 10 in (* 10 ¤Î³¬¾è¤òµá¤á *) 
-  print_int kekka         (* ·ë²Ì¤òÉ½¼¨¤¹¤ë  *) 
+  let kekka = Fac.f 10 in (* 10 ã®éšä¹—ã‚’æ±‚ã‚ *) 
+  print_int kekka         (* çµæœã‚’è¡¨ç¤ºã™ã‚‹  *) 
 *) 
  
-(* ¥á¥¤¥ó´Ø¿ô *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•° *) 
 (* main : unit -> unit *) 
 let main () = 
-  let kekka = Fac.f 10 in       (* 10 ¤Î³¬¾è¤òµá¤á *) 
-  (print_string "10 ¤Î³¬¾è¤Ï "; 
-   print_int kekka;             (* ·ë²Ì¤òÉ½¼¨¤·    *) 
-   print_string " ¤Ç¤¹¡£"; 
-   print_newline ())            (* ²ş¹Ô¤¹¤ë        *) 
+  let kekka = Fac.f 10 in       (* 10 ã®éšä¹—ã‚’æ±‚ã‚ *) 
+  (print_string "10 ã®éšä¹—ã¯ "; 
+   print_int kekka;             (* çµæœã‚’è¡¨ç¤ºã—    *) 
+   print_string " ã§ã™ã€‚"; 
+   print_newline ())            (* æ”¹è¡Œã™ã‚‹        *) 
  
-(* ¥á¥¤¥ó´Ø¿ô¤Î¸Æ¤Ó½Ğ¤· *) 
+(* ãƒ¡ã‚¤ãƒ³é–¢æ•°ã®å‘¼ã³å‡ºã— *) 
 let _ = main () 

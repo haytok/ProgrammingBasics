@@ -1,16 +1,16 @@
-(* int list ¤Ï 
-     - []              ¶õ¥ê¥¹¥È¡¢¤¢¤ë¤¤¤Ï 
-     - first :: rest   ºÇ½é¤ÎÍ×ÁÇ¤¬ first ¤Ç»Ä¤ê¤Î¥ê¥¹¥È¤¬ rest 
-   ¤È¤¤¤¦·Á *) 
+(* int list ã¯ 
+     - []              ç©ºãƒªã‚¹ãƒˆã€ã‚ã‚‹ã„ã¯ 
+     - first :: rest   æœ€åˆã®è¦ç´ ãŒ first ã§æ®‹ã‚Šã®ãƒªã‚¹ãƒˆãŒ rest 
+   ã¨ã„ã†å½¢ *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤Ë 0 ¤¬´Þ¤Þ¤ì¤Æ¤¤¤ë¤«¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã« 0 ãŒå«ã¾ã‚Œã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹ *) 
 (* contain_zero : int list -> bool *) 
 let rec contain_zero lst = match lst with 
     [] -> false 
   | first :: rest -> if first = 0 then true 
                                   else contain_zero rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = contain_zero [] = false 
 let test2 = contain_zero [0; 2] = true 
 let test3 = contain_zero [1; 2] = false 

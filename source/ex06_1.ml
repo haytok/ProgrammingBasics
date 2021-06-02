@@ -1,21 +1,21 @@
 (* 
 # let square x = x * x ;; 
 val square : int -> int = <fun> 
-# square 3. ;;				(* 3. ¤Ç¤Ï¤Ê¤¯ 3 ¤¬Àµ¤·¤¤ *) 
+# square 3. ;;				(* 3. ã§ã¯ãªã 3 ãŒæ­£ã—ã„ *) 
          ^^ 
 This expression has type float but is here used with type int 
-# let circle = 2. *. pi *. r ;;		(* circle ¤Î¸å¤Ë r ¤¬Â­¤ê¤Ê¤¤ *) 
+# let circle = 2. *. pi *. r ;;		(* circle ã®å¾Œã« r ãŒè¶³ã‚Šãªã„ *) 
                      ^^ 
 Unbound value pi 
-# circle 2. ;;				(* ¾å¤Ç¥¨¥é¡¼¤Ë¤Ê¤Ã¤¿¤¿¤á *) 
-  ^^^^^^				(* circle ¤¬ÄêµÁ¤µ¤ì¤Æ¤¤¤Ê¤¤ *) 
+# circle 2. ;;				(* ä¸Šã§ã‚¨ãƒ©ãƒ¼ã«ãªã£ãŸãŸã‚ *) 
+  ^^^^^^				(* circle ãŒå®šç¾©ã•ã‚Œã¦ã„ãªã„ *) 
 Unbound value circle 
-# let TV bangumi youbi =		(* ÂçÊ¸»ú¤Î´Ø¿ô¤ÏÄêµÁ¤Ç¤­¤Ê¤¤ *) 
+# let TV bangumi youbi =		(* å¤§æ–‡å­—ã®é–¢æ•°ã¯å®šç¾©ã§ããªã„ *) 
                  ^^^^^ 
-    bangumi ^ "¤Ï" ^ youbi ^ "¤ËÊü±Ç¤Ç¤¹¡£" ;; 
+    bangumi ^ "ã¯" ^ youbi ^ "ã«æ”¾æ˜ ã§ã™ã€‚" ;; 
 Syntax error 
-# TV "¥İ¥±¥â¥ó" "ÌÚÍËÆü" ;;		(* ¾å¤Ç¥¨¥é¡¼¤Ë¤Ê¤Ã¤¿¤¿¤á *) 
-                ^^^^^^^^		(* ´Ø¿ô¤¬ÄêµÁ¤µ¤ì¤Æ¤¤¤Ê¤¤ *) 
+# TV "ãƒã‚±ãƒ¢ãƒ³" "æœ¨æ›œæ—¥" ;;		(* ä¸Šã§ã‚¨ãƒ©ãƒ¼ã«ãªã£ãŸãŸã‚ *) 
+                ^^^^^^^^		(* é–¢æ•°ãŒå®šç¾©ã•ã‚Œã¦ã„ãªã„ *) 
 Syntax error 
 # 
 *) 

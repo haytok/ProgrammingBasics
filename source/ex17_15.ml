@@ -1,12 +1,12 @@
-(* ¤¢¤é¤«¤¸¤á ex10_10.ml, ex15_5.ml, ex17_14.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex10_10.ml" (* romaji_to_kanji ¤ÎÄêµÁ *) 
-#use "ex15_5.ml" (* saitan_wo_bunri ¤ÎÄêµÁ *) 
-#use "ex17_14.ml" (* get_ekikan_kyori ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex10_10.ml, ex15_5.ml, ex17_14.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex10_10.ml" (* romaji_to_kanji ã®å®šç¾© *) 
+#use "ex15_5.ml" (* saitan_wo_bunri ã®å®šç¾© *) 
+#use "ex17_14.ml" (* get_ekikan_kyori ã®å®šç¾© *) 
  
-(* ex14_12.ml ¤òÆÉ¤ß¹ş¤à¤È ekimei_t ·¿¡¢eki_t ·¿¤ÎÄêµÁ¤¬£²ÅÙ¡¢ÆÉ¤ß¹ş¤Ş¤ì¤Æ 
-   ¤·¤Ş¤¦¤Î¤Ç make_initial_eki_list ¤ÎÄêµÁ¤ò°Ê²¼¤ËÄ¾ÀÜ¡¢Å¸³« *) 
+(* ex14_12.ml ã‚’èª­ã¿è¾¼ã‚€ã¨ ekimei_t å‹ã€eki_t å‹ã®å®šç¾©ãŒï¼’åº¦ã€èª­ã¿è¾¼ã¾ã‚Œã¦ 
+   ã—ã¾ã†ã®ã§ make_initial_eki_list ã®å®šç¾©ã‚’ä»¥ä¸‹ã«ç›´æ¥ã€å±•é–‹ *) 
  
-(* ÌÜÅª¡§ekimei list ¤«¤é eki list ¤òºî¤ë *) 
+(* ç›®çš„ï¼šekimei list ã‹ã‚‰ eki list ã‚’ä½œã‚‹ *) 
 (* make_initial_eki_list : ekimei_t list -> string -> eki_t list *) 
 let make_initial_eki_list ekimei_list kiten = 
   List.map (fun ekimei -> match ekimei with 
@@ -16,7 +16,7 @@ let make_initial_eki_list ekimei_list kiten =
 	       else {namae = k; saitan_kyori = infinity; temae_list = []}) 
 	   ekimei_list 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê¤Î±Ø¤Î¥ê¥¹¥È v ¤òÉ¬Í×¤Ë±ş¤¸¤Æ¹¹¿·¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šã®é§…ã®ãƒªã‚¹ãƒˆ v ã‚’å¿…è¦ã«å¿œã˜ã¦æ›´æ–°ã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* koushin : eki_t -> eki_t list -> ekikan_tree_t -> eki_t list *) 
 let koushin p v ekikan_tree = match p with 
   {namae = pn; saitan_kyori = ps; temae_list = pt} -> 
@@ -31,7 +31,7 @@ let koushin p v ekikan_tree = match p with
 		 else q) 
 	     v 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê±Ø¤Î¥ê¥¹¥È¤È±Ø´Ö¥ê¥¹¥È¤«¤é¡¢³Æ±Ø¤Ø¤ÎºÇÃ»Ï©¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šé§…ã®ãƒªã‚¹ãƒˆã¨é§…é–“ãƒªã‚¹ãƒˆã‹ã‚‰ã€å„é§…ã¸ã®æœ€çŸ­è·¯ã‚’æ±‚ã‚ã‚‹ *) 
 (* dijkstra_main : eki_t list -> ekikan_tree_t -> eki_t list *) 
 let rec dijkstra_main eki_list ekikan_tree = match eki_list with 
     [] -> [] 
@@ -40,14 +40,14 @@ let rec dijkstra_main eki_list ekikan_tree = match eki_list with
       let eki_list2 = koushin saitan nokori ekikan_tree in 
       saitan :: dijkstra_main eki_list2 ekikan_tree 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ eki_list ¤«¤é shuten ¤Î¥ì¥³¡¼¥É¤òÃµ¤·½Ğ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ eki_list ã‹ã‚‰ shuten ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ¢ã—å‡ºã™ *) 
 (* find : string -> eki_t list -> eki_t *) 
 let rec find shuten eki_list = match eki_list with 
     [] -> {namae = ""; saitan_kyori = infinity; temae_list = []} 
   | ({namae = n; saitan_kyori = s; temae_list = t} as first) :: rest -> 
       if n = shuten then first else find shuten rest 
  
-(* ÌÜÅª¡§»ÏÅÀ¤È½ªÅÀ¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢ºÇÃ»Ï©¤òµá¤á¡¢½ªÅÀ¤Î¥ì¥³¡¼¥É¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå§‹ç‚¹ã¨çµ‚ç‚¹ã‚’å—ã‘å–ã£ãŸã‚‰ã€æœ€çŸ­è·¯ã‚’æ±‚ã‚ã€çµ‚ç‚¹ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™ *) 
 (* dijkstra : string -> string -> eki_t *) 
 let dijkstra romaji_kiten romaji_shuten = 
   let kiten = romaji_to_kanji romaji_kiten global_ekimei_list in 
@@ -57,18 +57,18 @@ let dijkstra romaji_kiten romaji_shuten =
   let eki_list2 = dijkstra_main eki_list global_ekikan_tree in 
   find shuten eki_list2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = dijkstra "shibuya" "gokokuji" = 
-  {namae = "¸î¹ñ»û"; saitan_kyori = 9.8; 
+  {namae = "è­·å›½å¯º"; saitan_kyori = 9.8; 
    temae_list = 
-     ["¸î¹ñ»û"; "¹¾¸ÍÀî¶¶"; "ÈÓÅÄ¶¶"; "»Ô¥öÃ«"; "¹íÄ®"; "±ÊÅÄÄ®"; 
-      "ÀÄ»³°ìÃúÌÜ"; "É½»²Æ»"; "½ÂÃ«"]} 
+     ["è­·å›½å¯º"; "æ±Ÿæˆ¸å·æ©‹"; "é£¯ç”°æ©‹"; "å¸‚ãƒ¶è°·"; "éº¹ç”º"; "æ°¸ç”°ç”º"; 
+      "é’å±±ä¸€ä¸ç›®"; "è¡¨å‚é“"; "æ¸‹è°·"]} 
 let test2 = dijkstra "myogadani" "meguro" = 
-  {namae = "ÌÜ¹õ"; saitan_kyori = 12.7000000000000028; 
+  {namae = "ç›®é»’"; saitan_kyori = 12.7000000000000028; 
    temae_list = 
-     ["ÌÜ¹õ"; "Çò¶âÂæ"; "Çò¶â¹âÎØ"; "ËãÉÛ½½ÈÖ"; "Ï»ËÜÌÚ°ìÃúÌÜ"; "Î¯ÃÓ»³²¦"; 
-      "±ÊÅÄÄ®"; "¹íÄ®"; "»Ô¥öÃ«"; "ÈÓÅÄ¶¶"; "¸å³Ú±à"; "è¬²ÙÃ«"]} 
+     ["ç›®é»’"; "ç™½é‡‘å°"; "ç™½é‡‘é«˜è¼ª"; "éº»å¸ƒåç•ª"; "å…­æœ¬æœ¨ä¸€ä¸ç›®"; "æºœæ± å±±ç‹"; 
+      "æ°¸ç”°ç”º"; "éº¹ç”º"; "å¸‚ãƒ¶è°·"; "é£¯ç”°æ©‹"; "å¾Œæ¥½åœ’"; "èŒ—è·è°·"]} 
  
-(* ºÇÃ»µ÷Î¥¤¬ 12.7 ¤Ë¤Ê¤é¤Ê¤¤¤Î¤Ï¡¢¾®¿ô¤ò£²¿Ê¿ô¤ÇÉ½¸½¤¹¤ë¤È¤­¤Î¸íº¹¤Î¤¿¤á¡£ 
-   ¤³¤³¤Ç¤Ï¥Æ¥¹¥È·ë²Ì¤â½ñ¤¤¤¿¤¬¡¢¤³¤ì¤ò¥Æ¥¹¥ÈºîÀ®»ş¤ËÍ½ÁÛ¤¹¤ë¤Î¤ÏÌµÍı¤Ê¤Î¤Ç 
-   ¥Æ¥¹¥È¤È¤·¤Æ½ñ¤¯°ÕÌ£¤Ï¤¢¤Ş¤ê¤Ê¤¤¡£*) 
+(* æœ€çŸ­è·é›¢ãŒ 12.7 ã«ãªã‚‰ãªã„ã®ã¯ã€å°æ•°ã‚’ï¼’é€²æ•°ã§è¡¨ç¾ã™ã‚‹ã¨ãã®èª¤å·®ã®ãŸã‚ã€‚ 
+   ã“ã“ã§ã¯ãƒ†ã‚¹ãƒˆçµæœã‚‚æ›¸ã„ãŸãŒã€ã“ã‚Œã‚’ãƒ†ã‚¹ãƒˆä½œæˆæ™‚ã«äºˆæƒ³ã™ã‚‹ã®ã¯ç„¡ç†ãªã®ã§ 
+   ãƒ†ã‚¹ãƒˆã¨ã—ã¦æ›¸ãæ„å‘³ã¯ã‚ã¾ã‚Šãªã„ã€‚*) 

@@ -1,11 +1,11 @@
-(* ¤¢¤é¤«¤¸¤á ex10_11.ml, ex15_5.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex10_11.ml" (* get_ekikan_kyori ¤ÎÄêµÁ *) 
-#use "ex15_5.ml" (* saitan_wo_bunri ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex10_11.ml, ex15_5.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex10_11.ml" (* get_ekikan_kyori ã®å®šç¾© *) 
+#use "ex15_5.ml" (* saitan_wo_bunri ã®å®šç¾© *) 
  
-(* ex16_3.ml ¤òÆÉ¤ß¹ş¤à¤È eki_t ·¿¤ÎÄêµÁ¤¬£²ÅÙ¡¢ÆÉ¤ß¹ş¤Ş¤ì¤Æ¤·¤Ş¤¦¤Î¤Ç 
-   koushin ¤ÎÄêµÁ¤ò°Ê²¼¤ËÄ¾ÀÜ¡¢Å¸³« *) 
+(* ex16_3.ml ã‚’èª­ã¿è¾¼ã‚€ã¨ eki_t å‹ã®å®šç¾©ãŒï¼’åº¦ã€èª­ã¿è¾¼ã¾ã‚Œã¦ã—ã¾ã†ã®ã§ 
+   koushin ã®å®šç¾©ã‚’ä»¥ä¸‹ã«ç›´æ¥ã€å±•é–‹ *) 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê¤Î±Ø¤Î¥ê¥¹¥È v ¤òÉ¬Í×¤Ë±ş¤¸¤Æ¹¹¿·¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šã®é§…ã®ãƒªã‚¹ãƒˆ v ã‚’å¿…è¦ã«å¿œã˜ã¦æ›´æ–°ã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* koushin : eki_t -> eki_t list -> ekikan_t list -> eki_t list *) 
 let koushin p v ekikan_list = match p with 
   {namae = pn; saitan_kyori = ps; temae_list = pt} -> 
@@ -20,7 +20,7 @@ let koushin p v ekikan_list = match p with
 		 else q) 
 	     v 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê±Ø¤Î¥ê¥¹¥È¤È±Ø´Ö¥ê¥¹¥È¤«¤é¡¢³Æ±Ø¤Ø¤ÎºÇÃ»Ï©¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šé§…ã®ãƒªã‚¹ãƒˆã¨é§…é–“ãƒªã‚¹ãƒˆã‹ã‚‰ã€å„é§…ã¸ã®æœ€çŸ­è·¯ã‚’æ±‚ã‚ã‚‹ *) 
 (* dijkstra_main : eki_t list -> ekikan_t list -> eki_t list *) 
 let rec dijkstra_main eki_list ekikan_list = match eki_list with 
     [] -> [] 
@@ -29,21 +29,21 @@ let rec dijkstra_main eki_list ekikan_list = match eki_list with
       let eki_list2 = koushin saitan nokori ekikan_list in 
       saitan :: dijkstra_main eki_list2 ekikan_list 
  
-(* eki_list2 ¤Ï eki_list ¤è¤êÄ¹¤µ¤¬É¬¤º¤Ò¤È¤ÄÃ»¤¤¤Î¤Ç¡¢Ää»ß¤¹¤ë *) 
+(* eki_list2 ã¯ eki_list ã‚ˆã‚Šé•·ã•ãŒå¿…ãšã²ã¨ã¤çŸ­ã„ã®ã§ã€åœæ­¢ã™ã‚‹ *) 
  
-(* ±Ø¤ÎÎã *) 
-let eki1 = {namae="ÃÓÂŞ"; saitan_kyori = infinity; temae_list = []} 
-let eki2 = {namae="¿·ÂçÄÍ"; saitan_kyori = 1.2; temae_list = ["¿·ÂçÄÍ"; "è¬²ÙÃ«"]} 
-let eki3 = {namae="è¬²ÙÃ«"; saitan_kyori = 0.; temae_list = ["è¬²ÙÃ«"]} 
-let eki4 = {namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []} 
+(* é§…ã®ä¾‹ *) 
+let eki1 = {namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []} 
+let eki2 = {namae="æ–°å¤§å¡š"; saitan_kyori = 1.2; temae_list = ["æ–°å¤§å¡š"; "èŒ—è·è°·"]} 
+let eki3 = {namae="èŒ—è·è°·"; saitan_kyori = 0.; temae_list = ["èŒ—è·è°·"]} 
+let eki4 = {namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []} 
  
-(* ±Ø¥ê¥¹¥È¤ÎÎã *) 
+(* é§…ãƒªã‚¹ãƒˆã®ä¾‹ *) 
 let lst = [eki1; eki2; eki3; eki4] 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = dijkstra_main [] global_ekikan_list = [] 
 let test2 = dijkstra_main lst global_ekikan_list = 
-  [{namae = "è¬²ÙÃ«"; saitan_kyori = 0.; temae_list = ["è¬²ÙÃ«"]}; 
-   {namae = "¿·ÂçÄÍ"; saitan_kyori = 1.2; temae_list = ["¿·ÂçÄÍ"; "è¬²ÙÃ«"]}; 
-   {namae = "¸å³Ú±à"; saitan_kyori = 1.8; temae_list = ["¸å³Ú±à"; "è¬²ÙÃ«"]}; 
-   {namae = "ÃÓÂŞ"; saitan_kyori = 3.; temae_list = ["ÃÓÂŞ"; "¿·ÂçÄÍ"; "è¬²ÙÃ«"]}] 
+  [{namae = "èŒ—è·è°·"; saitan_kyori = 0.; temae_list = ["èŒ—è·è°·"]}; 
+   {namae = "æ–°å¤§å¡š"; saitan_kyori = 1.2; temae_list = ["æ–°å¤§å¡š"; "èŒ—è·è°·"]}; 
+   {namae = "å¾Œæ¥½åœ’"; saitan_kyori = 1.8; temae_list = ["å¾Œæ¥½åœ’"; "èŒ—è·è°·"]}; 
+   {namae = "æ± è¢‹"; saitan_kyori = 3.; temae_list = ["æ± è¢‹"; "æ–°å¤§å¡š"; "èŒ—è·è°·"]}] 

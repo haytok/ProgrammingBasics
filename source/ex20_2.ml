@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á ex20_1.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex20_1.ml" (* rb_tree_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex20_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex20_1.ml" (* rb_tree_t ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§ÀÖ¹õÌÚ¤ÎÀÖ¤ÎÏ¢Â³¤ò²ò¾Ã¤¹¤ë *) 
+(* ç›®çš„ï¼šèµ¤é»’æœ¨ã®èµ¤ã®é€£ç¶šã‚’è§£æ¶ˆã™ã‚‹ *) 
 (* balance : ('a, 'b) rb_tree_t -> ('a, 'b) rb_tree_t *) 
 let balance rb_tree = match rb_tree with 
     Node (Node (Node (a, xa, xb, Red, b), ya, yb, Red, c), za, zb, Black, d) 
@@ -11,7 +11,7 @@ let balance rb_tree = match rb_tree with
  -> Node (Node (a, xa, xb, Black, b), ya, yb, Red, Node (c, za, zb, Black, d)) 
   | _ -> rb_tree 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let rb_tree1 = 
   Node (Node (Node (Empty, 10, "x", Red, Empty), 13, "y", Red, Empty), 
 	15, "z", Black, Empty) 

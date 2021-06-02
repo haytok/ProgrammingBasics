@@ -1,14 +1,14 @@
-(* ¤¢¤é¤«¤¸¤á ex10_11.ml, ex12_1.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex10_11.ml, ex12_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex10_11.ml" 
 #use "ex12_1.ml" 
  
-(* ±Ø¤ÎÎã *) 
-let eki1 = {namae="ÃÓÂŞ"; saitan_kyori = infinity; temae_list = []} 
-let eki2 = {namae="¿·ÂçÄÍ"; saitan_kyori = 1.2; temae_list = ["¿·ÂçÄÍ"; "è¬²ÙÃ«"]} 
-let eki3 = {namae="è¬²ÙÃ«"; saitan_kyori = 0.; temae_list = ["è¬²ÙÃ«"]} 
-let eki4 = {namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []} 
+(* é§…ã®ä¾‹ *) 
+let eki1 = {namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []} 
+let eki2 = {namae="æ–°å¤§å¡š"; saitan_kyori = 1.2; temae_list = ["æ–°å¤§å¡š"; "èŒ—è·è°·"]} 
+let eki3 = {namae="èŒ—è·è°·"; saitan_kyori = 0.; temae_list = ["èŒ—è·è°·"]} 
+let eki4 = {namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []} 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê¤Î±Ø q ¤òÉ¬Í×¤Ë±ş¤¸¤Æ¹¹¿·¤·¤¿±Ø¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šã®é§… q ã‚’å¿…è¦ã«å¿œã˜ã¦æ›´æ–°ã—ãŸé§…ã‚’è¿”ã™ *) 
 (* koushin1 : eki_t -> eki_t -> eki_t *) 
 let koushin1 p q = match (p, q) with 
   ({namae = pn; saitan_kyori = ps; temae_list = pt}, 
@@ -20,14 +20,14 @@ let koushin1 p q = match (p, q) with
     then {namae = qn; saitan_kyori = ps +. kyori; temae_list = qn :: pt} 
     else q 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = koushin1 eki3 eki1 = eki1 
 let test2 = koushin1 eki3 eki2 = eki2 
 let test3 = koushin1 eki3 eki3 = eki3 
 let test4 = koushin1 eki3 eki4 = 
-	{namae="¸å³Ú±à"; saitan_kyori = 1.8; temae_list = ["¸å³Ú±à"; "è¬²ÙÃ«"]} 
+	{namae="å¾Œæ¥½åœ’"; saitan_kyori = 1.8; temae_list = ["å¾Œæ¥½åœ’"; "èŒ—è·è°·"]} 
 let test5 = koushin1 eki2 eki1 = 
-	{namae="ÃÓÂŞ"; saitan_kyori = 3.0; temae_list = ["ÃÓÂŞ"; "¿·ÂçÄÍ"; "è¬²ÙÃ«"]} 
+	{namae="æ± è¢‹"; saitan_kyori = 3.0; temae_list = ["æ± è¢‹"; "æ–°å¤§å¡š"; "èŒ—è·è°·"]} 
 let test6 = koushin1 eki2 eki2 = eki2 
 let test7 = koushin1 eki2 eki3 = eki3 
 let test8 = koushin1 eki2 eki4 = eki4 

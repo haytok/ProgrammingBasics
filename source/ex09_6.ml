@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§¥ê¥¹¥ÈÃæ¤ÎÊ¸»úÎó¤ò¤Ä¤Ê¤²¤¿Ê¸»úÎó¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šãƒªã‚¹ãƒˆä¸­ã®æ–‡å­—åˆ—ã‚’ã¤ãªã’ãŸæ–‡å­—åˆ—ã‚’è¿”ã™ *) 
 (* concat : string list -> string *) 
 let rec concat lst = match lst with 
     [] -> "" 
   | first :: rest -> first ^ concat rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = concat [] = "" 
-let test2 = concat ["½Õ"] = "½Õ" 
-let test3 = concat ["½Õ"; "²Æ"; "½©"; "Åß"] = "½Õ²Æ½©Åß" 
+let test2 = concat ["æ˜¥"] = "æ˜¥" 
+let test3 = concat ["æ˜¥"; "å¤"; "ç§‹"; "å†¬"] = "æ˜¥å¤ç§‹å†¬" 

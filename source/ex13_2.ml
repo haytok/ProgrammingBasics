@@ -1,25 +1,25 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
  
-(* person_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* person_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst = [person1; person2; person3] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§person_t ·¿¤Î¥Ç¡¼¥¿¤«¤éÌ¾Á°¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šperson_t å‹ã®ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰åå‰ã‚’è¿”ã™ *) 
 (* take_name : person_t -> string *) 
 let take_name person = match person with 
   {name = n; shincho = s; taiju = t; tsuki = ts; hi = h; ketsueki = k} -> n 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = take_name person1 = "Àõ°æ" 
-let test2 = take_name person2 = "µÜ¸¶" 
-let test3 = take_name person3 = "ÃæÂ¼" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = take_name person1 = "æµ…äº•" 
+let test2 = take_name person2 = "å®®åŸ" 
+let test3 = take_name person3 = "ä¸­æ‘" 
  
-(* ÌÜÅª¡§lst ¤Ë´Ş¤Ş¤ì¤ë¿Í¤ÎÌ¾Á°¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šlst ã«å«ã¾ã‚Œã‚‹äººã®åå‰ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* person_name : person_t list -> string list *) 
 let person_name lst = List.map take_name lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test4 = person_name [] = [] 
-let test5 = person_name lst = ["Àõ°æ"; "µÜ¸¶"; "ÃæÂ¼"] 
+let test5 = person_name lst = ["æµ…äº•"; "å®®åŸ"; "ä¸­æ‘"] 

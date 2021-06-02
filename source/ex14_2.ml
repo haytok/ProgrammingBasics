@@ -1,11 +1,11 @@
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™åž‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* gakusei_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* gakusei_t list åž‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 
@@ -14,16 +14,16 @@ let lst4 = [{namae = "yoshida"; tensuu = 80; seiseki = "A"};
             {namae = "asai"; tensuu = 70; seiseki = "B"}; 
             {namae = "kaneko"; tensuu = 85; seiseki = "A"}] 
  
-(* ÌÜÅª¡§³ØÀ¸¤ÎÀ®ÀÓ¤¬ A ¤«¤É¤¦¤«¤òÄ´¤Ù¤ë *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿã®æˆç¸¾ãŒ A ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹ *) 
 (* is_A : gakusei_t -> bool *) 
 let is_A gakusei = match gakusei with 
   {namae = n; tensuu = t; seiseki = s} -> s = "A" 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤ÁÀ®ÀÓ¤¬ A ¤Î¿Í¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡æˆç¸¾ãŒ A ã®äººã®æ•°ã‚’è¿”ã™ *) 
 (* count_A : gakusei_t list -> int *) 
 let count_A lst = List.length (List.filter is_A lst) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = count_A lst1 = 0 
 let test2 = count_A lst2 = 0 
 let test3 = count_A lst3 = 1 

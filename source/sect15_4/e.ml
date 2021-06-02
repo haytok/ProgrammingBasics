@@ -1,11 +1,11 @@
-(* ÌÜÅª¡§µé¿ô¤ÎÂè n ¹à¤ÎÃÍ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šç´šæ•°ã®ç¬¬ n é …ã®å€¤ã‚’æ±‚ã‚ã‚‹ *) 
 (* dai_n_kou : int -> float *) 
 let rec dai_n_kou n = 
   if n = 0 then 1.0 
            else dai_n_kou (n - 1) /. float_of_int n 
  
 (* 
-(* ÌÜÅª¡§e ¤Î¶á»÷ÃÍ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼še ã®è¿‘ä¼¼å€¤ã‚’æ±‚ã‚ã‚‹ *) 
 (* e : int -> float *) 
 let rec e n = 
   if dai_n_kou n < 0.00001 
@@ -13,12 +13,12 @@ let rec e n =
   else dai_n_kou n +. e (n + 1) 
 *) 
  
-(* ÌÜÅª¡§e ¤Î¶á»÷ÃÍ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼še ã®è¿‘ä¼¼å€¤ã‚’æ±‚ã‚ã‚‹ *) 
 (* e : int -> float *) 
 let rec e n = 
   let d = dai_n_kou n in 
   if d < 0.00001 then d 
                  else d +. e (n + 1) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test = e 0 

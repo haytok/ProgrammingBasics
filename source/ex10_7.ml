@@ -1,16 +1,16 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
  
-(* person_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* person_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [person1] 
 let lst3 = [person2] 
 let lst4 = [person1; person2; person3] 
 let lst5 = [person2; person1; person1] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§¿Í¤Î¥ê¥¹¥È lst ¤Î¤¦¤Á³Æ·ì±Õ·¿¤Î¿Í¤¬²¿¿Í¤¤¤ë¤«¤ò½¸·×¤¹¤ë *) 
+(* ç›®çš„ï¼šäººã®ãƒªã‚¹ãƒˆ lst ã®ã†ã¡å„è¡€æ¶²å‹ã®äººãŒä½•äººã„ã‚‹ã‹ã‚’é›†è¨ˆã™ã‚‹ *) 
 (* ketsueki_shukei : person_t list -> int * int * int * int *) 
 let rec ketsueki_shukei lst = match lst with 
     [] -> (0, 0, 0, 0) 
@@ -22,7 +22,7 @@ let rec ketsueki_shukei lst = match lst with
       else if k = "B" then (a, o, b + 1, ab) 
       else (a, o, b, ab + 1) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = ketsueki_shukei lst1 = (0, 0, 0, 0) 
 let test2 = ketsueki_shukei lst2 = (1, 0, 0, 0) 
 let test3 = ketsueki_shukei lst3 = (0, 0, 1, 0) 

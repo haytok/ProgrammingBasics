@@ -1,13 +1,13 @@
-(* ¤¢¤é¤«¤¸¤á ex10_1.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex10_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex10_1.ml" 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿À°¿ô¤Î¥ê¥¹¥È lst ¤ò¾º½ç¤ËÊÂ¤Ù¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸæ•´æ•°ã®ãƒªã‚¹ãƒˆ lst ã‚’æ˜‡é †ã«ä¸¦ã¹ã‚‹ *) 
 (* ins_sort : int list -> int list *) 
 let rec ins_sort lst = match lst with 
     [] -> [] 
   | first :: rest -> insert (ins_sort rest) first 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = ins_sort [] = [] 
 let test2 = ins_sort [1] = [1] 
 let test3 = ins_sort [3; 1] = [1; 3] 

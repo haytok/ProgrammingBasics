@@ -1,8 +1,8 @@
-(* ¤¢¤é¤«¤¸¤á ex23_1.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex23_1.ml" (* Heap ¥â¥¸¥å¡¼¥ë¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex23_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex23_1.ml" (* Heap ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥Ò¡¼¥×¤ÎÍ×ÁÇ¤ò¾®¤µ¤¤½ç¤Ë¼è¤ê½Ð¤·¤Æ¥ê¥¹¥È¤Ë¤·¤ÆÊÖ¤¹ *) 
-(* ¤³¤³¤Ç lst ¤Ï¤³¤ì¤Þ¤Ç¤Ë¥Ò¡¼¥×¤«¤é¼è¤ê½Ð¤·¤¿Í×ÁÇ¤Î¥ê¥¹¥È *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒ’ãƒ¼ãƒ—ã®è¦ç´ ã‚’å°ã•ã„é †ã«å–ã‚Šå‡ºã—ã¦ãƒªã‚¹ãƒˆã«ã—ã¦è¿”ã™ *) 
+(* ã“ã“ã§ lst ã¯ã“ã‚Œã¾ã§ã«ãƒ’ãƒ¼ãƒ—ã‹ã‚‰å–ã‚Šå‡ºã—ãŸè¦ç´ ã®ãƒªã‚¹ãƒˆ *) 
 (* extract_all_elements : ('a, unit) Heap.t -> 'a list -> 'a list *) 
 let rec extract_all_elements heap lst = 
   try 
@@ -10,7 +10,7 @@ let rec extract_all_elements heap lst =
     in extract_all_elements heap (a :: lst) 
   with Heap.Empty -> lst 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È¤ò¥Ò¡¼¥×¥½¡¼¥È¤ò»È¤Ã¤ÆÂç¤­¤¤½ç¤ËÊÂ¤Ù¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆã‚’ãƒ’ãƒ¼ãƒ—ã‚½ãƒ¼ãƒˆã‚’ä½¿ã£ã¦å¤§ãã„é †ã«ä¸¦ã¹ã‚‹ *) 
 (* heap_sort : 'a list -> 'a list *) 
 let heap_sort lst = match lst with 
     [] -> [] 
@@ -22,7 +22,7 @@ let heap_sort lst = match lst with
 		   (Heap.create size a ()) lst in 
       extract_all_elements heap [] 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = heap_sort [] = [] 
 let test2 = heap_sort [1] = [1] 
 let test3 = heap_sort [1; 2] = [2; 1] 

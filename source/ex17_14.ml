@@ -1,9 +1,9 @@
-(* ¤¢¤é¤«¤¸¤á ex09_10.ml, ex17_11.ml, ex17_13.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ¤ÎÄêµÁ *) 
-#use "ex17_11.ml" (* assoc ¤ÎÄêµÁ *) 
-#use "ex17_13.ml" (* inserts_ekikan ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex09_10.ml, ex17_11.ml, ex17_13.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ã®å®šç¾© *) 
+#use "ex17_11.ml" (* assoc ã®å®šç¾© *) 
+#use "ex17_13.ml" (* inserts_ekikan ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤Î±Ø¤Î´Ö¤Îµ÷Î¥¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®é§…ã®é–“ã®è·é›¢ã‚’æ±‚ã‚ã‚‹ *) 
 (* get_ekikan_kyori : string -> string -> ekikan_tree_t -> float *) 
 let rec get_ekikan_kyori eki1 eki2 tree = match tree with 
     Empty -> infinity 
@@ -12,8 +12,8 @@ let rec get_ekikan_kyori eki1 eki2 tree = match tree with
       else if k < eki1 then get_ekikan_kyori eki1 eki2 right 
       else assoc eki2 lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let global_ekikan_tree = inserts_ekikan Empty global_ekikan_list 
-let test1 = get_ekikan_kyori "è¬²ÙÃ«" "¿·ÂçÄÍ" global_ekikan_tree = 1.2 
-let test2 = get_ekikan_kyori "è¬²ÙÃ«" "ÃÓÂÞ" global_ekikan_tree = infinity 
-let test3 = get_ekikan_kyori "Åìµþ" "Âç¼êÄ®" global_ekikan_tree = 0.6 
+let test1 = get_ekikan_kyori "èŒ—è·è°·" "æ–°å¤§å¡š" global_ekikan_tree = 1.2 
+let test2 = get_ekikan_kyori "èŒ—è·è°·" "æ± è¢‹" global_ekikan_tree = infinity 
+let test3 = get_ekikan_kyori "æ±äº¬" "å¤§æ‰‹ç”º" global_ekikan_tree = 0.6 

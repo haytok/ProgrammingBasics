@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤Î³ÆÍ×ÁÇ¤ÎÏÂ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®å„è¦ç´ ã®å’Œã‚’æ±‚ã‚ã‚‹ *) 
 (* sum : int list -> int *) 
 let rec sum lst = match lst with 
     [] -> 0 
   | first :: rest -> first + sum rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = sum [] = 0 
 let test2 = sum [2] = 2 
 let test3 = sum [1; 3] = 4 

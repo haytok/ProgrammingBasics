@@ -1,4 +1,4 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
 ;; 
  
@@ -7,7 +7,7 @@ fun person -> match person with
   {name = n; shincho = s; taiju = t; tsuki = ts; hi = h; ketsueki = k} -> n 
 ;; 
  
-(* ¤Þ¤¿¤Ï *) 
+(* ã¾ãŸã¯ *) 
  
 (* person_t -> string *) 
 fun {name = n; shincho = s; taiju = t; tsuki = ts; hi = h; ketsueki = k} -> n 

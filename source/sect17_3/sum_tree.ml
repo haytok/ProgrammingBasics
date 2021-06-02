@@ -1,30 +1,30 @@
-(* ÌÚ¤òÉ½¤¹·¿ *) 
-type tree_t = Empty                     (* ¶õ¤ÎÌÚ *) 
-            | Leaf of int                   (* ÍÕ *) 
-            | Node of tree_t * int * tree_t (* Àá *) 
+(* æœ¨ã‚’è¡¨ã™åž‹ *) 
+type tree_t = Empty                     (* ç©ºã®æœ¨ *) 
+            | Leaf of int                   (* è‘‰ *) 
+            | Node of tree_t * int * tree_t (* ç¯€ *) 
  
-(* tree ¤Ï 
-     - Empty            ¶õ¤ÎÌÚ¡¢¤¢¤ë¤¤¤Ï 
-     - Leaf (n)         ÃÍ¤¬ n ¤ÎÍÕ¡¢¤¢¤ë¤¤¤Ï 
-     - Node (t1, n, t2) º¸¤ÎÌÚ¤¬ t1, ÃÍ¤¬ n¡¢±¦¤ÎÌÚ¤¬ 
-                        t2 ¤Ç¤¢¤ë¤è¤¦¤ÊÀá 
-                       ¡Êt1 ¤È t2 ¤¬¼«¸Ê»²¾È¤Î¥±¡¼¥¹¡Ë 
-   ¤È¤¤¤¦·Á *) 
+(* tree ã¯ 
+     - Empty            ç©ºã®æœ¨ã€ã‚ã‚‹ã„ã¯ 
+     - Leaf (n)         å€¤ãŒ n ã®è‘‰ã€ã‚ã‚‹ã„ã¯ 
+     - Node (t1, n, t2) å·¦ã®æœ¨ãŒ t1, å€¤ãŒ nã€å³ã®æœ¨ãŒ 
+                        t2 ã§ã‚ã‚‹ã‚ˆã†ãªç¯€ 
+                       ï¼ˆt1 ã¨ t2 ãŒè‡ªå·±å‚ç…§ã®ã‚±ãƒ¼ã‚¹ï¼‰ 
+   ã¨ã„ã†å½¢ *) 
  
-(* ÌÚ¤ÎÎã *) 
+(* æœ¨ã®ä¾‹ *) 
 let tree1 = Empty 
 let tree2 = Leaf (3) 
 let tree3 = Node (tree1, 4, tree2) 
 let tree4 = Node (tree2, 5, tree3) 
  
-(* ÌÜÅª¡§tree ¤Ë´Þ¤Þ¤ì¤ëÀ°¿ô¤ò¤¹¤Ù¤Æ²Ã¤¨¤ë *) 
+(* ç›®çš„ï¼štree ã«å«ã¾ã‚Œã‚‹æ•´æ•°ã‚’ã™ã¹ã¦åŠ ãˆã‚‹ *) 
 (* sum_tree : tree_t -> int *) 
 let rec sum_tree tree = match tree with 
     Empty -> 0 
   | Leaf (n) -> n 
   | Node (t1, n, t2) -> sum_tree t1 + n + sum_tree t2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = sum_tree tree1 = 0 
 let test2 = sum_tree tree2 = 3 
 let test3 = sum_tree tree3 = 7 

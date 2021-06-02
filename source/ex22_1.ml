@@ -1,13 +1,13 @@
-(* Ê¸»úÎó¤Ë¤Ä¤±¤ë¿ô»ú *) 
+(* æ–‡å­—åˆ—ã«ã¤ã‘ã‚‹æ•°å­— *) 
 let counter = ref (-1) 
  
-(* ÌÜÅª¡§Ê¸»úÎó¤ËËè²ó¡¢°Û¤Ê¤ë¿ô»ú¤ò¤Ä¤±¤ÆÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæ–‡å­—åˆ—ã«æ¯Žå›žã€ç•°ãªã‚‹æ•°å­—ã‚’ã¤ã‘ã¦è¿”ã™ *) 
 (* gensym : string -> string *) 
 let gensym str = 
   (counter := !counter + 1; 
    str ^ string_of_int !counter) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = gensym "a" = "a0" 
 let test2 = gensym "a" = "a1" 
 let test3 = gensym "x" = "x2" 

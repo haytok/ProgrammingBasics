@@ -1,13 +1,13 @@
-(* £²Ê¬ÌÚ¤òÉ½¤¹¥â¥¸¥å¡¼¥ë *) 
+(* ï¼’åˆ†æœ¨ã‚’è¡¨ã™ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ« *) 
 module Tree = struct 
-  (* £²Ê¬ÌÚ¤òÉ½¤¹·¿ *) 
+  (* ï¼’åˆ†æœ¨ã‚’è¡¨ã™åž‹ *) 
   type ('a, 'b) t = Empty 
                   | Node of ('a, 'b) t * 'a * 'b * ('a, 'b) t 
  
-  (* ¶õ¤ÎÌÚ *) 
+  (* ç©ºã®æœ¨ *) 
   let empty = Empty 
  
-  (* ÌÜÅª¡§tree ¤Ë¥­¡¼¤¬ k ¤ÇÃÍ¤¬ v ¤òÁÞÆþ¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+  (* ç›®çš„ï¼štree ã«ã‚­ãƒ¼ãŒ k ã§å€¤ãŒ v ã‚’æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
   (* insert : ('a, 'b) t -> 'a -> 'b -> ('a, 'b) t *) 
   let rec insert tree k v = match tree with 
      Empty -> Node (Empty, k, v, Empty) 
@@ -17,8 +17,8 @@ module Tree = struct
             then Node (insert left k v, key, value, right) 
             else Node (left, key, value, insert right k v) 
  
-  (* ÌÜÅª¡§tree ¤ÎÃæ¤Î¥­¡¼ k ¤ËÂÐ±þ¤¹¤ëÃÍ¤òÃµ¤·¤ÆÊÖ¤¹ *) 
-  (* ¤ß¤Ä¤«¤é¤Ê¤±¤ì¤ÐÎã³° Not_found ¤òµ¯¤³¤¹ *) 
+  (* ç›®çš„ï¼štree ã®ä¸­ã®ã‚­ãƒ¼ k ã«å¯¾å¿œã™ã‚‹å€¤ã‚’æŽ¢ã—ã¦è¿”ã™ *) 
+  (* ã¿ã¤ã‹ã‚‰ãªã‘ã‚Œã°ä¾‹å¤– Not_found ã‚’èµ·ã“ã™ *) 
   (* search : ('a, 'b) t -> 'a -> 'b *) 
   let rec search tree k = match tree with 
      Empty -> raise Not_found 

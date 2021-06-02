@@ -1,87 +1,87 @@
-(* ¥Ò¡¼¥×¤òÉ½¤¹¥â¥¸¥å¡¼¥ë¤Î¥·¥°¥Í¥Á¥ã *) 
+(* ãƒ’ãƒ¼ãƒ—ã‚’è¡¨ã™ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®ã‚·ã‚°ãƒãƒãƒ£ *) 
 module type Heap_t = sig 
  
 type ('a, 'b) t 
-  (* ºÇ¾®ÃÍ¤òµá¤á¤ëÃÍ¤¬ 'a ·¿¤Ç 
-     ¤½¤Î¤Û¤«¤ÎÉÕ²Ã¾ğÊó¤¬ 'b ·¿¤Ç¤¢¤ë¥Ò¡¼¥×¤Î·¿ *) 
+  (* æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹å€¤ãŒ 'a å‹ã§ 
+     ãã®ã»ã‹ã®ä»˜åŠ æƒ…å ±ãŒ 'b å‹ã§ã‚ã‚‹ãƒ’ãƒ¼ãƒ—ã®å‹ *) 
  
 exception Full 
-  (* insert ¤·¤¿¤È¤­¤Ë¥Ò¡¼¥×¤¬°ìÇÕ¤À¤È raise ¤µ¤ì¤ëÎã³° *) 
+  (* insert ã—ãŸã¨ãã«ãƒ’ãƒ¼ãƒ—ãŒä¸€æ¯ã ã¨ raise ã•ã‚Œã‚‹ä¾‹å¤– *) 
  
 exception Empty 
-  (* split_top ¤·¤¿¤È¤­¤Ë¥Ò¡¼¥×¤¬¶õ¤À¤È raise ¤µ¤ì¤ëÎã³° *) 
+  (* split_top ã—ãŸã¨ãã«ãƒ’ãƒ¼ãƒ—ãŒç©ºã ã¨ raise ã•ã‚Œã‚‹ä¾‹å¤– *) 
  
 val create : int -> 'a -> 'b -> ('a, 'b) t 
-  (* »È¤¤Êı¡§create size key value *) 
-  (* ¥Ò¡¼¥×¤Î¥µ¥¤¥º¤È 'a ·¿¤È 'b ·¿¤Î¥À¥ß¡¼¤ÎÃÍ¤ò¼õ¤±¼è¤Ã¤¿¤é *) 
-  (* ¶õ¤Î¥Ò¡¼¥×¤òÊÖ¤¹ *) 
+  (* ä½¿ã„æ–¹ï¼šcreate size key value *) 
+  (* ãƒ’ãƒ¼ãƒ—ã®ã‚µã‚¤ã‚ºã¨ 'a å‹ã¨ 'b å‹ã®ãƒ€ãƒŸãƒ¼ã®å€¤ã‚’å—ã‘å–ã£ãŸã‚‰ *) 
+  (* ç©ºã®ãƒ’ãƒ¼ãƒ—ã‚’è¿”ã™ *) 
  
 type index_t 
-  (* ¥Ò¡¼¥×¤ÎÅº»ú¤Î·¿ *) 
+  (* ãƒ’ãƒ¼ãƒ—ã®æ·»å­—ã®å‹ *) 
  
 val insert : ('a, 'b) t -> 'a -> 'b -> index_t * ('a, 'b) t 
-  (* »È¤¤Êı¡§insert heap key value *) 
-  (* ¥Ò¡¼¥×¤Ë¿·¤·¤¤Í×ÁÇ¤òÄÉ²Ã¤¹¤ë *) 
-  (* ¤³¤ì°Ê¾å¡¢Æş¤é¤Ê¤¤¤È¤­¤Ï Full ¤ò raise ¤¹¤ë *) 
-  (* ¥Ò¡¼¥×¤Ï¡ÊÇË²õÅª¤Ë¡Ë½ñ¤­ÊÑ¤ï¤ë *) 
+  (* ä½¿ã„æ–¹ï¼šinsert heap key value *) 
+  (* ãƒ’ãƒ¼ãƒ—ã«æ–°ã—ã„è¦ç´ ã‚’è¿½åŠ ã™ã‚‹ *) 
+  (* ã“ã‚Œä»¥ä¸Šã€å…¥ã‚‰ãªã„ã¨ãã¯ Full ã‚’ raise ã™ã‚‹ *) 
+  (* ãƒ’ãƒ¼ãƒ—ã¯ï¼ˆç ´å£Šçš„ã«ï¼‰æ›¸ãå¤‰ã‚ã‚‹ *) 
  
 val get : ('a, 'b) t -> index_t -> 'a * 'b 
-  (* »È¤¤Êı¡§get heap index *) 
-  (* ¥Ò¡¼¥×¤Î index ÈÖÌÜ¤ÎÍ×ÁÇ¤òÊÖ¤¹ *) 
-  (* index ¤¬Ìµ¸ú¤Ç¤¢¤ì¤Ğ Not_found ¤ò raise ¤¹¤ë *) 
+  (* ä½¿ã„æ–¹ï¼šget heap index *) 
+  (* ãƒ’ãƒ¼ãƒ—ã® index ç•ªç›®ã®è¦ç´ ã‚’è¿”ã™ *) 
+  (* index ãŒç„¡åŠ¹ã§ã‚ã‚Œã° Not_found ã‚’ raise ã™ã‚‹ *) 
  
 val set : ('a, 'b) t -> index_t -> 'a -> 'b -> ('a, 'b) t 
-  (* »È¤¤Êı¡§set heap index key value *) 
-  (* ¥Ò¡¼¥×¤Î index ÈÖÌÜ¤ÎÃÍ¤ò¹¹¿·¤·¤¿¥Ò¡¼¥×¤òÊÖ¤¹ *) 
-  (* ¥Ò¡¼¥×¤Ï¡ÊÇË²õÅª¤Ë¡Ë½ñ¤­ÊÑ¤ï¤ë *) 
+  (* ä½¿ã„æ–¹ï¼šset heap index key value *) 
+  (* ãƒ’ãƒ¼ãƒ—ã® index ç•ªç›®ã®å€¤ã‚’æ›´æ–°ã—ãŸãƒ’ãƒ¼ãƒ—ã‚’è¿”ã™ *) 
+  (* ãƒ’ãƒ¼ãƒ—ã¯ï¼ˆç ´å£Šçš„ã«ï¼‰æ›¸ãå¤‰ã‚ã‚‹ *) 
  
 val split_top : ('a, 'b) t -> ('a * 'b) * ('a, 'b) t 
-  (* »È¤¤Êı¡§split_top heap *) 
-  (* ºÇ¾®¤ÎÃÍ¤ò»ı¤Ä¤â¤Î¤È¤½¤ì¤ò¼è¤ê½ü¤¤¤¿¥Ò¡¼¥×¤Î¥Ú¥¢¤òÊÖ¤¹ *) 
-  (* ¥Ò¡¼¥×¤¬¶õ¤Î¤È¤­¤Ï Empty ¤ò raise ¤¹¤ë *) 
-  (* ºÇ¾®¤ÎÃÍ¤ò»ı¤Ä¤â¤Î¤Î index ¤ÏÌµ¸ú¤ÊÃÍ¤Ë¤Ê¤ë *) 
-  (* ¥Ò¡¼¥×¤Ï¡ÊÇË²õÅª¤Ë¡Ë½ñ¤­ÊÑ¤ï¤ë *) 
+  (* ä½¿ã„æ–¹ï¼šsplit_top heap *) 
+  (* æœ€å°ã®å€¤ã‚’æŒã¤ã‚‚ã®ã¨ãã‚Œã‚’å–ã‚Šé™¤ã„ãŸãƒ’ãƒ¼ãƒ—ã®ãƒšã‚¢ã‚’è¿”ã™ *) 
+  (* ãƒ’ãƒ¼ãƒ—ãŒç©ºã®ã¨ãã¯ Empty ã‚’ raise ã™ã‚‹ *) 
+  (* æœ€å°ã®å€¤ã‚’æŒã¤ã‚‚ã®ã® index ã¯ç„¡åŠ¹ãªå€¤ã«ãªã‚‹ *) 
+  (* ãƒ’ãƒ¼ãƒ—ã¯ï¼ˆç ´å£Šçš„ã«ï¼‰æ›¸ãå¤‰ã‚ã‚‹ *) 
  
 val length : ('a, 'b) t -> int 
-  (* »È¤¤Êı¡§length heap *) 
-  (* ¥Ò¡¼¥×Ãæ¤Î¥Ç¡¼¥¿¤Î¿ô¤òÊÖ¤¹ *) 
+  (* ä½¿ã„æ–¹ï¼šlength heap *) 
+  (* ãƒ’ãƒ¼ãƒ—ä¸­ã®ãƒ‡ãƒ¼ã‚¿ã®æ•°ã‚’è¿”ã™ *) 
  
 end 
  
-(* ¥Ò¡¼¥×¤òÉ½¤¹¥â¥¸¥å¡¼¥ë *) 
+(* ãƒ’ãƒ¼ãƒ—ã‚’è¡¨ã™ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ« *) 
 module Heap : Heap_t = struct 
  
-(* ¥Ò¡¼¥×¤ÎÅº»ú¤Î·¿¡£¤³¤Î¥â¥¸¥å¡¼¥ëÆâ¤Ç¤·¤«ÊÑ¹¹¤Ï¤Ç¤­¤Ê¤¤ *) 
+(* ãƒ’ãƒ¼ãƒ—ã®æ·»å­—ã®å‹ã€‚ã“ã®ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«å†…ã§ã—ã‹å¤‰æ›´ã¯ã§ããªã„ *) 
 type index_t = int ref 
  
-(* ºÇ¾®ÃÍ¤òµá¤á¤ëÃÍ¤¬ 'a ·¿¤Ç¤½¤ÎÂ¾¤ÎÉÕ²Ã¾ğÊó¤¬ 'b ·¿¤Ç¤¢¤ë¥Ò¡¼¥×¤Î·¿ *) 
+(* æœ€å°å€¤ã‚’æ±‚ã‚ã‚‹å€¤ãŒ 'a å‹ã§ãã®ä»–ã®ä»˜åŠ æƒ…å ±ãŒ 'b å‹ã§ã‚ã‚‹ãƒ’ãƒ¼ãƒ—ã®å‹ *) 
 type ('a, 'b) t = int ref * (index_t * 'a * 'b) array 
  
-(* insert ¤·¤¿¤È¤­¤Ë¥Ò¡¼¥×¤¬°ìÇÕ¤À¤È raise ¤µ¤ì¤ëÎã³° *) 
+(* insert ã—ãŸã¨ãã«ãƒ’ãƒ¼ãƒ—ãŒä¸€æ¯ã ã¨ raise ã•ã‚Œã‚‹ä¾‹å¤– *) 
 exception Full 
  
-(* split_top ¤·¤¿¤È¤­¤Ë¥Ò¡¼¥×¤¬¶õ¤À¤È raise ¤µ¤ì¤ëÎã³° *) 
+(* split_top ã—ãŸã¨ãã«ãƒ’ãƒ¼ãƒ—ãŒç©ºã ã¨ raise ã•ã‚Œã‚‹ä¾‹å¤– *) 
 exception Empty 
  
-(* index_t ·¿¤ò»ı¤Ä¥À¥ß¡¼¤ÎÃÍ *) 
+(* index_t å‹ã‚’æŒã¤ãƒ€ãƒŸãƒ¼ã®å€¤ *) 
 let example_index = ref (-1) 
  
-(* ÃÍ¤¬ example_value ¤ÈÆ±¤¸·¿¡¢ÉÕ²Ã¾ğÊó¤¬ example_info ¤ÈÆ±¤¸·¿¤Ç 
-   ºÇÂç max ¸Ä¤ÎÍ×ÁÇ¤ò³ÊÇ¼¤Ç¤­¤ë¥Ò¡¼¥×¤òÊÖ¤¹ *) 
+(* å€¤ãŒ example_value ã¨åŒã˜å‹ã€ä»˜åŠ æƒ…å ±ãŒ example_info ã¨åŒã˜å‹ã§ 
+   æœ€å¤§ max å€‹ã®è¦ç´ ã‚’æ ¼ç´ã§ãã‚‹ãƒ’ãƒ¼ãƒ—ã‚’è¿”ã™ *) 
 let create max example_value example_info = 
   (ref 0, Array.create max (example_index, example_value, example_info)) 
  
-(* current_index ¤È parent_index ¤ÎÍ×ÁÇ¤òÆş¤ì´¹¤¨¤ë *) 
+(* current_index ã¨ parent_index ã®è¦ç´ ã‚’å…¥ã‚Œæ›ãˆã‚‹ *) 
 let swap array current_index parent_index = 
   let (index_ref_c, value_c, info_c) as entry_c = array.(current_index) in 
   let (index_ref_p, value_p, info_p) as entry_p = array.(parent_index) 
   in array.(current_index) <- entry_p; 
      array.(parent_index) <- entry_c; 
-     index_ref_c := parent_index;  (* Æş¤ì´¹¤¨¤Ë¤È¤â¤Ê¤Ã¤Æ index ¤âÉÕ¤±ÊÑ¤¨¤ë *) 
+     index_ref_c := parent_index;  (* å…¥ã‚Œæ›ãˆã«ã¨ã‚‚ãªã£ã¦ index ã‚‚ä»˜ã‘å¤‰ãˆã‚‹ *) 
      index_ref_p := current_index; 
      () 
  
-(* ²¼Êı¸ş¤Ë¸ş¤«¤Ã¤Æ¥Ò¡¼¥×¤Î¾ò·ï¤òËş¤¿¤¹¤è¤¦¤ËÍ×ÁÇ¤ÎÆş¤ì´¹¤¨¤ò¹Ô¤¦ *) 
+(* ä¸‹æ–¹å‘ã«å‘ã‹ã£ã¦ãƒ’ãƒ¼ãƒ—ã®æ¡ä»¶ã‚’æº€ãŸã™ã‚ˆã†ã«è¦ç´ ã®å…¥ã‚Œæ›ãˆã‚’è¡Œã† *) 
 let rec adjust_child num array current_index = 
   if current_index >= num then () 
   else let (_, v, _) = array.(current_index) in 
@@ -104,7 +104,7 @@ let rec adjust_child num array current_index =
 		      else (swap array current_index child2_index; 
 			    adjust_child num array child2_index) 
  
-(* ¾åÊı¸ş¤Ë¸ş¤«¤Ã¤Æ¥Ò¡¼¥×¤Î¾ò·ï¤òËş¤¿¤¹¤è¤¦¤ËÍ×ÁÇ¤ÎÆş¤ì´¹¤¨¤ò¹Ô¤¦ *) 
+(* ä¸Šæ–¹å‘ã«å‘ã‹ã£ã¦ãƒ’ãƒ¼ãƒ—ã®æ¡ä»¶ã‚’æº€ãŸã™ã‚ˆã†ã«è¦ç´ ã®å…¥ã‚Œæ›ãˆã‚’è¡Œã† *) 
 let rec adjust_parent array current_index = 
   if current_index = 0 then () 
   else let (_, value_c, _) = array.(current_index) in 
@@ -115,9 +115,9 @@ let rec adjust_parent array current_index =
 	     adjust_parent array parent_index) 
        else () 
  
-(* ¥Ò¡¼¥×¤Ë¿·¤·¤¤Í×ÁÇ¤òÄÉ²Ã¤¹¤ë *) 
-(* ¤³¤ì°Ê¾å¡¢Æş¤é¤Ê¤¤¤È¤­¤Ï Full ¤ò raise ¤¹¤ë *) 
-(* ¥Ò¡¼¥×¤Ï¡ÊÇË²õÅª¤Ë¡Ë½ñ¤­ÊÑ¤ï¤ë *) 
+(* ãƒ’ãƒ¼ãƒ—ã«æ–°ã—ã„è¦ç´ ã‚’è¿½åŠ ã™ã‚‹ *) 
+(* ã“ã‚Œä»¥ä¸Šã€å…¥ã‚‰ãªã„ã¨ãã¯ Full ã‚’ raise ã™ã‚‹ *) 
+(* ãƒ’ãƒ¼ãƒ—ã¯ï¼ˆç ´å£Šçš„ã«ï¼‰æ›¸ãå¤‰ã‚ã‚‹ *) 
 let insert (num_ref, array) v info = 
   if !num_ref >= Array.length array 
   then raise Full 
@@ -127,16 +127,16 @@ let insert (num_ref, array) v info =
        num_ref := !num_ref + 1; 
        (index, (num_ref, array)) 
  
-(* ¥Ò¡¼¥×¤Î !index_ref ÈÖÌÜ¤ÎÍ×ÁÇ¤òÊÖ¤¹ *) 
-(* index ¤¬Ìµ¸ú¤Ç¤¢¤ì¤Ğ Not_found ¤ò raise ¤¹¤ë *) 
+(* ãƒ’ãƒ¼ãƒ—ã® !index_ref ç•ªç›®ã®è¦ç´ ã‚’è¿”ã™ *) 
+(* index ãŒç„¡åŠ¹ã§ã‚ã‚Œã° Not_found ã‚’ raise ã™ã‚‹ *) 
 let get (num_ref, array) index_ref = 
   if 0 <= !index_ref && !index_ref < !num_ref 
   then let (_, a, b) = array.(!index_ref) in 
        (a, b) 
   else raise Not_found 
  
-(* ¥Ò¡¼¥×¤Î !index_ref ÈÖÌÜ¤ÎÃÍ¤ò¹¹¿·¤·¤¿¥Ò¡¼¥×¤òÊÖ¤¹ *) 
-(* ¥Ò¡¼¥×¤Ï¡ÊÇË²õÅª¤Ë¡Ë½ñ¤­ÊÑ¤ï¤ë *) 
+(* ãƒ’ãƒ¼ãƒ—ã® !index_ref ç•ªç›®ã®å€¤ã‚’æ›´æ–°ã—ãŸãƒ’ãƒ¼ãƒ—ã‚’è¿”ã™ *) 
+(* ãƒ’ãƒ¼ãƒ—ã¯ï¼ˆç ´å£Šçš„ã«ï¼‰æ›¸ãå¤‰ã‚ã‚‹ *) 
 let set (num_ref, array) index_ref v info = 
   let (_, v', _) = array.(!index_ref) 
   in array.(!index_ref) <- (index_ref, v, info); 
@@ -144,20 +144,20 @@ let set (num_ref, array) index_ref v info =
 	       else adjust_child !num_ref array !index_ref; 
      (num_ref, array) 
  
-(* ºÇ¾®¤ÎÃÍ¤ò»ı¤Ä¤â¤Î¤È¤½¤ì¤ò¼è¤ê½ü¤¤¤¿¥Ò¡¼¥×¤Î¥Ú¥¢¤òÊÖ¤¹ *) 
-(* ºÇ¾®¤ÎÃÍ¤ò»ı¤Ä¤â¤Î¤Î index ¤ÏÌµ¸ú¤ÊÃÍ¤Ë¤Ê¤ë *) 
-(* ¥Ò¡¼¥×¤¬¶õ¤Î¤È¤­¤Ï Empty ¤ò raise ¤¹¤ë *) 
-(* ¥Ò¡¼¥×¤Ï¡ÊÇË²õÅª¤Ë¡Ë½ñ¤­ÊÑ¤ï¤ë *) 
+(* æœ€å°ã®å€¤ã‚’æŒã¤ã‚‚ã®ã¨ãã‚Œã‚’å–ã‚Šé™¤ã„ãŸãƒ’ãƒ¼ãƒ—ã®ãƒšã‚¢ã‚’è¿”ã™ *) 
+(* æœ€å°ã®å€¤ã‚’æŒã¤ã‚‚ã®ã® index ã¯ç„¡åŠ¹ãªå€¤ã«ãªã‚‹ *) 
+(* ãƒ’ãƒ¼ãƒ—ãŒç©ºã®ã¨ãã¯ Empty ã‚’ raise ã™ã‚‹ *) 
+(* ãƒ’ãƒ¼ãƒ—ã¯ï¼ˆç ´å£Šçš„ã«ï¼‰æ›¸ãå¤‰ã‚ã‚‹ *) 
 let split_top (num_ref, array) = 
   if !num_ref = 0 then raise Empty else 
   let (index_ref, v, info) = array.(0) 
-  in num_ref := !num_ref - 1;	(* Í×ÁÇ¿ô¤ò¤Ò¤È¤Ä¸º¤é¤¹ *) 
+  in num_ref := !num_ref - 1;	(* è¦ç´ æ•°ã‚’ã²ã¨ã¤æ¸›ã‚‰ã™ *) 
      array.(0) <- array.(!num_ref); 
      adjust_child !num_ref array 0; 
-     index_ref := -1;        (* ¼è¤ê½Ğ¤·¤¿ÀèÆ¬¤ÎÍ×ÁÇ¤Î index_ref ¤ÏÌµ¸ú¤Ë¤¹¤ë *) 
+     index_ref := -1;        (* å–ã‚Šå‡ºã—ãŸå…ˆé ­ã®è¦ç´ ã® index_ref ã¯ç„¡åŠ¹ã«ã™ã‚‹ *) 
      ((v, info), (num_ref, array)) 
  
-(* ¥Ò¡¼¥×Ãæ¤Î¥Ç¡¼¥¿¤Î¿ô¤òÊÖ¤¹ *) 
+(* ãƒ’ãƒ¼ãƒ—ä¸­ã®ãƒ‡ãƒ¼ã‚¿ã®æ•°ã‚’è¿”ã™ *) 
 let length (num_ref, _) = !num_ref 
  
 end 

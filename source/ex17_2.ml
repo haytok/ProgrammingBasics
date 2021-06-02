@@ -1,4 +1,4 @@
-(* ÆüÉÕ¤±¤òÉ½¤¹·¿ *) 
+(* æ—¥ä»˜ã‘ã‚’è¡¨ã™å‹ *) 
 type year_t = January of int 
             | February of int 
             | March of int 

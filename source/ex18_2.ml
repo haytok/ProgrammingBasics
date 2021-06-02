@@ -1,11 +1,11 @@
-(* ¤¢¤é¤«¤¸¤á sect18_1/price.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "sect18_1/price.ml" (* price ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect18_1/price.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "sect18_1/price.ml" (* price ã®å®šç¾© *) 
  
-(* È¬É´²°¤Ë¤ª¤¤¤Æ¤¢¤ëÌîºÚ¤ÈÃÍÃÊ¤Î¥ê¥¹¥È¤ÎÎã *) 
-let yaoya_list = [("¥È¥Ş¥È", 300); ("¤¿¤Ş¤Í¤®", 200); 
-		  ("¤Ë¤ó¤¸¤ó", 150); ("¤Û¤¦¤ì¤óÁğ", 200)] 
+(* å…«ç™¾å±‹ã«ãŠã„ã¦ã‚ã‚‹é‡èœã¨å€¤æ®µã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
+let yaoya_list = [("ãƒˆãƒãƒˆ", 300); ("ãŸã¾ã­ã", 200); 
+		  ("ã«ã‚“ã˜ã‚“", 150); ("ã»ã†ã‚Œã‚“è‰", 200)] 
  
-(* ÌÜÅª¡§È¬É´²°¥ê¥¹¥È¤Ë¤ÏÆş¤Ã¤Æ¤¤¤Ê¤¤ÌîºÚ¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå…«ç™¾å±‹ãƒªã‚¹ãƒˆã«ã¯å…¥ã£ã¦ã„ãªã„é‡èœã®æ•°ã‚’è¿”ã™ *) 
 (* count_urikire_yasai : string list -> (string * int) list -> int *) 
 let rec count_urikire_yasai yasai_list yaoya_list = match yasai_list with 
     [] -> 0 
@@ -14,7 +14,7 @@ let rec count_urikire_yasai yasai_list yaoya_list = match yasai_list with
 	  None -> 1 + count_urikire_yasai rest yaoya_list 
 	| Some (p) -> count_urikire_yasai rest yaoya_list 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = count_urikire_yasai ["¤¿¤Ş¤Í¤®"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 0 
-let test2 = count_urikire_yasai ["¤¿¤Ş¤Í¤®"; "¤¸¤ã¤¬¤¤¤â"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 1 
-let test3 = count_urikire_yasai ["¤·¤¤¤¿¤±"; "¤Ê¤¹"; "¤Ë¤ó¤¸¤ó"] yaoya_list = 2 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = count_urikire_yasai ["ãŸã¾ã­ã"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 0 
+let test2 = count_urikire_yasai ["ãŸã¾ã­ã"; "ã˜ã‚ƒãŒã„ã‚‚"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 1 
+let test3 = count_urikire_yasai ["ã—ã„ãŸã‘"; "ãªã™"; "ã«ã‚“ã˜ã‚“"] yaoya_list = 2 

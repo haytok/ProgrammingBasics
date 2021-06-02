@@ -1,10 +1,10 @@
-(* Ç¯¹æ¤òÉ½¤¹·¿ *) 
-type nengou_t = Meiji of int    (* ÌÀ¼£ *) 
-              | Taisho of int   (* ÂçÀµ *) 
-              | Showa of int    (* ¾¼ÏÂ *) 
-              | Heisei of int   (* Ê¿À® *) 
+(* å¹´å·ã‚’è¡¨ã™åž‹ *) 
+type nengou_t = Meiji of int    (* æ˜Žæ²» *) 
+              | Taisho of int   (* å¤§æ­£ *) 
+              | Showa of int    (* æ˜­å’Œ *) 
+              | Heisei of int   (* å¹³æˆ *) 
  
-(* ÌÜÅª¡§Ç¯¹æ¤ò¼õ¤±¼è¤Ã¤¿¤éÂÐ±þ¤¹¤ëÀ¾ÎñÇ¯¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå¹´å·ã‚’å—ã‘å–ã£ãŸã‚‰å¯¾å¿œã™ã‚‹è¥¿æš¦å¹´ã‚’è¿”ã™ *) 
 (* to_seireki : nengou_t -> int *) 
 let to_seireki nengou = match nengou with 
     Meiji (n) -> n + 1867 
@@ -12,7 +12,7 @@ let to_seireki nengou = match nengou with
   | Showa (n) -> n + 1925 
   | Heisei (n) -> n + 1988 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = to_seireki (Showa (42)) = 1967 
 let test2 = to_seireki (Heisei (11)) = 1999 
 let test3 = to_seireki (Meiji (41)) = 1908 

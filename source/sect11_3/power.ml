@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§À°¿ô m ¤È n ¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢m ¤Î n ¾è¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šæ•´æ•° m ã¨ n ã‚’å—ã‘å–ã£ãŸã‚‰ã€m ã® n ä¹—ã‚’æ±‚ã‚ã‚‹ *) 
 (* power : int -> int -> int *) 
 let rec power m n = 
   if n = 0 then 1 
            else m * power m (n - 1) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = power 3 0 = 1 
 let test2 = power 3 1 = 3 
 let test3 = power 3 2 = 9 

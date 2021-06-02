@@ -1,16 +1,16 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
  
-(* person_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* person_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [person1] 
 let lst3 = [person2] 
 let lst4 = [person1; person2; person3] 
 let lst5 = [person2; person1; person1] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§·ì±Õ·¿¤¬ A ¤Î¿Í¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šè¡€æ¶²å‹ãŒ A ã®äººã®æ•°ã‚’è¿”ã™ *) 
 (* count_ketsueki_A : person_t list -> int *) 
 let rec count_ketsueki_A lst = match lst with 
     [] -> 0 
@@ -19,7 +19,7 @@ let rec count_ketsueki_A lst = match lst with
       if k = "A" then 1 + count_ketsueki_A rest 
                  else count_ketsueki_A rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = count_ketsueki_A lst1 = 0 
 let test2 = count_ketsueki_A lst2 = 1 
 let test3 = count_ketsueki_A lst3 = 0 

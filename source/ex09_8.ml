@@ -1,28 +1,28 @@
-(* ¤¢¤é¤«¤¸¤á ex05_3.ml, ex08_3.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex05_3.ml, ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex05_3.ml" 
 #use "ex08_3.ml" 
  
-(* person_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* person_t list åž‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [person1] 
 let lst3 = [person2] 
 let lst4 = [person1; person2; person3] 
 let lst5 = [person2; person1; person1] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§²µ½÷ºÂ¤Î¿Í¤ÎÌ¾Á°¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šä¹™å¥³åº§ã®äººã®åå‰ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* otomeza : person_t list -> string list *) 
 let rec otomeza lst = match lst with 
     [] -> [] 
   | {name = n; shincho = s; taiju = t; tsuki = ts; hi = h; 
      ketsueki = k} :: rest -> 
-      if seiza ts h = "²µ½÷ºÂ" then n :: otomeza rest 
+      if seiza ts h = "ä¹™å¥³åº§" then n :: otomeza rest 
 			       else otomeza rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = otomeza lst1 = [] 
-let test2 = otomeza lst2 = ["Àõ°æ"] 
+let test2 = otomeza lst2 = ["æµ…äº•"] 
 let test3 = otomeza lst3 = [] 
-let test4 = otomeza lst4 = ["Àõ°æ"] 
-let test5 = otomeza lst5 = ["Àõ°æ"; "Àõ°æ"] 
+let test4 = otomeza lst4 = ["æµ…äº•"] 
+let test5 = otomeza lst5 = ["æµ…äº•"; "æµ…äº•"] 

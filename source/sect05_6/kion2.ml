@@ -1,12 +1,12 @@
-(* ÌÜÅª¡§¸½ºß¤Îµ¤²¹ t ¤«¤é²÷Å¬ÅÙ¤òÉ½¤¹Ê¸»úÎó¤ò·×»»¤¹¤ë *) 
+(* ç›®çš„ï¼šç¾åœ¨ã®æ°—æ¸© t ã‹ã‚‰å¿«é©åº¦ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’è¨ˆç®—ã™ã‚‹ *) 
 (* kion : int -> string *) 
 let kion t = 
-  if 15 <= t && t <= 25 then "²÷Å¬" 
-                        else "ÉáÄÌ" 
+  if 15 <= t && t <= 25 then "å¿«é©" 
+                        else "æ™®é€š" 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = kion  7 = "ÉáÄÌ" 
-let test2 = kion 15 = "²÷Å¬" 
-let test3 = kion 20 = "²÷Å¬" 
-let test4 = kion 25 = "²÷Å¬" 
-let test5 = kion 28 = "ÉáÄÌ" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = kion  7 = "æ™®é€š" 
+let test2 = kion 15 = "å¿«é©" 
+let test3 = kion 20 = "å¿«é©" 
+let test4 = kion 25 = "å¿«é©" 
+let test5 = kion 28 = "æ™®é€š" 

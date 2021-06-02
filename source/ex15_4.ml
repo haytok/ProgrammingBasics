@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á ex12_1.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex12_1.ml" (* eki_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex12_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex12_1.ml" (* eki_t ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿±Ø¤Î¥ê¥¹¥È¤ò¡¢ºÇÃ»µ÷Î¥ºÇ¾®¤Î±Ø¤È¤½¤ì°Ê³°¤ËÊ¬Î¥¤¹¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸé§…ã®ãƒªã‚¹ãƒˆã‚’ã€æœ€çŸ­è·é›¢æœ€å°ã®é§…ã¨ãã‚Œä»¥å¤–ã«åˆ†é›¢ã™ã‚‹ *) 
 (* saitan_wo_bunri : eki_t list -> eki_t * eki_t list *) 
 let rec saitan_wo_bunri eki_list = match eki_list with 
     [] -> ({namae = ""; saitan_kyori = infinity; temae_list = []}, []) 
@@ -14,9 +14,9 @@ let rec saitan_wo_bunri eki_list = match eki_list with
 	  else if fs < ss then (first, p :: v) 
 	  else (p, first :: v) 
  
-(* ¤¢¤ë¤¤¤Ï *) 
+(* ã‚ã‚‹ã„ã¯ *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿±Ø¤Î¥ê¥¹¥È¤ò¡¢ºÇÃ»µ÷Î¥ºÇ¾®¤Î±Ø¤È¤½¤ì°Ê³°¤ËÊ¬Î¥¤¹¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸé§…ã®ãƒªã‚¹ãƒˆã‚’ã€æœ€çŸ­è·é›¢æœ€å°ã®é§…ã¨ãã‚Œä»¥å¤–ã«åˆ†é›¢ã™ã‚‹ *) 
 (* saitan_wo_bunri : eki_t list -> eki_t * eki_t list *) 
 let rec saitan_wo_bunri eki_list = match eki_list with 
     [] -> ({namae = ""; saitan_kyori = infinity; temae_list = []}, []) 
@@ -29,22 +29,22 @@ let rec saitan_wo_bunri eki_list = match eki_list with
 	  if fs < ss then (first, p :: v) 
 	  else (p, first :: v) 
  
-(* ±Ø¤ÎÎã *) 
-let eki1 = {namae="ÃÓÂÞ"; saitan_kyori = infinity; temae_list = []} 
-let eki2 = {namae="¿·ÂçÄÍ"; saitan_kyori = 1.2; temae_list = ["¿·ÂçÄÍ"; "è¬²ÙÃ«"]} 
-let eki3 = {namae="è¬²ÙÃ«"; saitan_kyori = 0.; temae_list = ["è¬²ÙÃ«"]} 
-let eki4 = {namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []} 
+(* é§…ã®ä¾‹ *) 
+let eki1 = {namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []} 
+let eki2 = {namae="æ–°å¤§å¡š"; saitan_kyori = 1.2; temae_list = ["æ–°å¤§å¡š"; "èŒ—è·è°·"]} 
+let eki3 = {namae="èŒ—è·è°·"; saitan_kyori = 0.; temae_list = ["èŒ—è·è°·"]} 
+let eki4 = {namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []} 
  
-(* ±Ø¥ê¥¹¥È¤ÎÎã *) 
+(* é§…ãƒªã‚¹ãƒˆã®ä¾‹ *) 
 let lst = [eki1; eki2; eki3; eki4] 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test = saitan_wo_bunri lst = (eki3, [eki1; eki2; eki4]) 
  
-(* [eki1; eki2; eki4] ¤Î½çÈÖ¤Ï³Æ±Ø¤ÎºÇÃ»µ÷Î¥¤ÎÃÍ¤Ë¤è¤Ã¤ÆÊÑ¤ï¤ê¤¦¤ë¡£ 
-   ¤½¤Î½çÈÖ¤ò¥Æ¥¹¥È¤ÇÍ½ÁÛ¤¹¤ë¤³¤È¤Ë¤Ï°ÕÌ£¤¬¤Ê¤¤¤Î¤Ç¡¢¾å¤Î¤è¤¦¤Ê¥Æ¥¹¥È¤ò 
-   ºî¤ë¤è¤ê¤Ï¡¢Ã±¤Ë 
+(* [eki1; eki2; eki4] ã®é †ç•ªã¯å„é§…ã®æœ€çŸ­è·é›¢ã®å€¤ã«ã‚ˆã£ã¦å¤‰ã‚ã‚Šã†ã‚‹ã€‚ 
+   ãã®é †ç•ªã‚’ãƒ†ã‚¹ãƒˆã§äºˆæƒ³ã™ã‚‹ã“ã¨ã«ã¯æ„å‘³ãŒãªã„ã®ã§ã€ä¸Šã®ã‚ˆã†ãªãƒ†ã‚¹ãƒˆã‚’ 
+   ä½œã‚‹ã‚ˆã‚Šã¯ã€å˜ã« 
  
    let test = saitan_wo_bunri lst 
  
-   ¤È¤·¤Æ·ë²Ì¤ò¼«Ê¬¤Ç³Î¤«¤á¤ëÊý¤¬ÎÉ¤¤¤«¤â¤·¤ì¤Ê¤¤¡£*) 
+   ã¨ã—ã¦çµæžœã‚’è‡ªåˆ†ã§ç¢ºã‹ã‚ã‚‹æ–¹ãŒè‰¯ã„ã‹ã‚‚ã—ã‚Œãªã„ã€‚*) 

@@ -1,13 +1,13 @@
-(* ¤³¤Î¥Õ¥¡¥¤¥ë¤Ï RedBlack ¥â¥¸¥å¡¼¥ë¤òÁÈ¤ß¹ş¤ó¤À¥È¥Ã¥×¥ì¥Ù¥ë¾å¤Ç¼Â¹Ô¤¹¤ë *) 
+(* ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ RedBlack ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’çµ„ã¿è¾¼ã‚“ã ãƒˆãƒƒãƒ—ãƒ¬ãƒ™ãƒ«ä¸Šã§å®Ÿè¡Œã™ã‚‹ *) 
  
-(* ¤¢¤é¤«¤¸¤á ex09_10.ml, ex12_1.ml, ex17_16.ml, ex18_7.ml ¤ò 
-   ÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ¤ÎÄêµÁ *) 
-#use "ex12_1.ml" (* eki_t ¤ÎÄêµÁ *) 
-#use "ex17_16.ml" (* saitan_wo_bunri ¤ÎÄêµÁ *) 
-#use "ex18_7.ml" (* romaji_to_kanji ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex09_10.ml, ex12_1.ml, ex17_16.ml, ex18_7.ml ã‚’ 
+   èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ã®å®šç¾© *) 
+#use "ex12_1.ml" (* eki_t ã®å®šç¾© *) 
+#use "ex17_16.ml" (* saitan_wo_bunri ã®å®šç¾© *) 
+#use "ex18_7.ml" (* romaji_to_kanji ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ kiten, shuten, kyori ¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ kiten, shuten, kyori ã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* insert1 : (string * (string * float) list) RedBlack.t -> 
 	      string -> string -> float -> 
 	     (string * (string * float) list) RedBlack.t *) 
@@ -17,7 +17,7 @@ let rec insert1 ekikan_tree kiten shuten kyori =
 	    with Not_found -> [] 
   in RedBlack.insert ekikan_tree kiten ((shuten, kyori) :: lst) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¾ğÊó¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan æƒ…å ±ã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* insert_ekikan : (string * (string * float) list) RedBlack.t -> 
 		    ekikan_t -> 
 		   (string * (string * float) list) RedBlack.t *) 
@@ -25,21 +25,21 @@ let insert_ekikan ekikan_tree ekikan = match ekikan with
   {kiten = k; shuten = s; keiyu = y; kyori = r; jikan = j} -> 
     insert1 (insert1 ekikan_tree s k r) k s r 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¤Î¥ê¥¹¥È¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan ã®ãƒªã‚¹ãƒˆã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* inserts_ekikan : (string * (string * float) list) RedBlack.t -> 
 		     ekikan_t list -> 
 		    (string * (string * float) list) RedBlack.t *) 
 let inserts_ekikan ekikan_tree ekikan_list = 
   List.fold_left insert_ekikan ekikan_tree ekikan_list 
  
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤Î±Ø¤Î´Ö¤Îµ÷Î¥¤òµá¤á¤ë *) 
-(* ¸«¤Ä¤«¤é¤Ê¤«¤Ã¤¿¤éÎã³° Not_found ¤òµ¯¤³¤¹ *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®é§…ã®é–“ã®è·é›¢ã‚’æ±‚ã‚ã‚‹ *) 
+(* è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã‚‰ä¾‹å¤– Not_found ã‚’èµ·ã“ã™ *) 
 (* get_ekikan_kyori : string -> string -> 
 		     (string * (string * float) list) RedBlack.t -> float *) 
 let rec get_ekikan_kyori eki1 eki2 tree = 
   List.assoc eki2 (RedBlack.search tree eki1) 
  
-(* ÌÜÅª¡§ekimei list ¤«¤é eki list ¤òºî¤ë *) 
+(* ç›®çš„ï¼šekimei list ã‹ã‚‰ eki list ã‚’ä½œã‚‹ *) 
 (* make_initial_eki_list : ekimei_t list -> string -> eki_t list *) 
 let make_initial_eki_list ekimei_list kiten = 
   List.map (fun ekimei -> match ekimei with 
@@ -49,7 +49,7 @@ let make_initial_eki_list ekimei_list kiten =
 	       else {namae = k; saitan_kyori = infinity; temae_list = []}) 
 	   ekimei_list 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê¤Î±Ø¤Î¥ê¥¹¥È v ¤òÉ¬Í×¤Ë±ş¤¸¤Æ¹¹¿·¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šã®é§…ã®ãƒªã‚¹ãƒˆ v ã‚’å¿…è¦ã«å¿œã˜ã¦æ›´æ–°ã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* koushin : eki_t -> eki_t list -> ekikan_tree_t -> eki_t list *) 
 let koushin p v ekikan_tree = match p with 
   {namae = pn; saitan_kyori = ps; temae_list = pt} -> 
@@ -64,7 +64,7 @@ let koushin p v ekikan_tree = match p with
 		 with Not_found -> q) 
 	     v 
  
-(* ÌÜÅª¡§Ì¤³ÎÄê±Ø¤Î¥ê¥¹¥È¤È±Ø´Ö¥ê¥¹¥È¤«¤é¡¢³Æ±Ø¤Ø¤ÎºÇÃ»Ï©¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šæœªç¢ºå®šé§…ã®ãƒªã‚¹ãƒˆã¨é§…é–“ãƒªã‚¹ãƒˆã‹ã‚‰ã€å„é§…ã¸ã®æœ€çŸ­è·¯ã‚’æ±‚ã‚ã‚‹ *) 
 (* dijkstra_main : eki_t list -> ekikan_tree_t -> eki_t list *) 
 let rec dijkstra_main eki_list ekikan_tree = match eki_list with 
     [] -> [] 
@@ -73,14 +73,14 @@ let rec dijkstra_main eki_list ekikan_tree = match eki_list with
       let eki_list2 = koushin saitan nokori ekikan_tree in 
       saitan :: dijkstra_main eki_list2 ekikan_tree 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ eki_list ¤«¤é shuten ¤Î¥ì¥³¡¼¥É¤òÃµ¤·½Ğ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ eki_list ã‹ã‚‰ shuten ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ¢ã—å‡ºã™ *) 
 (* find : string -> eki_t list -> eki_t *) 
 let rec find shuten eki_list = match eki_list with 
     [] -> {namae = ""; saitan_kyori = infinity; temae_list = []} 
   | ({namae = n; saitan_kyori = s; temae_list = t} as first) :: rest -> 
       if n = shuten then first else find shuten rest 
  
-(* ÌÜÅª¡§»ÏÅÀ¤È½ªÅÀ¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢ºÇÃ»Ï©¤òµá¤á¡¢½ªÅÀ¤Î¥ì¥³¡¼¥É¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå§‹ç‚¹ã¨çµ‚ç‚¹ã‚’å—ã‘å–ã£ãŸã‚‰ã€æœ€çŸ­è·¯ã‚’æ±‚ã‚ã€çµ‚ç‚¹ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™ *) 
 (* dijkstra : string -> string -> eki_t *) 
 let dijkstra romaji_kiten romaji_shuten = 
   let kiten = romaji_to_kanji romaji_kiten global_ekimei_list in 
@@ -90,18 +90,18 @@ let dijkstra romaji_kiten romaji_shuten =
   let eki_list2 = dijkstra_main eki_list global_ekikan_tree in 
   find shuten eki_list2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = dijkstra "shibuya" "gokokuji" = 
-  {namae = "¸î¹ñ»û"; saitan_kyori = 9.8; 
+  {namae = "è­·å›½å¯º"; saitan_kyori = 9.8; 
    temae_list = 
-     ["¸î¹ñ»û"; "¹¾¸ÍÀî¶¶"; "ÈÓÅÄ¶¶"; "»Ô¥öÃ«"; "¹íÄ®"; "±ÊÅÄÄ®"; 
-      "ÀÄ»³°ìÃúÌÜ"; "É½»²Æ»"; "½ÂÃ«"]} 
+     ["è­·å›½å¯º"; "æ±Ÿæˆ¸å·æ©‹"; "é£¯ç”°æ©‹"; "å¸‚ãƒ¶è°·"; "éº¹ç”º"; "æ°¸ç”°ç”º"; 
+      "é’å±±ä¸€ä¸ç›®"; "è¡¨å‚é“"; "æ¸‹è°·"]} 
 let test2 = dijkstra "myogadani" "meguro" = 
-  {namae = "ÌÜ¹õ"; saitan_kyori = 12.7000000000000028; 
+  {namae = "ç›®é»’"; saitan_kyori = 12.7000000000000028; 
    temae_list = 
-     ["ÌÜ¹õ"; "Çò¶âÂæ"; "Çò¶â¹âÎØ"; "ËãÉÛ½½ÈÖ"; "Ï»ËÜÌÚ°ìÃúÌÜ"; "Î¯ÃÓ»³²¦"; 
-      "±ÊÅÄÄ®"; "¹íÄ®"; "»Ô¥öÃ«"; "ÈÓÅÄ¶¶"; "¸å³Ú±à"; "è¬²ÙÃ«"]} 
+     ["ç›®é»’"; "ç™½é‡‘å°"; "ç™½é‡‘é«˜è¼ª"; "éº»å¸ƒåç•ª"; "å…­æœ¬æœ¨ä¸€ä¸ç›®"; "æºœæ± å±±ç‹"; 
+      "æ°¸ç”°ç”º"; "éº¹ç”º"; "å¸‚ãƒ¶è°·"; "é£¯ç”°æ©‹"; "å¾Œæ¥½åœ’"; "èŒ—è·è°·"]} 
  
-(* ºÇÃ»µ÷Î¥¤¬ 12.7 ¤Ë¤Ê¤é¤Ê¤¤¤Î¤Ï¡¢¾®¿ô¤ò£²¿Ê¿ô¤ÇÉ½¸½¤¹¤ë¤È¤­¤Î¸íº¹¤Î¤¿¤á¡£ 
-   ¤³¤³¤Ç¤Ï¥Æ¥¹¥È·ë²Ì¤â½ñ¤¤¤¿¤¬¡¢¤³¤ì¤ò¥Æ¥¹¥ÈºîÀ®»ş¤ËÍ½ÁÛ¤¹¤ë¤Î¤ÏÌµÍı¤Ê¤Î¤Ç 
-   ¥Æ¥¹¥È¤È¤·¤Æ½ñ¤¯°ÕÌ£¤Ï¤¢¤Ş¤ê¤Ê¤¤¡£*) 
+(* æœ€çŸ­è·é›¢ãŒ 12.7 ã«ãªã‚‰ãªã„ã®ã¯ã€å°æ•°ã‚’ï¼’é€²æ•°ã§è¡¨ç¾ã™ã‚‹ã¨ãã®èª¤å·®ã®ãŸã‚ã€‚ 
+   ã“ã“ã§ã¯ãƒ†ã‚¹ãƒˆçµæœã‚‚æ›¸ã„ãŸãŒã€ã“ã‚Œã‚’ãƒ†ã‚¹ãƒˆä½œæˆæ™‚ã«äºˆæƒ³ã™ã‚‹ã®ã¯ç„¡ç†ãªã®ã§ 
+   ãƒ†ã‚¹ãƒˆã¨ã—ã¦æ›¸ãæ„å‘³ã¯ã‚ã¾ã‚Šãªã„ã€‚*) 

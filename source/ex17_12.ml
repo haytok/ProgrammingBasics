@@ -1,8 +1,8 @@
-(* ¤¢¤é¤«¤¸¤á ex09_10.ml, ex17_10.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ¤ÎÄêµÁ *) 
-#use "ex17_10.ml" (* ekikan_tree_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex09_10.ml, ex17_10.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ã®å®šç¾© *) 
+#use "ex17_10.ml" (* ekikan_tree_t ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ kiten, shuten, kyori ¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ kiten, shuten, kyori ã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* insert1 : ekikan_tree_t -> string -> string -> float -> ekikan_tree_t *) 
 let rec insert1 ekikan_tree kiten shuten kyori = match ekikan_tree with 
     Empty -> Node (Empty, kiten, [(shuten, kyori)], Empty) 
@@ -13,36 +13,36 @@ let rec insert1 ekikan_tree kiten shuten kyori = match ekikan_tree with
       then Node (left, ekimei, lst, insert1 right kiten shuten kyori) 
       else Node (left, ekimei, (shuten, kyori) :: lst, right) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¾ğÊó¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan æƒ…å ±ã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* insert_ekikan : ekikan_tree_t -> ekikan_t -> ekikan_tree_t *) 
 let insert_ekikan ekikan_tree ekikan = match ekikan with 
   {kiten = k; shuten = s; keiyu = y; kyori = r; jikan = j} -> 
     insert1 (insert1 ekikan_tree s k r) k s r 
  
-(* ±Ø´Ö¤ÎÎã *) 
+(* é§…é–“ã®ä¾‹ *) 
 let ekikan1 = 
-  {kiten="ÃÓÂŞ"; shuten="¿·ÂçÄÍ"; keiyu="´İ¥ÎÆâÀş"; kyori=1.8; jikan=3} 
+  {kiten="æ± è¢‹"; shuten="æ–°å¤§å¡š"; keiyu="ä¸¸ãƒå†…ç·š"; kyori=1.8; jikan=3} 
 let ekikan2 = 
-  {kiten="¿·ÂçÄÍ"; shuten="è¬²ÙÃ«"; keiyu="´İ¥ÎÆâÀş"; kyori=1.2; jikan=2} 
+  {kiten="æ–°å¤§å¡š"; shuten="èŒ—è·è°·"; keiyu="ä¸¸ãƒå†…ç·š"; kyori=1.2; jikan=2} 
 let ekikan3 = 
-  {kiten="è¬²ÙÃ«"; shuten="¸å³Ú±à"; keiyu="´İ¥ÎÆâÀş"; kyori=1.8; jikan=2} 
+  {kiten="èŒ—è·è°·"; shuten="å¾Œæ¥½åœ’"; keiyu="ä¸¸ãƒå†…ç·š"; kyori=1.8; jikan=2} 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let tree1 = insert_ekikan Empty ekikan1 
 let test1 = tree1 = 
-  Node (Empty, "¿·ÂçÄÍ", [("ÃÓÂŞ", 1.8)], 
-	Node (Empty, "ÃÓÂŞ", [("¿·ÂçÄÍ", 1.8)], Empty)) 
+  Node (Empty, "æ–°å¤§å¡š", [("æ± è¢‹", 1.8)], 
+	Node (Empty, "æ± è¢‹", [("æ–°å¤§å¡š", 1.8)], Empty)) 
 let tree2 = insert_ekikan tree1 ekikan2 
 let test2 = tree2 = 
-  Node (Empty, "¿·ÂçÄÍ", [("è¬²ÙÃ«", 1.2); ("ÃÓÂŞ", 1.8)], 
-	Node (Empty, "ÃÓÂŞ", [("¿·ÂçÄÍ", 1.8)], 
-	      Node (Empty, "è¬²ÙÃ«", [("¿·ÂçÄÍ", 1.2)], Empty))) 
+  Node (Empty, "æ–°å¤§å¡š", [("èŒ—è·è°·", 1.2); ("æ± è¢‹", 1.8)], 
+	Node (Empty, "æ± è¢‹", [("æ–°å¤§å¡š", 1.8)], 
+	      Node (Empty, "èŒ—è·è°·", [("æ–°å¤§å¡š", 1.2)], Empty))) 
 let tree3 = insert_ekikan tree2 ekikan3 
 let test3 = tree3 = 
-  Node (Node (Empty, "¸å³Ú±à", [("è¬²ÙÃ«", 1.8)], Empty), 
-	"¿·ÂçÄÍ", [("è¬²ÙÃ«", 1.2); ("ÃÓÂŞ", 1.8)], 
+  Node (Node (Empty, "å¾Œæ¥½åœ’", [("èŒ—è·è°·", 1.8)], Empty), 
+	"æ–°å¤§å¡š", [("èŒ—è·è°·", 1.2); ("æ± è¢‹", 1.8)], 
         Node (Empty, 
-	      "ÃÓÂŞ", [("¿·ÂçÄÍ", 1.8)], 
+	      "æ± è¢‹", [("æ–°å¤§å¡š", 1.8)], 
 	      Node (Empty, 
-		    "è¬²ÙÃ«", [("¸å³Ú±à", 1.8); ("¿·ÂçÄÍ", 1.2)], 
+		    "èŒ—è·è°·", [("å¾Œæ¥½åœ’", 1.8); ("æ–°å¤§å¡š", 1.2)], 
 		    Empty))) 

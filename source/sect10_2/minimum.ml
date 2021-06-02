@@ -1,4 +1,4 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ lst ¤ÎÃæ¤ÎºÇ¾®ÃÍ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ lst ã®ä¸­ã®æœ€å°å€¤ã‚’è¿”ã™ *) 
 (* minimum : int list -> int *) 
 let rec minimum lst = match lst with 
     [] -> max_int 
@@ -7,7 +7,7 @@ let rec minimum lst = match lst with
       then first 
       else minimum rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = minimum [3] = 3 
 let test2 = minimum [1; 2] = 1 
 let test3 = minimum [3; 2] = 2 

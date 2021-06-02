@@ -1,11 +1,11 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekimei0 ¤Þ¤Ç¤Îµ÷Î¥¤ò lst ¤«¤éÃµ¤·¤ÆÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekimei0 ã¾ã§ã®è·é›¢ã‚’ lst ã‹ã‚‰æŽ¢ã—ã¦è¿”ã™ *) 
 (* assoc : string -> (string * float) list -> float *) 
 let rec assoc ekimei0 lst = match lst with 
     [] -> infinity 
   | (ekimei, kyori) :: rest -> 
       if ekimei = ekimei0 then kyori else assoc ekimei0 rest 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = assoc "¸å³Ú±à" [] = infinity 
-let test2 = assoc "¸å³Ú±à" [("¿·ÂçÄÍ", 1.2); ("¸å³Ú±à", 1.8)] = 1.8 
-let test3 = assoc "ÃÓÂÞ" [("¿·ÂçÄÍ", 1.2); ("¸å³Ú±à", 1.8)] = infinity 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = assoc "å¾Œæ¥½åœ’" [] = infinity 
+let test2 = assoc "å¾Œæ¥½åœ’" [("æ–°å¤§å¡š", 1.2); ("å¾Œæ¥½åœ’", 1.8)] = 1.8 
+let test3 = assoc "æ± è¢‹" [("æ–°å¤§å¡š", 1.2); ("å¾Œæ¥½åœ’", 1.8)] = infinity 

@@ -1,27 +1,27 @@
-(* ¤¢¤é¤«¤¸¤á ex10_10.ml, ex10_11.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex10_10.ml, ex10_11.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex10_10.ml" 
 #use "ex10_11.ml" 
  
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤Î±Ø¤Î´Ö¤Îµ÷Î¥¤òÊ¸»úÎó¤ÇÉ½¸½¤¹¤ë *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®é§…ã®é–“ã®è·é›¢ã‚’æ–‡å­—åˆ—ã§è¡¨ç¾ã™ã‚‹ *) 
 let kyori_wo_hyoji romaji1 romaji2 = 
   let kanji1 = romaji_to_kanji romaji1 global_ekimei_list in 
-  if kanji1 = "" then romaji1 ^ " ¤È¤¤¤¦±Ø¤ÏÂ¸ºß¤·¤Ş¤»¤ó" 
+  if kanji1 = "" then romaji1 ^ " ã¨ã„ã†é§…ã¯å­˜åœ¨ã—ã¾ã›ã‚“" 
   else let kanji2 = romaji_to_kanji romaji2 global_ekimei_list in 
-       if kanji2 = "" then romaji2 ^ " ¤È¤¤¤¦±Ø¤ÏÂ¸ºß¤·¤Ş¤»¤ó" 
+       if kanji2 = "" then romaji2 ^ " ã¨ã„ã†é§…ã¯å­˜åœ¨ã—ã¾ã›ã‚“" 
        else let kyori = get_ekikan_kyori kanji1 kanji2 global_ekikan_list in 
 	    if kyori = infinity 
-	    then kanji1 ^ "¤È" ^ kanji2 ^ "¤Ï¤Ä¤Ê¤¬¤Ã¤Æ¤¤¤Ş¤»¤ó" 
-	    else kanji1 ^ "¤«¤é" ^ kanji2 ^ "¤Ş¤Ç¤Ï " ^ 
-		 string_of_float kyori ^ " ¥­¥í¤Ç¤¹" 
+	    then kanji1 ^ "ã¨" ^ kanji2 ^ "ã¯ã¤ãªãŒã£ã¦ã„ã¾ã›ã‚“" 
+	    else kanji1 ^ "ã‹ã‚‰" ^ kanji2 ^ "ã¾ã§ã¯ " ^ 
+		 string_of_float kyori ^ " ã‚­ãƒ­ã§ã™" 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = kyori_wo_hyoji "myougadani" "shinotsuka" 
-	    = "myougadani ¤È¤¤¤¦±Ø¤ÏÂ¸ºß¤·¤Ş¤»¤ó" 
+	    = "myougadani ã¨ã„ã†é§…ã¯å­˜åœ¨ã—ã¾ã›ã‚“" 
 let test1 = kyori_wo_hyoji "myogadani" "shinotsuka" 
-	    = "è¬²ÙÃ«¤«¤é¿·ÂçÄÍ¤Ş¤Ç¤Ï 1.2 ¥­¥í¤Ç¤¹" 
+	    = "èŒ—è·è°·ã‹ã‚‰æ–°å¤§å¡šã¾ã§ã¯ 1.2 ã‚­ãƒ­ã§ã™" 
 let test1 = kyori_wo_hyoji "myogadani" "ikebukuro" 
-	    = "è¬²ÙÃ«¤ÈÃÓÂŞ¤Ï¤Ä¤Ê¤¬¤Ã¤Æ¤¤¤Ş¤»¤ó" 
+	    = "èŒ—è·è°·ã¨æ± è¢‹ã¯ã¤ãªãŒã£ã¦ã„ã¾ã›ã‚“" 
 let test1 = kyori_wo_hyoji "tokyo" "ootemachi" 
-	    = "ootemachi ¤È¤¤¤¦±Ø¤ÏÂ¸ºß¤·¤Ş¤»¤ó" 
+	    = "ootemachi ã¨ã„ã†é§…ã¯å­˜åœ¨ã—ã¾ã›ã‚“" 
 let test1 = kyori_wo_hyoji "tokyo" "otemachi" 
-	    = "Åìµş¤«¤éÂç¼êÄ®¤Ş¤Ç¤Ï 0.6 ¥­¥í¤Ç¤¹" 
+	    = "æ±äº¬ã‹ã‚‰å¤§æ‰‹ç”ºã¾ã§ã¯ 0.6 ã‚­ãƒ­ã§ã™" 

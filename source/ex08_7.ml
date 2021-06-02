@@ -1,8 +1,8 @@
-(* ±Ø´Ö¤Î¾ğÊó¤ò³ÊÇ¼¤¹¤ë¥ì¥³¡¼¥É·¿ *) 
+(* é§…é–“ã®æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰å‹ *) 
 type ekikan_t = { 
-  kiten  : string; (* µ¯ÅÀ *) 
-  shuten : string; (* ½ªÅÀ *) 
-  keiyu  : string; (* ·ĞÍ³Ï©ÀşÌ¾ *) 
-  kyori  : float;  (* µ÷Î¥ *) 
-  jikan  : int;    (* ½êÍ×»ş´Ö *) 
+  kiten  : string; (* èµ·ç‚¹ *) 
+  shuten : string; (* çµ‚ç‚¹ *) 
+  keiyu  : string; (* çµŒç”±è·¯ç·šå *) 
+  kyori  : float;  (* è·é›¢ *) 
+  jikan  : int;    (* æ‰€è¦æ™‚é–“ *) 
 } 

@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¼Â¿ô x ¤ÎÀäÂÐÃÍ¤ò·×»»¤¹¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸå®Ÿæ•° x ã®çµ¶å¯¾å€¤ã‚’è¨ˆç®—ã™ã‚‹ *) 
 (* abs_value : float -> float *) 
 let abs_value x = 
   if x > 0.0 then x 
   	     else -. x 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = abs_value 2.8 = 2.8 
 let test2 = abs_value (-2.8) = 2.8 
 let test3 = abs_value 0.0 = 0.0 

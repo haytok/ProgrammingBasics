@@ -1,8 +1,8 @@
-(* ÌÜÅª¡§a, b, c ¤ò¼õ¤±¼è¤Ã¤¿¤éÈ½ÊÌ¼°¤ÎÃÍ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼ša, b, c ã‚’å—ã‘å–ã£ãŸã‚‰åˆ¤åˆ¥å¼ã®å€¤ã‚’è¿”ã™ *) 
 (* hanbetsushiki : float -> float -> float -> float *) 
 let hanbetsushiki a b c = b *. b -. 4.0 *. a *. c 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = hanbetsushiki 1.0 5.0 4.0 = 9.0 
 let test2 = hanbetsushiki 2.0 (-4.0) 2.0 = 0.0 
 let test3 = hanbetsushiki 1.0 2.0 4.0 = -12.0 

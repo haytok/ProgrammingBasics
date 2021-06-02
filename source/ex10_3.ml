@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á sect08_6/hyouka.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect08_6/hyouka.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect08_6/hyouka.ml" 
  
-(* ³ØÀ¸¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* å­¦ç”Ÿã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let gakusei1 = {namae="nakamura"; tensuu=90; seiseki="A"} 
 let gakusei2 = {namae="miyahara"; tensuu=80; seiseki="A"} 
 let gakusei3 = {namae="sato"; tensuu=75; seiseki="B"} 
@@ -9,14 +9,14 @@ let gakusei4 = {namae="idehara"; tensuu=70; seiseki="B"}
 let gakusei5 = {namae="tsubata"; tensuu=65; seiseki="C"} 
 let gakusei6 = {namae="asai"; tensuu=60; seiseki="C"} 
  
-(* ³ØÀ¸¤Î¥ê¥¹¥È¤ÎÎã *) 
+(* å­¦ç”Ÿã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [gakusei2] 
 let lst3 = [gakusei3; gakusei4] 
 let lst4 = [gakusei4; gakusei3] 
 let lst5 = [gakusei4; gakusei1; gakusei6; gakusei5; gakusei2; gakusei3] 
  
-(* ÌÜÅª¡§¾º½ç¤ËÊÂ¤ó¤Ç¤¤¤ë lst ¤ÎÀµ¤·¤¤°ÌÃÖ¤Ë gakusei ¤òÁŞÆş¤¹¤ë *) 
+(* ç›®çš„ï¼šæ˜‡é †ã«ä¸¦ã‚“ã§ã„ã‚‹ lst ã®æ­£ã—ã„ä½ç½®ã« gakusei ã‚’æŒ¿å…¥ã™ã‚‹ *) 
 (* gakusei_insert : gakusei_t list -> gakusei_t -> gakusei_t list *) 
 let rec gakusei_insert lst gakusei0 = match lst with 
     [] -> [gakusei0] 
@@ -25,7 +25,7 @@ let rec gakusei_insert lst gakusei0 = match lst with
 	if t < t0 then gakusei :: gakusei_insert rest gakusei0 
 	else gakusei0 :: lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = gakusei_insert [] gakusei2 = [gakusei2] 
 let test2 = gakusei_insert [gakusei4] gakusei3 = [gakusei4; gakusei3] 
 let test3 = gakusei_insert [gakusei3] gakusei4 = [gakusei4; gakusei3] 
@@ -33,13 +33,13 @@ let test4 = gakusei_insert [gakusei6; gakusei5; gakusei3; gakusei2; gakusei1]
 			   gakusei4 
 	    = [gakusei6; gakusei5; gakusei4; gakusei3; gakusei2; gakusei1] 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿³ØÀ¸¤Î¥ê¥¹¥È lst ¤òÅÀ¿ô¤Î½ç¤ËÊÂ¤Ù¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸå­¦ç”Ÿã®ãƒªã‚¹ãƒˆ lst ã‚’ç‚¹æ•°ã®é †ã«ä¸¦ã¹ã‚‹ *) 
 (* gakusei_ins_sort : gakusei_t list -> gakusei_t list *) 
 let rec gakusei_ins_sort lst = match lst with 
     [] -> [] 
   | first :: rest -> gakusei_insert (gakusei_ins_sort rest) first 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test5 = gakusei_ins_sort lst1 = [] 
 let test6 = gakusei_ins_sort lst2 = [gakusei2] 
 let test7 = gakusei_ins_sort lst3 = [gakusei4; gakusei3] 

@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á sect20_1/color.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect20_1/color.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect20_1/color.ml" 
  
-(* ÌÚ¤òÉ½¤¹·¿ *) 
+(* æœ¨ã‚’è¡¨ã™å‹ *) 
 type ('a, 'b) rb_tree_t = 
     Empty 
   | Node of ('a, 'b) rb_tree_t * 'a * 'b * color_t * ('a, 'b) rb_tree_t 

@@ -1,14 +1,14 @@
-(* µ÷Î¥¤Èµ÷Î¥¤Î¹ç·×¤ò»ı¤Ã¤Æ¤¤¤ë·¿ *) 
+(* è·é›¢ã¨è·é›¢ã®åˆè¨ˆã‚’æŒã£ã¦ã„ã‚‹å‹ *) 
 type distance_t = { 
-  kyori : float;   (* µ÷Î¥ *) 
-  total : float;   (* µ÷Î¥¤Î¹ç·× *) 
+  kyori : float;   (* è·é›¢ *) 
+  total : float;   (* è·é›¢ã®åˆè¨ˆ *) 
 } 
  
-(* ÌÜÅª¡§ÀèÆ¬¤«¤é¥ê¥¹¥ÈÃæ¤Î³ÆÅÀ¤Ş¤Ç¤Îµ÷Î¥¤Î¹ç·×¤ò·×»»¤¹¤ë *) 
+(* ç›®çš„ï¼šå…ˆé ­ã‹ã‚‰ãƒªã‚¹ãƒˆä¸­ã®å„ç‚¹ã¾ã§ã®è·é›¢ã®åˆè¨ˆã‚’è¨ˆç®—ã™ã‚‹ *) 
 (* total_distance : distance_t list -> distance_t list *) 
 let total_distance lst = 
-  (* ÌÜÅª¡§ÀèÆ¬¤«¤é¥ê¥¹¥ÈÃæ¤Î³ÆÅÀ¤Ş¤Ç¤Îµ÷Î¥¤Î¹ç·×¤ò·×»»¤¹¤ë *) 
-  (* ¤³¤³¤Ç total0 ¤Ï¤³¤ì¤Ş¤Ç¤Îµ÷Î¥¤Î¹ç·× *) 
+  (* ç›®çš„ï¼šå…ˆé ­ã‹ã‚‰ãƒªã‚¹ãƒˆä¸­ã®å„ç‚¹ã¾ã§ã®è·é›¢ã®åˆè¨ˆã‚’è¨ˆç®—ã™ã‚‹ *) 
+  (* ã“ã“ã§ total0 ã¯ã“ã‚Œã¾ã§ã®è·é›¢ã®åˆè¨ˆ *) 
   (* hojo : distance_t list -> float -> distance_t list *) 
   let rec hojo lst total0 = match lst with 
       [] -> [] 
@@ -17,7 +17,7 @@ let total_distance lst =
         :: hojo rest (total0 +. k) 
   in hojo lst 0.0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test = total_distance [{kyori = 0.3; total = 0.}; 
 			   {kyori = 0.9; total = 0.}; 
 			   {kyori = 1.4; total = 0.}; 
@@ -27,4 +27,4 @@ let test = total_distance [{kyori = 0.3; total = 0.};
 	      {kyori = 1.4; total = 2.6}; 
 	      {kyori = 0.8; total = 3.4}] 
  
-(* ¤¿¤À¤·¡¢¤³¤Î¥Æ¥¹¥È¤Ï float ¤Î¸íº¹¤Ë¤è¤ê true ¤Ë¤Ï¤Ê¤é¤Ê¤¤ *) 
+(* ãŸã ã—ã€ã“ã®ãƒ†ã‚¹ãƒˆã¯ float ã®èª¤å·®ã«ã‚ˆã‚Š true ã«ã¯ãªã‚‰ãªã„ *) 

@@ -1,14 +1,14 @@
-(* ¤¢¤é¤«¤¸¤á ex09_9.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex09_9.ml" (* ekimei_t, global_ekimei_list ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex09_9.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex09_9.ml" (* ekimei_t, global_ekimei_list ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¥í¡¼¥Ş»ú¤Î±ØÌ¾¤ò´Á»ú¤ËÄ¾¤¹ *) 
+(* ç›®çš„ï¼šãƒ­ãƒ¼ãƒå­—ã®é§…åã‚’æ¼¢å­—ã«ç›´ã™ *) 
 (* romaji_to_kanji : string -> ekimei_t list -> string *) 
 let rec romaji_to_kanji r0 ekimei_list = match ekimei_list with 
     [] -> "" 
   | {kanji = k; kana = a; romaji = r; shozoku = s} :: rest -> 
       if r0 = r then k else romaji_to_kanji r0 rest 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = romaji_to_kanji "myogadani" global_ekimei_list = "è¬²ÙÃ«" 
-let test2 = romaji_to_kanji "shibuya" global_ekimei_list = "½ÂÃ«" 
-let test3 = romaji_to_kanji "otemachi" global_ekimei_list = "Âç¼êÄ®" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = romaji_to_kanji "myogadani" global_ekimei_list = "èŒ—è·è°·" 
+let test2 = romaji_to_kanji "shibuya" global_ekimei_list = "æ¸‹è°·" 
+let test3 = romaji_to_kanji "otemachi" global_ekimei_list = "å¤§æ‰‹ç”º" 

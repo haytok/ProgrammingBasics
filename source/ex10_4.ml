@@ -1,16 +1,16 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
  
-(* person_t ·¿¤Î¥ê¥¹¥È¤ÎÎã *) 
+(* person_t åž‹ã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [person1] 
 let lst3 = [person1; person2] 
 let lst4 = [person2; person1] 
 let lst5 = [person3; person1; person2] 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 
  
-(* ÌÜÅª¡§¾º½ç¤ËÊÂ¤ó¤Ç¤¤¤ë lst ¤ÎÀµ¤·¤¤°ÌÃÖ¤Ë person ¤òÁÞÆþ¤¹¤ë *) 
+(* ç›®çš„ï¼šæ˜‡é †ã«ä¸¦ã‚“ã§ã„ã‚‹ lst ã®æ­£ã—ã„ä½ç½®ã« person ã‚’æŒ¿å…¥ã™ã‚‹ *) 
 (* person_insert : person_t list -> person_t -> person_t list *) 
 let rec person_insert lst person0 = match lst with 
     [] -> [person0] 
@@ -22,20 +22,20 @@ let rec person_insert lst person0 = match lst with
 	  if n < n0 then person :: person_insert rest person0 
 	  else person0 :: lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = person_insert [] person1 = [person1] 
 let test2 = person_insert [person2] person1 = [person2; person1] 
 let test3 = person_insert [person1] person2 = [person2; person1] 
 let test4 = person_insert [person1; person2] person3 
 	    = [person1; person2; person3] 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¿Í¤Î¥ê¥¹¥È lst ¤òÌ¾Á°¤Î½ç¤ËÊÂ¤Ù¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸäººã®ãƒªã‚¹ãƒˆ lst ã‚’åå‰ã®é †ã«ä¸¦ã¹ã‚‹ *) 
 (* person_ins_sort : person_t list -> person_t list *) 
 let rec person_ins_sort lst = match lst with 
     [] -> [] 
   | first :: rest -> person_insert (person_ins_sort rest) first 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test5 = person_ins_sort lst1 = [] 
 let test6 = person_ins_sort lst2 = [person1] 
 let test7 = person_ins_sort lst3 = [person2; person1] 

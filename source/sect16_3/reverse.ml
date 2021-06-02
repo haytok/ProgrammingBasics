@@ -1,14 +1,14 @@
-(* ÌÜÅª¡§Í¿¤¨¤é¤ì¤¿¥ê¥¹¥È¤òµÕ½ç¤Ë¤·¤ÆÊÖ¤¹ *) 
+(* ç›®çš„ï¼šä¸ãˆã‚‰ã‚ŒãŸãƒªã‚¹ãƒˆã‚’é€†é †ã«ã—ã¦è¿”ã™ *) 
 (* reverse : 'a list -> 'a list *) 
 let reverse lst = 
-  (* ÌÜÅª¡§(lst ¤ÎµÕ½ç¤Î¥ê¥¹¥È) @ result ¤òÊÖ¤¹ *) 
-  (* ¤³¤³¤Ç result ¤Ï¤³¤ì¤Ş¤Ç¤ÎÍ×ÁÇ¤òµÕ½ç¤Ë¤·¤¿¥ê¥¹¥È¤ò¼¨¤¹ *) 
+  (* ç›®çš„ï¼š(lst ã®é€†é †ã®ãƒªã‚¹ãƒˆ) @ result ã‚’è¿”ã™ *) 
+  (* ã“ã“ã§ result ã¯ã“ã‚Œã¾ã§ã®è¦ç´ ã‚’é€†é †ã«ã—ãŸãƒªã‚¹ãƒˆã‚’ç¤ºã™ *) 
   let rec rev lst result = match lst with 
       [] -> result 
     | first :: rest -> rev rest (first :: result) 
   in rev lst [] 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = reverse [] = [] 
 let test2 = reverse [1] = [1] 
 let test3 = reverse [1; 2; 3; 4; 5] = [5; 4; 3; 2; 1] 

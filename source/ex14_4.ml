@@ -1,11 +1,11 @@
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™å‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* gakusei_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* gakusei_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 
@@ -14,16 +14,16 @@ let lst4 = [{namae = "yoshida"; tensuu = 80; seiseki = "A"};
             {namae = "asai"; tensuu = 70; seiseki = "B"}; 
             {namae = "kaneko"; tensuu = 85; seiseki = "A"}] 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿³ØÀ¸¥ê¥¹¥È lst ¤ÎÆÀÅÀ¤Î¹ç·×¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®å¾—ç‚¹ã®åˆè¨ˆã‚’è¿”ã™ *) 
 (* add_tokuten : gakusei_t -> int -> int *) 
 let add_tokuten gakusei rest_result = match gakusei with 
   {namae = n; tensuu = t; seiseki = s} -> t + rest_result 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿³ØÀ¸¥ê¥¹¥È lst ¤ÎÆÀÅÀ¤Î¹ç·×¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®å¾—ç‚¹ã®åˆè¨ˆã‚’è¿”ã™ *) 
 (* gakusei_sum : gakusei_t list -> int *) 
 let gakusei_sum lst = List.fold_right add_tokuten lst 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = gakusei_sum lst1 = 0 
 let test2 = gakusei_sum lst2 = 70 
 let test3 = gakusei_sum lst3 = 155 

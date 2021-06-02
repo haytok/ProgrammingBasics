@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á ex20_1.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex20_1.ml" (* rb_tree_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex20_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex20_1.ml" (* rb_tree_t ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§ÀÖ¹õÌÚ¤È¥­¡¼¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢¤½¤Î¥­¡¼¤ËÂÐ±þ¤¹¤ëÃÍ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šèµ¤é»’æœ¨ã¨ã‚­ãƒ¼ã‚’å—ã‘å–ã£ãŸã‚‰ã€ãã®ã‚­ãƒ¼ã«å¯¾å¿œã™ã‚‹å€¤ã‚’è¿”ã™ *) 
 (* search : ('a, 'b) rb_tree_t -> 'a -> 'b *) 
 let rec search rb_tree k = match rb_tree with 
     Empty -> raise Not_found 
@@ -10,7 +10,7 @@ let rec search rb_tree k = match rb_tree with
       else if k < key then search left k 
       else search right k 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let rb_tree = 
   Node (Node (Empty, 10, "x", Black, Empty), 13, "y", Red, 
 	Node (Empty, 15, "z", Black, Empty)) 
@@ -18,4 +18,4 @@ let test1 = search rb_tree 10 = "x"
 let test2 = search rb_tree 13 = "y" 
 let test3 = search rb_tree 15 = "z" 
 (* let test4 = search rb_tree 17 *) 
-   (* Not_found ¤òµ¯¤³¤¹ *) 
+   (* Not_found ã‚’èµ·ã“ã™ *) 

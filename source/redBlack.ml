@@ -1,18 +1,18 @@
-(* ÀÖ¹õÌÚ¤Î¥â¥¸¥å¡¼¥ë *) 
-(* ex20_5.ml, ex20_6.ml ¤Ç»ÈÍÑ *) 
+(* èµ¤é»’æœ¨ã®ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ« *) 
+(* ex20_5.ml, ex20_6.ml ã§ä½¿ç”¨ *) 
  
-(* ÀÖ¤«¹õ¤ò¼¨¤¹·¿ *) 
+(* èµ¤ã‹é»’ã‚’ç¤ºã™åž‹ *) 
 type color_t = Red | Black 
  
-(* ÌÚ¤òÉ½¤¹·¿ *) 
+(* æœ¨ã‚’è¡¨ã™åž‹ *) 
 type ('a, 'b) t = 
     Empty 
   | Node of ('a, 'b) t * 'a * 'b * color_t * ('a, 'b) t 
  
-(* ¶õ¤ÎÀÖ¹õÌÚ *) 
+(* ç©ºã®èµ¤é»’æœ¨ *) 
 let empty = Empty 
  
-(* ÌÜÅª¡§ÀÖ¹õÌÚ¤ÎÀÖ¤ÎÏ¢Â³¤ò²ò¾Ã¤¹¤ë *) 
+(* ç›®çš„ï¼šèµ¤é»’æœ¨ã®èµ¤ã®é€£ç¶šã‚’è§£æ¶ˆã™ã‚‹ *) 
 (* balance : ('a, 'b) t -> ('a, 'b) t *) 
 let balance rb_tree = match rb_tree with 
     Node (Node (Node (a, xa, xb, Red, b), ya, yb, Red, c), za, zb, Black, d) 
@@ -22,7 +22,7 @@ let balance rb_tree = match rb_tree with
  -> Node (Node (a, xa, xb, Black, b), ya, yb, Red, Node (c, za, zb, Black, d)) 
   | _ -> rb_tree 
  
-(* ÌÜÅª¡§ÀÖ¹õÌÚ¤È¥­¡¼¤ÈÃÍ¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢¤½¤ì¤òÁÞÆþ¤·¤¿ÀÖ¹õÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šèµ¤é»’æœ¨ã¨ã‚­ãƒ¼ã¨å€¤ã‚’å—ã‘å–ã£ãŸã‚‰ã€ãã‚Œã‚’æŒ¿å…¥ã—ãŸèµ¤é»’æœ¨ã‚’è¿”ã™ *) 
 (* insert : ('a, 'b) t -> 'a -> 'b -> ('a, 'b) t *) 
 let insert rb_tree k v = 
   let rec ins rb_tree = match rb_tree with 
@@ -34,11 +34,11 @@ let insert rb_tree k v =
           then balance (Node (ins left, key, value, color, right)) 
           else balance (Node (left, key, value, color, ins right)) 
   in match ins rb_tree with 
-        Empty -> assert false (* ÀäÂÐ¤Ë¶õ¤Ç¤Ï¤Ê¤¤ *) 
+        Empty -> assert false (* çµ¶å¯¾ã«ç©ºã§ã¯ãªã„ *) 
       | Node (left, key, value, color, right) -> 
           Node (left, key, value, Black, right) 
  
-(* ÌÜÅª¡§ÀÖ¹õÌÚ¤È¥­¡¼¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢¤½¤Î¥­¡¼¤ËÂÐ±þ¤¹¤ëÃÍ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šèµ¤é»’æœ¨ã¨ã‚­ãƒ¼ã‚’å—ã‘å–ã£ãŸã‚‰ã€ãã®ã‚­ãƒ¼ã«å¯¾å¿œã™ã‚‹å€¤ã‚’è¿”ã™ *) 
 (* search : ('a, 'b) t -> 'a -> 'b *) 
 let rec search rb_tree k = match rb_tree with 
     Empty -> raise Not_found 
@@ -47,9 +47,9 @@ let rec search rb_tree k = match rb_tree with
       else if k < key then search left k 
       else search right k 
  
-(* ÌÜÅª¡§Á´¤Æ¤Î¥Î¡¼¥É¤ò¿¼¤µÍ¥Àè¤ÇË¬¤ì¤ë *) 
-(* ½é´üÃÍ init ¤«¤é»Ï¤á¤Æ¡¢³Æ¥Î¡¼¥É¤Ç´Ø¿ô f ¤ò½ç¤ËÅ¬ÍÑ¤¹¤ë *) 
-(* ex23_3.ml ¤Ç»ÈÍÑ *) 
+(* ç›®çš„ï¼šå…¨ã¦ã®ãƒŽãƒ¼ãƒ‰ã‚’æ·±ã•å„ªå…ˆã§è¨ªã‚Œã‚‹ *) 
+(* åˆæœŸå€¤ init ã‹ã‚‰å§‹ã‚ã¦ã€å„ãƒŽãƒ¼ãƒ‰ã§é–¢æ•° f ã‚’é †ã«é©ç”¨ã™ã‚‹ *) 
+(* ex23_3.ml ã§ä½¿ç”¨ *) 
 (* traverse : ('a -> 'b -> 'c -> 'a) -> 'a -> ('b, 'c) t -> 'a *) 
 let rec traverse f init tree = match tree with 
     Empty -> init 
@@ -59,8 +59,8 @@ let rec traverse f init tree = match tree with
       let result3 = traverse f result2 right in 
         result3 
  
-(* ÌÜÅª¡§ÌÚ¤ÎÃæ¤Ë¤¢¤ë¥Î¡¼¥É¤Î¿ô¤òµá¤á¤ë *) 
-(* ex23_3.ml ¤Ç»ÈÍÑ *) 
+(* ç›®çš„ï¼šæœ¨ã®ä¸­ã«ã‚ã‚‹ãƒŽãƒ¼ãƒ‰ã®æ•°ã‚’æ±‚ã‚ã‚‹ *) 
+(* ex23_3.ml ã§ä½¿ç”¨ *) 
 (* length : ('a, 'b) t -> int *) 
 let rec length tree = match tree with 
     Empty -> 0 

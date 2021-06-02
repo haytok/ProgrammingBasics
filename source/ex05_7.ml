@@ -1,15 +1,15 @@
-(* ¤¢¤é¤«¤¸¤á ex04_4.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex04_4.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex04_4.ml" 
  
-(* ÌÜÅª¡§¿ÈÄ¹¤ÈÂÎ½Å¤ò¼õ¤±¼è¤Ã¤¿¤éÂÎ·¿¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šèº«é•·ã¨ä½“é‡ã‚’å—ã‘å–ã£ãŸã‚‰ä½“åž‹ã‚’è¿”ã™ *) 
 (* taikei : float -> float -> string *) 
 let taikei shincho taiju = 
-  if bmi shincho taiju < 18.5 then "¤ä¤»" 
-  else if bmi shincho taiju < 25.0 then "É¸½à" 
-  else if bmi shincho taiju < 30.0 then "ÈîËþ" 
-  else "¹âÅÙÈîËþ" 
+  if bmi shincho taiju < 18.5 then "ã‚„ã›" 
+  else if bmi shincho taiju < 25.0 then "æ¨™æº–" 
+  else if bmi shincho taiju < 30.0 then "è‚¥æº€" 
+  else "é«˜åº¦è‚¥æº€" 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = taikei 1.13 20.0 = "¤ä¤»" 
-let test2 = taikei 1.63 57.0 = "É¸½à" 
-let test3 = taikei 1.71 56.0 = "É¸½à" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = taikei 1.13 20.0 = "ã‚„ã›" 
+let test2 = taikei 1.63 57.0 = "æ¨™æº–" 
+let test3 = taikei 1.71 56.0 = "æ¨™æº–" 

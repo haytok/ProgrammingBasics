@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§¼«Á³¿ô n ¤Î³¬¾è¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šè‡ªç„¶æ•° n ã®éšŽä¹—ã‚’æ±‚ã‚ã‚‹ *) 
 (* fac : int -> int *) 
 let rec fac n = 
   if n = 0 then 1 
            else n * fac (n - 1) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = fac 0 = 1 
 let test2 = fac 1 = 1 
 let test3 = fac 2 = 2 

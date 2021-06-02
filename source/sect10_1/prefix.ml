@@ -1,23 +1,23 @@
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ lst ¤ÎÍ×ÁÇ¤½¤ì¤¾¤ì¤ÎÀèÆ¬¤Ë n ¤ò¤¯¤Ã¤Ä¤±¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ lst ã®è¦ç´ ãã‚Œãžã‚Œã®å…ˆé ­ã« n ã‚’ãã£ã¤ã‘ã‚‹ *) 
 (* add_to_each : int -> int list list -> int list list *) 
 let rec add_to_each n lst = match lst with 
     [] -> [] 
   | first :: rest -> (n :: first) :: add_to_each n rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = add_to_each 1 [] = [] 
 let test2 = add_to_each 1 [[2]] = [[1; 2]] 
 let test3 = add_to_each 1 [[2]; [2; 3]] = [[1; 2]; [1; 2; 3]] 
 let test4 = add_to_each 1 [[2]; [2; 3]; [2; 3; 4]] 
                           = [[1; 2]; [1; 2; 3]; [1; 2; 3; 4]] 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ lst ¤ÎÀÜÆ¬¸ì¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ lst ã®æŽ¥é ­èªžã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* prefix : int list -> int list list *) 
 let rec prefix lst = match lst with 
     [] -> [] 
   | first :: rest -> [first] :: add_to_each first (prefix rest) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test5 = prefix [] = [] 
 let test6 = prefix [1] = [[1]] 
 let test7 = prefix [1; 2] = [[1]; [1; 2]] 

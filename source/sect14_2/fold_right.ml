@@ -1,64 +1,64 @@
 (* 
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤Î³ÆÍ×ÁÇ¤ÎÏÂ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®å„è¦ç´ ã®å’Œã‚’æ±‚ã‚ã‚‹ *) 
 (* sum : int list -> int *) 
 let rec sum lst = match lst with 
     [] -> 0 
   | first :: rest -> first + sum rest 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤ÎÄ¹¤µ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®é•·ã•ã‚’æ±‚ã‚ã‚‹ *) 
 (* length : 'a list -> int *) 
 let rec length lst = match lst with 
     [] -> 0 
   | first :: rest -> 1 + length rest 
  
-(* ÌÜÅª¡§lst1 ¤È lst2 ¤ò¼õ¤±¼è¤ê¤½¤ì¤é¤ò·ë¹ç¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šlst1 ã¨ lst2 ã‚’å—ã‘å–ã‚Šãã‚Œã‚‰ã‚’çµåˆã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* append : 'a list -> 'a list -> 'a list *) 
 let rec append lst1 lst2 = match lst1 with 
     [] -> lst2 
   | first :: rest -> first :: append rest lst2 
 *) 
  
-(* ÌÜÅª¡§init ¤«¤é»Ï¤á¤Æ lst ¤ÎÍ×ÁÇ¤ò±¦¤«¤é½ç¤Ë f ¤ò»Ü¤·¤³¤à *) 
+(* ç›®çš„ï¼šinit ã‹ã‚‰å§‹ã‚ã¦ lst ã®è¦ç´ ã‚’å³ã‹ã‚‰é †ã« f ã‚’æ–½ã—ã“ã‚€ *) 
 (* fold_right : ('a -> 'b -> 'b) -> 'a list -> 'b -> 'b *) 
 let rec fold_right f lst init = match lst with 
     [] -> init 
   | first :: rest -> f first (fold_right f rest init) 
  
-(* ÌÜÅª¡§first ¤È rest_result ¤ò²Ã¤¨¤ë *) 
+(* ç›®çš„ï¼šfirst ã¨ rest_result ã‚’åŠ ãˆã‚‹ *) 
 (* add_int : int -> int -> int *) 
 let add_int first rest_result = first + rest_result 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤Î³ÆÍ×ÁÇ¤ÎÏÂ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®å„è¦ç´ ã®å’Œã‚’æ±‚ã‚ã‚‹ *) 
 (* sum : int list -> int *) 
 let sum lst = fold_right add_int lst 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = sum [] = 0 
 let test2 = sum [1; 2; 3] = 6 
 let test3 = sum [1; 3; 7; 4; 2; 8] = 25 
  
-(* ÌÜÅª¡§first ¤ÏÌµ»ë¤·¤Æ rest_result ¤Ë 1 ¤ò²Ã¤¨¤ë *) 
+(* ç›®çš„ï¼šfirst ã¯ç„¡è¦–ã—ã¦ rest_result ã« 1 ã‚’åŠ ãˆã‚‹ *) 
 (* add_one : int -> int -> int *) 
 let add_one first rest_result = 1 + rest_result 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥ê¥¹¥È lst ¤ÎÄ¹¤µ¤òµá¤á¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒªã‚¹ãƒˆ lst ã®é•·ã•ã‚’æ±‚ã‚ã‚‹ *) 
 (* length : 'a list -> int *) 
 let length lst = fold_right add_one lst 0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = length [] = 0 
 let test2 = length [1; 2; 3] = 3 
 let test3 = length [1; 3; 7; 4; 2; 8] = 6 
  
-(* ÌÜÅª¡§first ¤ò¥ê¥¹¥È rest_result ¤ÎÀèÆ¬¤Ë²Ã¤¨¤ë *) 
+(* ç›®çš„ï¼šfirst ã‚’ãƒªã‚¹ãƒˆ rest_result ã®å…ˆé ­ã«åŠ ãˆã‚‹ *) 
 (* cons : 'a -> 'a list -> 'a list *) 
 let cons first rest_result = first :: rest_result 
  
-(* ÌÜÅª¡§lst1 ¤È lst2 ¤ò¼õ¤±¼è¤ê¤½¤ì¤é¤ò·ë¹ç¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šlst1 ã¨ lst2 ã‚’å—ã‘å–ã‚Šãã‚Œã‚‰ã‚’çµåˆã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* append : 'a list -> 'a list -> 'a list *) 
 let append lst1 lst2 = fold_right cons lst1 lst2 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = append [] [] = [] 
 let test2 = append [1; 2; 3] [4; 5; 6] = [1; 2; 3; 4; 5; 6] 
 let test3 = append [1; 3; 7; 4; 2; 8] [9; 6; 5] = [1; 3; 7; 4; 2; 8; 9; 6; 5] 

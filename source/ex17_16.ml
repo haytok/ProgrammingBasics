@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á ex12_1.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex12_1.ml" (* eki_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex12_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex12_1.ml" (* eki_t ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿±Ø¤Î¥ê¥¹¥È¤ò¡¢ºÇÃ»µ÷Î¥ºÇ¾®¤Î±Ø¤È¤½¤ì°Ê³°¤ËÊ¬Î¥¤¹¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸé§…ã®ãƒªã‚¹ãƒˆã‚’ã€æœ€çŸ­è·é›¢æœ€å°ã®é§…ã¨ãã‚Œä»¥å¤–ã«åˆ†é›¢ã™ã‚‹ *) 
 (* saitan_wo_bunri : eki_t -> eki_t list -> eki_t * eki_t list *) 
 let rec saitan_wo_bunri eki eki_list = match eki_list with 
     [] -> (eki, []) 
@@ -13,9 +13,9 @@ let rec saitan_wo_bunri eki eki_list = match eki_list with
 	  if fs < ss then (eki, p :: v) 
 	  else (p, eki :: v) 
  
-(* ¤Ş¤¿¤Ï *) 
+(* ã¾ãŸã¯ *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿±Ø¤Î¥ê¥¹¥È¤ò¡¢ºÇÃ»µ÷Î¥ºÇ¾®¤Î±Ø¤È¤½¤ì°Ê³°¤ËÊ¬Î¥¤¹¤ë *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸé§…ã®ãƒªã‚¹ãƒˆã‚’ã€æœ€çŸ­è·é›¢æœ€å°ã®é§…ã¨ãã‚Œä»¥å¤–ã«åˆ†é›¢ã™ã‚‹ *) 
 (* saitan_wo_bunri : eki_t -> eki_t list -> eki_t * eki_t list *) 
 let saitan_wo_bunri eki eki_list = 
   List.fold_right (fun first (p, v) -> 
@@ -27,11 +27,11 @@ let saitan_wo_bunri eki eki_list =
 		  eki_list 
 		  (eki, []) 
  
-(* ±Ø¤ÎÎã *) 
-let eki1 = {namae="ÃÓÂŞ"; saitan_kyori = infinity; temae_list = []} 
-let eki2 = {namae="¿·ÂçÄÍ"; saitan_kyori = 1.2; temae_list = ["¿·ÂçÄÍ"; "è¬²ÙÃ«"]} 
-let eki3 = {namae="è¬²ÙÃ«"; saitan_kyori = 0.; temae_list = ["è¬²ÙÃ«"]} 
-let eki4 = {namae="¸å³Ú±à"; saitan_kyori = infinity; temae_list = []} 
+(* é§…ã®ä¾‹ *) 
+let eki1 = {namae="æ± è¢‹"; saitan_kyori = infinity; temae_list = []} 
+let eki2 = {namae="æ–°å¤§å¡š"; saitan_kyori = 1.2; temae_list = ["æ–°å¤§å¡š"; "èŒ—è·è°·"]} 
+let eki3 = {namae="èŒ—è·è°·"; saitan_kyori = 0.; temae_list = ["èŒ—è·è°·"]} 
+let eki4 = {namae="å¾Œæ¥½åœ’"; saitan_kyori = infinity; temae_list = []} 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test = saitan_wo_bunri eki1 [eki2; eki3; eki4] = (eki3, [eki2; eki1; eki4]) 

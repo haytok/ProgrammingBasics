@@ -1,14 +1,14 @@
-(* �ʲ��� ex20_6.ml ��١����ˤ��ƺ������Ƥ��뤬��¾�Τ�١����ˤ��Ƥ�Ʊ�� *) 
+(* 以下は ex20_6.ml をベースにして作成しているが、他のをベースにしても同様 *) 
  
-(* ���Υե������ RedBlack �⥸�塼�롢�ޤ��� Tree �⥸�塼��˲ä��� 
-   ��̾���ش֤Υꥹ�Ȥ�ҤȤĤΥե�����ˤޤȤ᤿ metro.ml �Ȱ��� 
-   ����ѥ��뤹�� *) 
+(* このファイルは RedBlack モジュール、または Tree モジュールに加え、 
+   駅名、駅間のリストをひとつのファイルにまとめた metro.ml と一緒に 
+   コンパイルする *) 
  
-open Metro (* global_ekimei_list, global_ekikan_list ����� *) 
+open Metro (* global_ekimei_list, global_ekikan_list の定義 *) 
 open RedBlack 
-(* open Tree *) (* Tree �⥸�塼���Ȥ����Ϥ��������Ѥ��� *) 
+(* open Tree *) (* Tree モジュールを使う場合はこちらを使用する *) 
  
-(* ��Ū��������ä� kiten, shuten, kyori �� ekikan_tree �����������ڤ��֤� *) 
+(* 目的：受け取った kiten, shuten, kyori を ekikan_tree に挿入した木を返す *) 
 (* insert1 : (string * (string * float) list) t -> 
 	      string -> string -> float -> 
 	     (string * (string * float) list) t *) 
@@ -18,7 +18,7 @@ let rec insert1 ekikan_tree kiten shuten kyori =
 	    with Not_found -> [] 
   in insert ekikan_tree kiten ((shuten, kyori) :: lst) 
  
-(* ��Ū��������ä� ekikan ����� ekikan_tree �����������ڤ��֤� *) 
+(* 目的：受け取った ekikan 情報を ekikan_tree に挿入した木を返す *) 
 (* insert_ekikan : (string * (string * float) list) t -> 
 		    ekikan_t -> 
 		   (string * (string * float) list) t *) 
@@ -26,28 +26,28 @@ let insert_ekikan ekikan_tree ekikan = match ekikan with
   {kiten = k; shuten = s; keiyu = y; kyori = r; jikan = j} -> 
     insert1 (insert1 ekikan_tree s k r) k s r 
  
-(* ��Ū��������ä� ekikan �Υꥹ�Ȥ� ekikan_tree �����������ڤ��֤� *) 
+(* 目的：受け取った ekikan のリストを ekikan_tree に挿入した木を返す *) 
 (* inserts_ekikan : (string * (string * float) list) t -> 
 		     ekikan_t list -> 
 		    (string * (string * float) list) t *) 
 let inserts_ekikan ekikan_tree ekikan_list = 
   List.fold_left insert_ekikan ekikan_tree ekikan_list 
  
-(* ��Ū���դ��Ĥαؤδ֤ε�Υ����� *) 
-(* ���Ĥ���ʤ��ä����㳰 Not_found �򵯤��� *) 
+(* 目的：ふたつの駅の間の距離を求める *) 
+(* 見つからなかったら例外 Not_found を起こす *) 
 (* get_ekikan_kyori : string -> string -> 
 		     (string * (string * float) list) t -> float *) 
 let rec get_ekikan_kyori eki1 eki2 tree = 
   List.assoc eki2 (search tree eki1) 
  
-(* ����դ������ʱءˤ�ɽ���� *) 
+(* グラフの中の節（駅）を表す型 *) 
 type eki_t = { 
-  namae        : string;       (* ��̾�ʴ����� *) 
-  saitan_kyori : float;        (* ��û��Υ *) 
-  temae_list   : string list;  (* �����α�̾�ʴ����ˤΥꥹ�� *) 
+  namae        : string;       (* 駅名（漢字） *) 
+  saitan_kyori : float;        (* 最短距離 *) 
+  temae_list   : string list;  (* 手前の駅名（漢字）のリスト *) 
 } 
  
-(* ��Ū��ekimei list ���� eki list ���� *) 
+(* 目的：ekimei list から eki list を作る *) 
 (* make_initial_eki_list : ekimei_t list -> string -> eki_t list *) 
 let make_initial_eki_list ekimei_list kiten = 
   List.map (fun ekimei -> match ekimei with 
@@ -57,7 +57,7 @@ let make_initial_eki_list ekimei_list kiten =
 	       else {namae = k; saitan_kyori = infinity; temae_list = []}) 
 	   ekimei_list 
  
-(* ��Ū��̤����αؤΥꥹ�� v ��ɬ�פ˱����ƹ��������ꥹ�Ȥ��֤� *) 
+(* 目的：未確定の駅のリスト v を必要に応じて更新したリストを返す *) 
 (* koushin : eki_t -> eki_t list -> ekikan_tree_t -> eki_t list *) 
 let koushin p v ekikan_tree = match p with 
   {namae = pn; saitan_kyori = ps; temae_list = pt} -> 
@@ -72,7 +72,7 @@ let koushin p v ekikan_tree = match p with
 		 with Not_found -> q) 
 	     v 
  
-(* ��Ū��������ä��ؤΥꥹ�Ȥ򡢺�û��Υ�Ǿ��αؤȤ���ʳ���ʬΥ���� *) 
+(* 目的：受け取った駅のリストを、最短距離最小の駅とそれ以外に分離する *) 
 (* saitan_wo_bunri : eki_t -> eki_t list -> eki_t * eki_t list *) 
 let saitan_wo_bunri eki eki_list = 
   List.fold_right (fun first (p, v) -> 
@@ -84,7 +84,7 @@ let saitan_wo_bunri eki eki_list =
 		  eki_list 
 		  (eki, []) 
  
-(* ��Ū��̤����ؤΥꥹ�Ȥȱش֥ꥹ�Ȥ��顢�Ʊؤؤκ�ûϩ����� *) 
+(* 目的：未確定駅のリストと駅間リストから、各駅への最短路を求める *) 
 (* dijkstra_main : eki_t list -> ekikan_tree_t -> eki_t list *) 
 let rec dijkstra_main eki_list ekikan_tree = match eki_list with 
     [] -> [] 
@@ -93,25 +93,25 @@ let rec dijkstra_main eki_list ekikan_tree = match eki_list with
       let eki_list2 = koushin saitan nokori ekikan_tree in 
       saitan :: dijkstra_main eki_list2 ekikan_tree 
  
-(* ��̾�����Ĥ���ʤ��ä����Ȥ򼨤��㳰 *) 
+(* 駅名が見つからなかったことを示す例外 *) 
 exception No_such_station of string 
  
-(* ��Ū�������޻��α�̾�������ľ�� *) 
-(* ���Ĥ���ʤ��ä����㳰 No_such_station �򵯤��� *) 
+(* 目的：ローマ字の駅名を漢字に直す *) 
+(* 見つからなかったら例外 No_such_station を起こす *) 
 (* romaji_to_kanji : string -> ekimei_t list -> string *) 
 let rec romaji_to_kanji r0 ekimei_list = match ekimei_list with 
     [] -> raise (No_such_station (r0)) 
   | {kanji = k; kana = a; romaji = r; shozoku = s} :: rest -> 
       if r0 = r then k else romaji_to_kanji r0 rest 
  
-(* ��Ū��������ä� eki_list ���� shuten �Υ쥳���ɤ�õ���Ф� *) 
+(* 目的：受け取った eki_list から shuten のレコードを探し出す *) 
 (* find : string -> eki_t list -> eki_t *) 
 let rec find shuten eki_list = match eki_list with 
     [] -> {namae = ""; saitan_kyori = infinity; temae_list = []} 
   | ({namae = n; saitan_kyori = s; temae_list = t} as first) :: rest -> 
       if n = shuten then first else find shuten rest 
  
-(* ��Ū�������Ƚ����������ä��顢��ûϩ���ᡢ�����Υ쥳���ɤ��֤� *) 
+(* 目的：始点と終点を受け取ったら、最短路を求め、終点のレコードを返す *) 
 (* dijkstra : string -> string -> eki_t *) 
 let dijkstra romaji_kiten romaji_shuten = 
   let kiten = romaji_to_kanji romaji_kiten global_ekimei_list in 
@@ -121,28 +121,28 @@ let dijkstra romaji_kiten romaji_shuten =
   let eki_list2 = dijkstra_main eki_list global_ekikan_tree in 
   find shuten eki_list2 
  
-(* ��Ū��eki_t ���Υ쥳���ɤ򤭤줤��ɽ������ *) 
+(* 目的：eki_t 型のレコードをきれいに表示する *) 
 (* print_eki : eki_t -> unit *) 
 let print_eki eki = match eki with 
   {namae = n; saitan_kyori = s; temae_list = lst} -> match lst with 
-      [] -> assert false (* ���ξ��ϵ����ꤨ�ʤ� *) 
-    | [a] -> print_string (a ^ "��" ^ string_of_float s ^ "km��"); 
+      [] -> assert false (* この場合は起こりえない *) 
+    | [a] -> print_string (a ^ "（" ^ string_of_float s ^ "km）"); 
 	     print_newline () 
-    | a :: rest -> List.fold_right (fun b () -> print_string (b ^ "��")) 
+    | a :: rest -> List.fold_right (fun b () -> print_string (b ^ "、")) 
 				   rest (); 
-		   print_string (a ^ "��" ^ string_of_float s ^ "km��"); 
+		   print_string (a ^ "（" ^ string_of_float s ^ "km）"); 
 		   print_newline () 
  
-(* �ᥤ��ؿ� *) 
+(* メイン関数 *) 
 (* main : string -> string -> unit *) 
 let main romaji_kiten romaji_shuten = 
   let eki = dijkstra romaji_kiten romaji_shuten in 
   print_eki eki 
  
-(* �ᥤ��ؿ��θƤӽФ� *) 
+(* メイン関数の呼び出し *) 
 let _ = main Sys.argv.(1) Sys.argv.(2) 
  
-(* �¹��� 
+(* 実行例 
  
 % cat Makefile 
 SOURCES = redBlack.mli redBlack.ml metro.ml ex21_3.ml 
@@ -152,11 +152,11 @@ include $(OCAMLMAKEFILE)
 % make 
 ... 
 % ./dijkstra shibuya gokokuji 
-��ë��ɽ��ƻ���Ļ������ܡ�����Į����Į���ԥ�ë�����Ķ���������������� 
-��9.8km�� 
+渋谷、表参道、青山一丁目、永田町、麹町、市ヶ谷、飯田橋、江戸川橋、護国寺、 
+（9.8km） 
 % ./dijkstra myogadani meguro 
-謲�ë����ڱࡢ���Ķ����ԥ�ë����Į������Į��ί�ӻ�����ϻ���ڰ����ܡ� �� 
-�۽��֡������ء�����桢�ܹ���12.7km�� 
+茗荷谷、後楽園、飯田橋、市ヶ谷、麹町、永田町、溜池山王、六本木一丁目、 麻 
+布十番、白金高輪、白金台、目黒（12.7km） 
 % 
  
 *) 

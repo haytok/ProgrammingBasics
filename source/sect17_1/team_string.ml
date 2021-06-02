@@ -1,12 +1,12 @@
-(* ÀÖÁÈ¤«ÇòÁÈ¤«¤òÉ½¤¹·¿ *) 
+(* èµ¤çµ„ã‹ç™½çµ„ã‹ã‚’è¡¨ã™å‹ *) 
 type team_t = Red | White 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿¥Á¡¼¥àÌ¾¤òÊ¸»úÎó¤ÇÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸãƒãƒ¼ãƒ åã‚’æ–‡å­—åˆ—ã§è¿”ã™ *) 
 (* team_string : team_t -> string *) 
 let team_string team = match team with 
-    Red -> "ÀÖÁÈ" 
-  | White -> "ÇòÁÈ" 
+    Red -> "èµ¤çµ„" 
+  | White -> "ç™½çµ„" 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = team_string Red = "ÀÖÁÈ" 
-let test2 = team_string White = "ÇòÁÈ" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = team_string Red = "èµ¤çµ„" 
+let test2 = team_string White = "ç™½çµ„" 

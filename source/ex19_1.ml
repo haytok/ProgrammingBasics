@@ -1,12 +1,12 @@
-(* ¤³¤Î¥Õ¥¡¥¤¥ë¤Ï 19.6 ¾Ï¤ÇÀâÌÀ¤·¤Æ¤¤¤ë my-tree.top ¤Î¾å¤Ç¼Â¹Ô¤¹¤ë *) 
-(* my-tree.top ¤Ï sect19_6 ¤Î²¼¤Ç OCamlMakefile ¤ò¥À¥¦¥ó¥í¡¼¥É¤·¤¿¾å¤Ç 
-   make top ¤ò¼Â¹Ô¤¹¤ë¤ÈºîÀ®¤µ¤ì¤ë *) 
+(* ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ 19.6 ç« ã§èª¬æ˜ã—ã¦ã„ã‚‹ my-tree.top ã®ä¸Šã§å®Ÿè¡Œã™ã‚‹ *) 
+(* my-tree.top ã¯ sect19_6 ã®ä¸‹ã§ OCamlMakefile ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ãŸä¸Šã§ 
+   make top ã‚’å®Ÿè¡Œã™ã‚‹ã¨ä½œæˆã•ã‚Œã‚‹ *) 
  
-(* ¤¢¤é¤«¤¸¤á ex09_10.ml, ex12_1.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ¤ÎÄêµÁ *) 
-#use "ex12_1.ml" (* eki_t ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex09_10.ml, ex12_1.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex09_10.ml" (* ekikan_t, global_ekikan_list ã®å®šç¾© *) 
+#use "ex12_1.ml" (* eki_t ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ kiten, shuten, kyori ¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ kiten, shuten, kyori ã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* insert1 : (string * (string * float) list) Tree.t -> 
 	      string -> string -> float -> 
 	     (string * (string * float) list) Tree.t *) 
@@ -16,7 +16,7 @@ let rec insert1 ekikan_tree kiten shuten kyori =
 	    with Not_found -> [] 
   in Tree.insert ekikan_tree kiten ((shuten, kyori) :: lst) 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¾ğÊó¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan æƒ…å ±ã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* insert_ekikan : (string * (string * float) list) Tree.t -> 
 		    ekikan_t -> 
 		   (string * (string * float) list) Tree.t *) 
@@ -24,23 +24,23 @@ let insert_ekikan ekikan_tree ekikan = match ekikan with
   {kiten = k; shuten = s; keiyu = y; kyori = r; jikan = j} -> 
     insert1 (insert1 ekikan_tree s k r) k s r 
  
-(* ÌÜÅª¡§¼õ¤±¼è¤Ã¤¿ ekikan ¤Î¥ê¥¹¥È¤ò ekikan_tree ¤ËÁŞÆş¤·¤¿ÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå—ã‘å–ã£ãŸ ekikan ã®ãƒªã‚¹ãƒˆã‚’ ekikan_tree ã«æŒ¿å…¥ã—ãŸæœ¨ã‚’è¿”ã™ *) 
 (* inserts_ekikan : (string * (string * float) list) Tree.t -> 
 		     ekikan_t list -> 
 		    (string * (string * float) list) Tree.t *) 
 let inserts_ekikan ekikan_tree ekikan_list = 
   List.fold_left insert_ekikan ekikan_tree ekikan_list 
  
-(* ÌÜÅª¡§¤Õ¤¿¤Ä¤Î±Ø¤Î´Ö¤Îµ÷Î¥¤òµá¤á¤ë *) 
-(* ¸«¤Ä¤«¤é¤Ê¤«¤Ã¤¿¤éÎã³° Not_found ¤òµ¯¤³¤¹ *) 
+(* ç›®çš„ï¼šãµãŸã¤ã®é§…ã®é–“ã®è·é›¢ã‚’æ±‚ã‚ã‚‹ *) 
+(* è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã‚‰ä¾‹å¤– Not_found ã‚’èµ·ã“ã™ *) 
 (* get_ekikan_kyori : string -> string -> 
 		     (string * (string * float) list) Tree.t -> float *) 
 let rec get_ekikan_kyori eki1 eki2 tree = 
   List.assoc eki2 (Tree.search tree eki1) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let global_ekikan_tree = inserts_ekikan Tree.empty global_ekikan_list 
-let test1 = get_ekikan_kyori "è¬²ÙÃ«" "¿·ÂçÄÍ" global_ekikan_tree = 1.2 
-(* let test2 = get_ekikan_kyori "è¬²ÙÃ«" "ÃÓÂŞ" global_ekikan_tree *) 
-   (* Not_found ¤òµ¯¤³¤¹ *) 
-let test3 = get_ekikan_kyori "Åìµş" "Âç¼êÄ®" global_ekikan_tree = 0.6 
+let test1 = get_ekikan_kyori "èŒ—è·è°·" "æ–°å¤§å¡š" global_ekikan_tree = 1.2 
+(* let test2 = get_ekikan_kyori "èŒ—è·è°·" "æ± è¢‹" global_ekikan_tree *) 
+   (* Not_found ã‚’èµ·ã“ã™ *) 
+let test3 = get_ekikan_kyori "æ±äº¬" "å¤§æ‰‹ç”º" global_ekikan_tree = 0.6 

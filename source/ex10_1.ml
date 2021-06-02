@@ -1,4 +1,4 @@
-(* ÌÜÅª¡§¾º½ç¤ËÊÂ¤ó¤Ç¤¤¤ë lst ¤ÎÀµ¤·¤¤°ÌÃÖ¤Ë n ¤òÁÞÆþ¤¹¤ë *) 
+(* ç›®çš„ï¼šæ˜‡é †ã«ä¸¦ã‚“ã§ã„ã‚‹ lst ã®æ­£ã—ã„ä½ç½®ã« n ã‚’æŒ¿å…¥ã™ã‚‹ *) 
 (* insert : int list -> int -> int list *) 
 let rec insert lst n = match lst with 
     [] -> [n] 
@@ -6,7 +6,7 @@ let rec insert lst n = match lst with
       if first < n then first :: insert rest n 
       else n :: lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = insert [] 3 = [3] 
 let test2 = insert [1] 3 = [1; 3] 
 let test3 = insert [3] 1 = [1; 3] 

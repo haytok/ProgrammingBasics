@@ -1,8 +1,8 @@
-(* ¤¢¤é¤«¤¸¤á ex17_2.ml, ex17_3.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex17_2.ml, ex17_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex17_2.ml" 
 #use "ex17_3.ml" 
  
-(* ÌÜÅª¡§ÆüÉÕ¤±¤ò¼õ¤±¼è¤Ã¤Æ¤­¤¿¤éÀ±ºÂ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæ—¥ä»˜ã‘ã‚’å—ã‘å–ã£ã¦ããŸã‚‰æ˜Ÿåº§ã‚’è¿”ã™ *) 
 (* seiza : year_t -> seiza_t *) 
 let seiza year = match year with 
     January (hi) -> if hi <= 19 then Capricorus else Aquarius 
@@ -18,7 +18,7 @@ let seiza year = match year with
   | November (hi) -> if hi <= 21 then Scorpius else Sagittarius 
   | December (hi) -> if hi <= 21 then Sagittarius else Capricorus 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = seiza (June (11)) = Gemini 
 let test2 = seiza (June (30)) = Cancer 
 let test3 = seiza (September (17)) = Virgo 

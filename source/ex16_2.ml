@@ -1,10 +1,10 @@
-(* ÌÜÅª¡§init ¤«¤é»Ï¤á¤Æ lst ¤ÎÍ×ÁÇ¤òº¸¤«¤é½ç¤Ë f ¤ò»Ü¤·¹ş¤à *) 
+(* ç›®çš„ï¼šinit ã‹ã‚‰å§‹ã‚ã¦ lst ã®è¦ç´ ã‚’å·¦ã‹ã‚‰é †ã« f ã‚’æ–½ã—è¾¼ã‚€ *) 
 (* fold_left : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a *) 
 let rec fold_left f init lst = match lst with 
     [] -> init 
   | first :: rest -> fold_left f (f init first) rest 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = fold_left (-) 0 [] = 0 
 let test2 = fold_left (-) 10 [4; 1; 3] = 2 
 let test3 = fold_left (fun lst a -> a :: lst) [] [1; 2; 3; 4] = [4; 3; 2; 1] 

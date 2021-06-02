@@ -1,18 +1,18 @@
-(* ³ØÀ¸¤Ò¤È¤êÊ¬¤Î¥Ç¡¼¥¿¡ÊÌ¾Á°¡¢ÅÀ¿ô¡¢À®ÀÓ¡Ë¤òÉ½¤¹·¿ *) 
+(* å­¦ç”Ÿã²ã¨ã‚Šåˆ†ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆåå‰ã€ç‚¹æ•°ã€æˆç¸¾ï¼‰ã‚’è¡¨ã™åž‹ *) 
 type gakusei_t = { 
-  namae : string;       (* Ì¾Á° *) 
-  tensuu : int;         (* ÅÀ¿ô *) 
-  seiseki : string;     (* À®ÀÓ *) 
+  namae : string;       (* åå‰ *) 
+  tensuu : int;         (* ç‚¹æ•° *) 
+  seiseki : string;     (* æˆç¸¾ *) 
 } 
  
-(* gakusei_t list ¤Ï 
-     - []              ¶õ¥ê¥¹¥È¡¢¤¢¤ë¤¤¤Ï 
-     - first :: rest   ºÇ½é¤ÎÍ×ÁÇ¤¬ first ¤Ç»Ä¤ê¤Î¥ê¥¹¥È¤¬ rest 
-                       ¡Êfirst ¤Ï gakusei_t ·¿¡¢ 
-                         rest ¤¬¼«¸Ê»²¾È¤Î¥±¡¼¥¹¡Ë 
-   ¤È¤¤¤¦·Á *) 
+(* gakusei_t list ã¯ 
+     - []              ç©ºãƒªã‚¹ãƒˆã€ã‚ã‚‹ã„ã¯ 
+     - first :: rest   æœ€åˆã®è¦ç´ ãŒ first ã§æ®‹ã‚Šã®ãƒªã‚¹ãƒˆãŒ rest 
+                       ï¼ˆfirst ã¯ gakusei_t åž‹ã€ 
+                         rest ãŒè‡ªå·±å‚ç…§ã®ã‚±ãƒ¼ã‚¹ï¼‰ 
+   ã¨ã„ã†å½¢ *) 
  
-(* gakusei_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* gakusei_t list åž‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 
@@ -21,7 +21,7 @@ let lst4 = [{namae = "yoshida"; tensuu = 80; seiseki = "A"};
             {namae = "asai"; tensuu = 70; seiseki = "B"}; 
             {namae = "kaneko"; tensuu = 85; seiseki = "A"}] 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤ÁÀ®ÀÓ¤¬ seiseki0 ¤Î¿Í¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡æˆç¸¾ãŒ seiseki0 ã®äººã®æ•°ã‚’è¿”ã™ *) 
 (* count : gakusei_t list -> string -> int *) 
 let rec count lst seiseki0 = match lst with 
     [] -> 0 
@@ -29,21 +29,21 @@ let rec count lst seiseki0 = match lst with
       -> if s = seiseki0 then 1 + count rest seiseki0 
                          else count rest seiseki0 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤ÁÀ®ÀÓ¤¬ A ¤Î¿Í¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡æˆç¸¾ãŒ A ã®äººã®æ•°ã‚’è¿”ã™ *) 
 (* count_A : gakusei_t list -> int *) 
 let count_A lst = count lst "A" 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = count_A lst1 = 0 
 let test2 = count_A lst2 = 0 
 let test3 = count_A lst3 = 1 
 let test4 = count_A lst4 = 2 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤Î¤¦¤ÁÀ®ÀÓ¤¬ B ¤Î¿Í¤Î¿ô¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ã†ã¡æˆç¸¾ãŒ B ã®äººã®æ•°ã‚’è¿”ã™ *) 
 (* count_B : gakusei_t list -> int *) 
 let count_B lst = count lst "B" 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test5 = count_B lst1 = 0 
 let test6 = count_B lst2 = 1 
 let test7 = count_B lst3 = 1 

@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á sect08_6/hyouka.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect08_6/hyouka.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect08_6/hyouka.ml" 
  
-(* ³ØÀ¸¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* å­¦ç”Ÿã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let gakusei1 = {namae="nakamura"; tensuu=90; seiseki="A"} 
 let gakusei2 = {namae="miyahara"; tensuu=80; seiseki="A"} 
 let gakusei3 = {namae="sato"; tensuu=75; seiseki="B"} 
@@ -9,13 +9,13 @@ let gakusei4 = {namae="idehara"; tensuu=70; seiseki="B"}
 let gakusei5 = {namae="tsubata"; tensuu=65; seiseki="C"} 
 let gakusei6 = {namae="asai"; tensuu=60; seiseki="C"} 
  
-(* ³ØÀ¸¤Î¥ê¥¹¥È¤ÎÎã *) 
+(* å­¦ç”Ÿã®ãƒªã‚¹ãƒˆã®ä¾‹ *) 
 let lst1 = [gakusei2] 
 let lst2 = [gakusei3; gakusei4] 
 let lst3 = [gakusei4; gakusei3] 
 let lst4 = [gakusei4; gakusei1; gakusei6; gakusei5; gakusei2; gakusei3] 
  
-(* ÌÜÅª¡§³ØÀ¸¥ê¥¹¥È lst ¤ÎÃæ¤«¤éºÇ¹âÆÀÅÀ¤Î¿Í¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿãƒªã‚¹ãƒˆ lst ã®ä¸­ã‹ã‚‰æœ€é«˜å¾—ç‚¹ã®äººã‚’è¿”ã™ *) 
 (* gakusei_max : gakusei_t list -> gakusei_t *) 
 let rec gakusei_max lst = match lst with 
     [] -> {namae = ""; tensuu = min_int; seiseki = ""} 
@@ -26,7 +26,7 @@ let rec gakusei_max lst = match lst with
 	  if t_max < t then gakusei 
 	  else rest_max 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = gakusei_max lst1 = gakusei2 
 let test2 = gakusei_max lst2 = gakusei3 
 let test3 = gakusei_max lst3 = gakusei3 

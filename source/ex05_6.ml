@@ -1,12 +1,12 @@
-(* ¤¢¤é¤«¤¸¤á ex05_4.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex05_4.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex05_4.ml" 
  
-(* ÌÜÅª¡§a, b, c ¤ò¼õ¤±¼è¤Ã¤¿¤éµõ¿ô²ò¤ò»ı¤Ä¤«¤òÈ½Äê¤¹¤ë *) 
+(* ç›®çš„ï¼ša, b, c ã‚’å—ã‘å–ã£ãŸã‚‰è™šæ•°è§£ã‚’æŒã¤ã‹ã‚’åˆ¤å®šã™ã‚‹ *) 
 (* kyosuukai : float -> float -> float -> bool *) 
 let kyosuukai a b c = 
   hanbetsushiki a b c < 0.0 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = kyosuukai 1.0 5.0 4.0 = false 
 let test2 = kyosuukai 2.0 (-4.0) 2.0 = false 
 let test3 = kyosuukai 1.0 2.0 4.0 = true 

@@ -1,8 +1,8 @@
-(* ¤¢¤é¤«¤¸¤á sect08_6/hyouka.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect08_6/hyouka.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect08_6/hyouka.ml" 
  
 (* 
-(* ÌÜÅª¡§¼Â¿ô¤Î¥ê¥¹¥È lst ¤ò¼õ¤±¼è¤ê³ÆÍ×ÁÇ¤ÎÊ¿Êıº¬¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå®Ÿæ•°ã®ãƒªã‚¹ãƒˆ lst ã‚’å—ã‘å–ã‚Šå„è¦ç´ ã®å¹³æ–¹æ ¹ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* map_sqrt : float list -> float list *) 
 let rec map_sqrt lst = match lst with 
     [] -> [] 
@@ -10,33 +10,33 @@ let rec map_sqrt lst = match lst with
 *) 
  
 (* 
-(* ÌÜÅª¡§³ØÀ¸¤Î¥ê¥¹¥È lst ¤ò¼õ¤±¼è¤êÀ®ÀÓ¤òÆş¤ì¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿã®ãƒªã‚¹ãƒˆ lst ã‚’å—ã‘å–ã‚Šæˆç¸¾ã‚’å…¥ã‚ŒãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* map_hyouka : gakusei_t list -> gakusei_t list *) 
 let rec map_hyouka lst = match lst with 
     [] -> [] 
   | first :: rest -> hyouka first :: map_hyouka rest 
 *) 
  
-(* ÌÜÅª¡§´Ø¿ô f ¤È¥ê¥¹¥È lst ¤ò¼õ¤±¼è¤ê f ¤ò»Ü¤·¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šé–¢æ•° f ã¨ãƒªã‚¹ãƒˆ lst ã‚’å—ã‘å–ã‚Š f ã‚’æ–½ã—ãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* map : ('a -> 'b) -> 'a list -> 'b list *) 
 let rec map f lst = match lst with 
     [] -> [] 
   | first :: rest -> f first :: map f rest 
  
-(* ÌÜÅª¡§¼Â¿ô¤Î¥ê¥¹¥È lst ¤ò¼õ¤±¼è¤ê³ÆÍ×ÁÇ¤ÎÊ¿Êıº¬¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå®Ÿæ•°ã®ãƒªã‚¹ãƒˆ lst ã‚’å—ã‘å–ã‚Šå„è¦ç´ ã®å¹³æ–¹æ ¹ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* map_sqrt : float list -> float list *) 
 let map_sqrt lst = map sqrt lst 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = map_sqrt [] = [] 
 let test2 = map_sqrt [1.0; 4.0] = [1.0; 2.0] 
 let test3 = map_sqrt [9.0; 16.0; 4.0; 0.0] = [3.0; 4.0; 2.0; 0.0] 
  
-(* ÌÜÅª¡§³ØÀ¸¤Î¥ê¥¹¥È lst ¤ò¼õ¤±¼è¤êÀ®ÀÓ¤òÆş¤ì¤¿¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šå­¦ç”Ÿã®ãƒªã‚¹ãƒˆ lst ã‚’å—ã‘å–ã‚Šæˆç¸¾ã‚’å…¥ã‚ŒãŸãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* map_hyouka : gakusei_t list -> gakusei_t list *) 
 let map_hyouka lst = map hyouka lst 
  
-(* gakusei_t list ·¿¤Î¥Ç¡¼¥¿¤ÎÎã *) 
+(* gakusei_t list å‹ã®ãƒ‡ãƒ¼ã‚¿ã®ä¾‹ *) 
 let lst1 = [] 
 let lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 
@@ -45,7 +45,7 @@ let lst4 = [{namae = "yoshida"; tensuu = 80; seiseki = "A"};
             {namae = "asai"; tensuu = 70; seiseki = "B"}; 
             {namae = "kaneko"; tensuu = 85; seiseki = "A"}] 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = map_hyouka lst1 = [] 
 let test2 = map_hyouka lst2 = [{namae = "asai"; tensuu = 70; seiseki = "B"}] 
 let test3 = map_hyouka lst3 = [{namae = "asai"; tensuu = 70; seiseki = "B"}; 

@@ -1,15 +1,15 @@
-(* ¤¢¤é¤«¤¸¤á ex08_3.ml ¤òÆÉ¤ß¹ş¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex08_3.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "ex08_3.ml" 
  
-(* ÌÜÅª¡§person_t ·¿¤Î¥Ç¡¼¥¿¤«¤é·ì±Õ·¿¤ò¼¨¤¹Ê¸¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šperson_t å‹ã®ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰è¡€æ¶²å‹ã‚’ç¤ºã™æ–‡ã‚’è¿”ã™ *) 
 (* ketsueki_hyoji : person_t -> string *) 
 let ketsueki_hyoji person = match person with 
   {name = n; shincho = s; taiju = t; tsuki = ts; hi = h; ketsueki = k} -> 
-    n ^ "¤µ¤ó¤Î·ì±Õ·¿¤Ï " ^ k ^ " ·¿¤Ç¤¹" 
+    n ^ "ã•ã‚“ã®è¡€æ¶²å‹ã¯ " ^ k ^ " å‹ã§ã™" 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = ketsueki_hyoji person1 = "Àõ°æ¤µ¤ó¤Î·ì±Õ·¿¤Ï A ·¿¤Ç¤¹" 
-let test2 = ketsueki_hyoji person2 = "µÜ¸¶¤µ¤ó¤Î·ì±Õ·¿¤Ï B ·¿¤Ç¤¹" 
-let test3 = ketsueki_hyoji person3 = "ÃæÂ¼¤µ¤ó¤Î·ì±Õ·¿¤Ï O ·¿¤Ç¤¹" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = ketsueki_hyoji person1 = "æµ…äº•ã•ã‚“ã®è¡€æ¶²å‹ã¯ A å‹ã§ã™" 
+let test2 = ketsueki_hyoji person2 = "å®®åŸã•ã‚“ã®è¡€æ¶²å‹ã¯ B å‹ã§ã™" 
+let test3 = ketsueki_hyoji person3 = "ä¸­æ‘ã•ã‚“ã®è¡€æ¶²å‹ã¯ O å‹ã§ã™" 
  
-(* person1, person2, person3 ¤ÎÄêµÁ¤Ë¤Ä¤¤¤Æ¤Ï ex08_3.ml ¤ò»²¾È *) 
+(* person1, person2, person3 ã®å®šç¾©ã«ã¤ã„ã¦ã¯ ex08_3.ml ã‚’å‚ç…§ *) 

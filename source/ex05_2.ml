@@ -1,11 +1,11 @@
-(* ÌÜÅª¡§»þ´Ö¤ò¼õ¤±¼è¤Ã¤¿¤é¸áÁ°¤«¸á¸å¤«¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šæ™‚é–“ã‚’å—ã‘å–ã£ãŸã‚‰åˆå‰ã‹åˆå¾Œã‹ã‚’è¿”ã™ *) 
 (* jikan : int -> string *) 
 let jikan ji = 
-  if ji < 12 then "¸áÁ°" else "¸á¸å" 
+  if ji < 12 then "åˆå‰" else "åˆå¾Œ" 
  
-(* ¥Æ¥¹¥È *) 
-let test1 = jikan 0 = "¸áÁ°" 
-let test2 = jikan 3 = "¸áÁ°" 
-let test3 = jikan 12 = "¸á¸å" 
-let test4 = jikan 15 = "¸á¸å" 
-let test5 = jikan 21 = "¸á¸å" 
+(* ãƒ†ã‚¹ãƒˆ *) 
+let test1 = jikan 0 = "åˆå‰" 
+let test2 = jikan 3 = "åˆå‰" 
+let test3 = jikan 12 = "åˆå¾Œ" 
+let test4 = jikan 15 = "åˆå¾Œ" 
+let test5 = jikan 21 = "åˆå¾Œ" 

@@ -1,7 +1,7 @@
-(* ¤¢¤é¤«¤¸¤á ex20_2.ml ¤òÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
-#use "ex20_2.ml" (* balance ¤ÎÄêµÁ *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ ex20_2.ml ã‚’èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
+#use "ex20_2.ml" (* balance ã®å®šç¾© *) 
  
-(* ÌÜÅª¡§ÀÖ¹õÌÚ¤È¥­¡¼¤ÈÃÍ¤ò¼õ¤±¼è¤Ã¤¿¤é¡¢¤½¤ì¤òÁÞÆþ¤·¤¿ÀÖ¹õÌÚ¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šèµ¤é»’æœ¨ã¨ã‚­ãƒ¼ã¨å€¤ã‚’å—ã‘å–ã£ãŸã‚‰ã€ãã‚Œã‚’æŒ¿å…¥ã—ãŸèµ¤é»’æœ¨ã‚’è¿”ã™ *) 
 (* insert : ('a, 'b) rb_tree_t -> 'a -> 'b -> ('a, 'b) rb_tree_t *) 
 let insert rb_tree k v = 
   let rec ins rb_tree = match rb_tree with 
@@ -13,11 +13,11 @@ let insert rb_tree k v =
           then balance (Node (ins left, key, value, color, right)) 
           else balance (Node (left, key, value, color, ins right)) 
   in match ins rb_tree with 
-        Empty -> assert false (* ÀäÂÐ¤Ë¶õ¤Ç¤Ï¤Ê¤¤ *) 
+        Empty -> assert false (* çµ¶å¯¾ã«ç©ºã§ã¯ãªã„ *) 
       | Node (left, key, value, color, right) -> 
           Node (left, key, value, Black, right) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let rb_tree0 = Empty 
 let rb_tree1 = insert rb_tree0 10 "x" 
 let rb_tree2 = insert rb_tree1 13 "y" 

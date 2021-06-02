@@ -1,23 +1,23 @@
-(* ¤¢¤é¤«¤¸¤á sect14_1/filter.ml, sect14_2/fold_right.ml ¤ò 
-   ÆÉ¤ß¹þ¤ó¤Ç¤ª¤¯É¬Í×¤¢¤ê *) 
+(* ã‚ã‚‰ã‹ã˜ã‚ sect14_1/filter.ml, sect14_2/fold_right.ml ã‚’ 
+   èª­ã¿è¾¼ã‚“ã§ãŠãå¿…è¦ã‚ã‚Š *) 
 #use "sect14_1/filter.ml" 
 #use "sect14_2/fold_right.ml" 
  
-(* ÌÜÅª¡§n ¤«¤é 1 ¤Þ¤Ç¤Î¥ê¥¹¥È¤òºî¤ë *) 
+(* ç›®çš„ï¼šn ã‹ã‚‰ 1 ã¾ã§ã®ãƒªã‚¹ãƒˆã‚’ä½œã‚‹ *) 
 (* enumerate : int -> int list *) 
 let rec enumerate n = 
   if n = 0 then [] else n :: enumerate (n - 1) 
  
-(* ÌÜÅª¡§n ¤ÎÌó¿ô¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šn ã®ç´„æ•°ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* divisor : int -> int list *) 
 let divisor n = filter (fun x -> n mod x = 0) (enumerate n) 
  
-(* ÌÜÅª¡§m °Ê²¼¤Î´°Á´¿ô¤Î¥ê¥¹¥È¤òÊÖ¤¹ *) 
+(* ç›®çš„ï¼šm ä»¥ä¸‹ã®å®Œå…¨æ•°ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ *) 
 (* perfect : int -> int list *) 
 let perfect m = 
   filter (fun n -> fold_right (+) (divisor n) 0 - n = n) 
          (enumerate m) 
  
-(* ¥Æ¥¹¥È *) 
+(* ãƒ†ã‚¹ãƒˆ *) 
 let test1 = divisor 24 = [24; 12; 8; 6; 4; 3; 2; 1] 
 let test2 = perfect 10000 = [8128; 496; 28; 6] 

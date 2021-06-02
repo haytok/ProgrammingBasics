@@ -1,7 +1,7 @@
-(* ±ØÌ¾¤Î¾ğÊó¤ò³ÊÇ¼¤¹¤ë¥ì¥³¡¼¥É·¿ *) 
+(* é§…åã®æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰å‹ *) 
 type ekimei_t = { 
-  kanji   : string; (* ´Á»ú¤Î±ØÌ¾ *) 
-  kana    : string; (* ÆÉ¤ß *) 
-  romaji  : string; (* ¥í¡¼¥Ş»ú *) 
-  shozoku : string; (* ½êÂ°Ï©ÀşÌ¾ *) 
+  kanji   : string; (* æ¼¢å­—ã®é§…å *) 
+  kana    : string; (* èª­ã¿ *) 
+  romaji  : string; (* ãƒ­ãƒ¼ãƒå­— *) 
+  shozoku : string; (* æ‰€å±è·¯ç·šå *) 
 } 

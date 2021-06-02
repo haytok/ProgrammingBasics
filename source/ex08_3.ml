@@ -1,15 +1,15 @@
-(* ¿Í¤Ë´Ø¤¹¤ë¾ğÊó¤ò³ÊÇ¼¤¹¤ë¥ì¥³¡¼¥É *) 
+(* äººã«é–¢ã™ã‚‹æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰ *) 
 type person_t = { 
-  name : string;	(* Ì¾Á° *) 
-  shincho : float;	(* ¿ÈÄ¹ *) 
-  taiju : float;	(* ÂÎ½Å *) 
-  tsuki : int;		(* ÃÂÀ¸·î *) 
-  hi : int;		(* ÃÂÀ¸Æü *) 
-  ketsueki : string;	(* ·ì±Õ·¿ *) 
+  name : string;	(* åå‰ *) 
+  shincho : float;	(* èº«é•· *) 
+  taiju : float;	(* ä½“é‡ *) 
+  tsuki : int;		(* èª•ç”Ÿæœˆ *) 
+  hi : int;		(* èª•ç”Ÿæ—¥ *) 
+  ketsueki : string;	(* è¡€æ¶²å‹ *) 
 } 
  
 let person1 = 
-  {name = "Àõ°æ"; 
+  {name = "æµ…äº•"; 
    shincho = 1.72; 
    taiju = 58.5; 
    tsuki = 9; 
@@ -18,7 +18,7 @@ let person1 =
 } 
  
 let person2 = { 
-  name = "µÜ¸¶"; 
+  name = "å®®åŸ"; 
   shincho = 1.63; 
   taiju = 55.0; 
   tsuki = 6; 
@@ -27,7 +27,7 @@ let person2 = {
 } 
  
 let person3 = { 
-  name = "ÃæÂ¼"; 
+  name = "ä¸­æ‘"; 
   shincho = 1.68; 
   taiju = 63.0; 
   tsuki = 6; 
