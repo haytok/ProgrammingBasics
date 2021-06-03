@@ -84,6 +84,17 @@ OK: 333 MiB in 83 packages
 - [Docker Alpine linux package masked](https://stackoverflow.com/questions/40246688/docker-alpine-linux-package-masked)
 - [hk-41 backend dev Dockerfile](https://github.com/dilmnqvovpnmlib/hk-41/blob/045dbd2e36d4500795e03f172b011b40ef32fe54/backend/docker/dev/Dockerfile#L31)
 
+## セットアップスクリプトの作成
+
+- `pytnon setup.py <章の番号> <章で取り扱う問題の個数>` でその章で必要なプログラムの雛形を作成することができる。
+
+- `echo コマンド` で改行を出力するには、`-e` オプションをつける。この場合、デフォルトの改行も出力されるので 2 個の改行が表示されることになる。しかし、`-n` オプションをつけると、1 つしか表示されない。
+
+### 参考
+
+- [Linux echoコマンドで改行出力](https://qiita.com/fault/items/11e45d4bce233f493b95)
+- [setup.py](https://github.com/dilmnqvovpnmlib/ProgrammingBasics/blob/main/log/setup.py)
+
 ## Ocaml に関するメモ
 
 - ベキ乗は (`**`) は実数にのみに実装されているので、演算子の後ろにピリオドは必要ない。
