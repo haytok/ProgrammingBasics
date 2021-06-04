@@ -17,6 +17,10 @@ EUC-JP (LF)
 UTF-8
 ```
 
+### 参考
+
+- [nkfで文字コードを調べて一括で変換する](https://uuutee.net/shell/convert-encoding-with-nkf/)
+
 ## nkf コマンドと Python を使用してダウンロードしてきたファイルのエンコードを変更する
 
 ### 背景・問題
