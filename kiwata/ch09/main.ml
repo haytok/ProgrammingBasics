@@ -62,7 +62,7 @@ let rec count_A lst = match lst with
 let rec count_A lst = match lst with
     [] -> 0
     | {namae = n; tensuu = t; seiseki = s} :: rest ->
-        let count = count_A rest in if s = "A" then 1 + count else count);;
+        let count = count_A rest in if s = "A" then 1 + count else count;;
 
 (* テスト *) 
 let test1 = count_A lst1 = 0;;
