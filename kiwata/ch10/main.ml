@@ -75,7 +75,7 @@ let rec shukei lst = match lst with
             if s = "A" then (a + 1, b, c, d)
             else if s = "B" then (a, b + 1, c, d)
             else if s = "C" then (a, b, c + 1, d)
-            else if s = "D" then (a, b, c, d + 1);;
+            else (a, b, c, d + 1);;
 
 (* テスト *) 
 let test1 = shukei lst1 = (0, 0, 0, 0);;
@@ -83,3 +83,38 @@ let test2 = shukei lst2 = (1, 0, 0, 0);;
 let test3 = shukei lst3 = (0, 2, 0, 0);;
 let test4 = shukei lst4 = (1, 1, 1, 0);;
 let test5 = shukei lst5 = (2, 2, 2, 0);;
+
+(* 10.5 *)
+(* 目的 : 二つのリストを受け取って、それらを結合したリストを返す *)
+(* append : 'a list -> 'a list -> 'a list *)
+let rec append item1 item2 = match item1 with
+    [] -> item2
+    | first :: rest ->
+        first :: append rest item2;;
+
+(* テスト *) 
+let test1 = append [] [] = [];;
+let test2 = append [] [1; 2] = [1; 2];;
+let test3 = append [1; 2] [] = [1; 2];;
+let test4 = append [1; 2] [3; 4] = [1; 2; 3; 4];;
+let test5 = append ["a"; "b"; "c"; "d"; "e"] ["f"; "g"] 
+                 = ["a"; "b"; "c"; "d"; "e"; "f"; "g"];;
+
+(* 10.6 *)
+(* 目的 : 二つの昇順に並んだリストを受け取って、それらを結合したリストを返す *)
+(* merge : int list -> int list -> int list *)
+let rec merge item_1 item_2 = match (item_1, item_2) with
+    ([], []) -> []
+    | ([], first_2 :: rest_2) -> item_2
+    | (first_1 :: rest_1, []) -> item_1
+    | (first_1 :: rest_1, first_2 :: rest_2) ->
+        if first_1 < first_2 then first_1 :: (merge rest_1 item_2)
+        else first_2 :: (merge item_1 rest_2);;
+
+(* テスト *) 
+let test1 = merge [] [] = [];;
+let test2 = merge [] [1; 2] = [1; 2];;
+let test3 = merge [1; 2] [] = [1; 2];;
+let test4 = merge [1; 3] [2; 4] = [1; 2; 3; 4];;
+let test5 = merge [2; 4] [1; 3] = [1; 2; 3; 4];;
+let test6 = merge [1; 4] [1; 3] = [1; 1; 3; 4];;
