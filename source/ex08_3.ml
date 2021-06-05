@@ -6,7 +6,7 @@ type person_t = {
   tsuki : int;		(* 誕生月 *) 
   hi : int;		(* 誕生日 *) 
   ketsueki : string;	(* 血液型 *) 
-} 
+};;
  
 let person1 = 
   {name = "浅井"; 
@@ -15,7 +15,7 @@ let person1 =
    tsuki = 9; 
    hi = 17; 
    ketsueki = "A" 
-} 
+};;
  
 let person2 = { 
   name = "宮原"; 
@@ -24,7 +24,7 @@ let person2 = {
   tsuki = 6; 
   hi = 30; 
   ketsueki = "B" 
-} 
+};;
  
 let person3 = { 
   name = "中村"; 
@@ -33,4 +33,4 @@ let person3 = {
   tsuki = 6; 
   hi = 6; 
   ketsueki = "O" 
-} 
+};;
