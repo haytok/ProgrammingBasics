@@ -5,4 +5,4 @@ type ekikan_t = {
   keiyu  : string; (* 経由路線名 *) 
   kyori  : float;  (* 距離 *) 
   jikan  : int;    (* 所要時間 *) 
-} 
+};;
